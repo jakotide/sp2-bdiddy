@@ -1,0 +1,209 @@
+@use "../themes/neon-mountain" as neonMountain;
+@use "../themes/desert-fruit" as desertFruit;
+@use "../themes/funky-corals" as funkyCorals;
+@use "../themes/snowy-snow" as snowySnow;
+@use "../themes/flower-power" as flowerPower;
+
+.card__container {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 5rem;
+
+  h2 {
+    color: desertFruit.$c-black;
+    font-family: "MabryPro-Regular";
+    font-size: var(--f-m);
+    margin-bottom: 1rem;
+  }
+
+  .card-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+
+    .card {
+      aspect-ratio: 1 / 1.5;
+      max-height: 500px;
+      border: 3px solid desertFruit.$c-black;
+      background-color: desertFruit.$primary-color;
+      cursor: pointer;
+      display: grid;
+      grid-template-rows: 45% 35% 20%;
+      grid-template-areas:
+        "image"
+        "details"
+        "price";
+
+      &__img {
+        aspect-ratio: 1 / 1;
+        grid-area: image;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      &__details {
+        background-color: desertFruit.$primary-color;
+        display: flex;
+        flex-direction: column;
+        padding: 0.3rem 0.3rem 0 0.5rem;
+        max-width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .card__details > * {
+        color: desertFruit.$c-black;
+        grid-area: details;
+      }
+
+      .card__details h3 {
+        font-family: "BasementGrotesque";
+        font-size: var(--f-m);
+        text-transform: uppercase;
+        max-height: 3rem;
+        overflow: inherit;
+        white-space: normal;
+        text-overflow: ellipsis;
+        margin: 0;
+        width: 100%;
+        overflow-wrap: normal;
+        word-wrap: unset;
+      }
+
+      .card__details div {
+        font-family: "MabryPro-Regular";
+      }
+
+      .card__details > div:first-child {
+        font-size: var(--f-xs);
+        padding-bottom: 0.4rem;
+      }
+
+      .card__details > div:last-child {
+        margin-top: auto;
+      }
+
+      .card__price {
+        background-color: desertFruit.$secondary-color;
+        border-top: 1.25rem solid desertFruit.$border;
+        grid-area: price;
+        font-family: "BasementGrotesque";
+        font-size: var(--f-m);
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1.25rem;
+      }
+
+      .arrow {
+        width: 1.75rem;
+
+        fill: desertFruit.$c-black;
+      }
+
+      .arrow:hover {
+        transform: rotate(-45deg);
+        transition: ease-in-out 0.2s;
+        cursor: pointer;
+      }
+
+      // DATA-THEMES
+
+      &[data-theme="neon-mountain"] {
+
+        .card__details {
+          background-color: neonMountain.$primary-color;
+        }
+
+        .card__price {
+          background-color: neonMountain.$secondary-color;
+          border-top: 1.25rem solid neonMountain.$border;
+        }
+      }
+      &[data-theme="funky-corals"] {
+
+        .card__details {
+          background-color: funkyCorals.$primary-color;
+        }
+
+        .card__price {
+          background-color: funkyCorals.$secondary-color;
+          border-top: 1.25rem solid funkyCorals.$border;
+        }
+
+      }
+      &[data-theme="snowy-snow"] {
+
+        .card__details {
+          background-color: snowySnow.$primary-color;
+        }
+
+        .card__price {
+          background-color: snowySnow.$secondary-color;
+          border-top: 1.25rem solid snowySnow.$border;
+        }
+
+      }
+      &[data-theme="flower-power"] {
+
+        .card__details {
+          background-color: flowerPower.$primary-color;
+        }
+
+        .card__price {
+          background-color: flowerPower.$green;
+          border-top: 1.25rem solid flowerPower.$border;
+        }
+
+      }
+    }
+  }
+  &[data-theme="neon-mountain"] {
+    h2 {
+      color: neonMountain.$c-white;
+    } 
+  }
+  &[data-theme="funky-corals"] {
+    h2 {
+      color: funkyCorals.$c-black;
+    } 
+  }
+  &[data-theme="snowy-snow"] {
+    h2 {
+      color: snowySnow.$c-black;
+    } 
+  }
+  &[data-theme="flower-power"] {
+    h2 {
+      color: flowerPower.$c-black;
+    } 
+  }
+
+}
+
+// HOVER EFFECTS
+
+.card-grid .card:hover .card__price {
+  background-color: desertFruit.$header;
+}
+
+.card-grid .card[data-theme="neon-mountain"]:hover .card__price {
+  background-color: neonMountain.$header;
+}
+
+.card-grid .card[data-theme="funky-corals"]:hover .card__price {
+  background-color: funkyCorals.$header;
+}
+
+.card-grid .card[data-theme="snowy-snow"]:hover .card__price {
+  background-color: snowySnow.$header;
+}
+
+.card-grid .card[data-theme="flower-power"]:hover .card__price {
+  background-color: flowerPower.$header;
+}
