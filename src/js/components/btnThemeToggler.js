@@ -13,8 +13,6 @@ const themeContainer = document.querySelector(".theme__container");
 const hideBtn = document.querySelector(".hideThemesBtn");
 const showBtn = document.querySelector(".showThemesBtn");
 
-
-
 /**
  * Applies the specified theme to the given elements.
  * 
