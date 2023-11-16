@@ -1,0 +1,181 @@
+@use "../themes/desert-fruit" as desertFruit;
+@use "../themes/neon-mountain.scss" as neonMountain;
+@use "../themes/funky-corals.scss" as funkyCorals;
+@use "../themes/snowy-snow" as snowySnow;
+@use "../themes/flower-power" as flowerPower;
+
+.theme__container {
+  position: fixed;
+  left: 0;
+  top: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 2px solid var(--clr-black);
+  border-left: none;
+  background-color: desertFruit.$primary-color;
+  width: 3.5rem;
+  align-items: center;
+  padding-bottom: 1rem;
+  transition: 0.3s ease;
+  font-family: "MabryPro-Regular";
+
+  button {
+    border: var(--clr-black);
+    background-color: desertFruit.$primary-color;
+  }
+
+  .hideThemesBtn {
+    border-bottom: 2px solid var(--clr-black);
+    background-color: desertFruit.$secondary-color;
+    color: var(--clr-black);
+    text-transform: uppercase;
+    font-size: var(--f-xs);
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem 0;
+    cursor: pointer;
+  }
+
+  &[data-theme="neon-mountain"] {
+    background-color: neonMountain.$primary-color;
+
+    button {
+      background-color: neonMountain.$primary-color;
+    }
+    .hideThemesBtn {
+      background-color: neonMountain.$secondary-color;
+    }
+  }
+  &[data-theme="funky-corals"] {
+    background-color: funkyCorals.$primary-color;
+
+    button {
+      background-color: funkyCorals.$primary-color;
+    }
+    .hideThemesBtn {
+      background-color: funkyCorals.$secondary-color;
+    }
+  }
+  &[data-theme="snowy-snow"] {
+    background-color: snowySnow.$primary-color;
+
+    button {
+      background-color: snowySnow.$primary-color;
+    }
+    .hideThemesBtn {
+      background-color: snowySnow.$secondary-color;
+    }
+  }
+  &[data-theme="flower-power"] {
+    background-color: flowerPower.$primary-color;
+
+    button {
+      background-color: flowerPower.$primary-color;
+    }
+    .hideThemesBtn {
+      background-color: flowerPower.$secondary-color;
+    }
+  }
+}
+
+.theme__container.active {
+  left: -3.5rem;
+}
+
+.theme__container div {
+  font-size: var(--f-xs);
+}
+
+.theme__icon {
+  border-radius: 100%;
+  border: var(--clr-black) 1px solid;
+  padding: 0;
+  width: 2.5rem;
+  cursor: pointer;
+}
+
+.theme__button {
+  position: relative;
+}
+
+.desertBtn::after,
+.desertBtn::before,
+.mountainBtn::after,
+.mountainBtn::before,
+.coralBtn::after,
+.coralBtn::before,
+.snowBtn::after,
+.snowBtn::before,
+.flowerBtn::after,
+.flowerBtn::before {
+  --scale: 0;
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 10%;
+  left: 70%;
+  transition: transform 0.2s;
+  transform: translateX(15%) translateY(10px) scale(var(--scale));
+}
+
+.desertBtn::before,
+.mountainBtn::before,
+.coralBtn::before,
+.snowBtn::before,
+.flowerBtn::before {
+  background: #292929;
+  color: white;
+  padding: 5px;
+  width: max-content;
+  font-size: var(--f-xs);
+  font-family: "MabryPro-Regular";
+}
+
+.desertBtn:hover::before,
+.mountainBtn:hover::before,
+.coralBtn:hover::before,
+.snowBtn:hover::before,
+.flowerBtn:hover::before {
+  --scale: 1;
+}
+
+.flowerBtn,
+.mountainBtn,
+.coralBtn {
+  border-radius: 100%;
+  background-color: white !important;
+}
+
+.showThemesBtn {
+  position: fixed;
+  left: -3.5rem;
+  top: 200px;
+  text-transform: uppercase;
+  width: 3.5rem;
+  padding: 0.5rem 0;
+  font-family: "MabryPro-Regular";
+  font-size: var(--f-xs);
+  border: 2px solid var(--clr-black);
+  border-left: none;
+  transition: 0.3s ease;
+  cursor: pointer;
+  background-color: desertFruit.$secondary-color;
+
+
+}
+
+.showThemesBtn.active {
+  left: 0;
+  &[data-theme="neon-mountain"] {
+    background-color: neonMountain.$secondary-color;
+  }
+  &[data-theme="funky-corals"] {
+    background-color: funkyCorals.$secondary-color;
+  }
+  &[data-theme="snowy-snow"] {
+    background-color: snowySnow.$secondary-color;
+  }
+  &[data-theme="flower-power"] {
+    background-color: flowerPower.$secondary-color;
+  }
+}

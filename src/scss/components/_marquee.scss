@@ -1,0 +1,49 @@
+@use "../themes/desert-fruit" as desertFruit;
+@use "../themes/neon-mountain" as neonMountain;
+@use "../themes/funky-corals" as funkyCorals;
+@use "../themes/snowy-snow" as snowySnow;
+@use "../themes/flower-power" as flowerPower;
+
+.marquee {
+  position: relative;
+  background: desertFruit.$marquee;
+  color: desertFruit.$c-black;
+  padding: 3rem 0;
+  font-weight: 600;
+  font-size: var(--f-la);
+  font-family: "RANG2";
+  text-transform: uppercase;
+  overflow: hidden;
+  margin-bottom: 5rem;
+
+  &[data-theme="neon-mountain"] {
+    background: neonMountain.$marquee;
+    color: neonMountain.$c-black;
+  }
+  &[data-theme="funky-corals"] {
+    background: funkyCorals.$marquee;
+    color: funkyCorals.$h1;
+  }
+  &[data-theme="snowy-snow"] {
+    background: snowySnow.$marquee;
+    color: funkyCorals.$c-black;
+  }
+  &[data-theme="flower-power"] {
+    background: flowerPower.$marquee;
+    color: funkyCorals.$c-white;
+  }
+}
+
+.marquee__inner {
+  display: flex;
+  flex: auto;
+  width: fit-content;
+  flex-direction: row;
+}
+
+.marquee__part {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 0 2rem;
+}
