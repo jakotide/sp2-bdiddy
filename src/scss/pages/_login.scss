@@ -1,5 +1,13 @@
-.body-login {
+.main-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 2rem;
   background-color: #fceee3;
+  font-family: "MabryPro-Regular";
   opacity: 0.8;
   background-size: 80px 80px;
   background-image: repeating-linear-gradient(
@@ -9,4 +17,113 @@
     #fceee3 4px,
     #fceee3
   );
+}
+
+.box {
+  max-width: 1020px;
+  width: 100%;
+  height: 640px;
+  background-color: white;
+  filter: drop-shadow(12px 12px 0px #000);
+  position: relative;
+  border: var(--clr-black) 3px solid;
+}
+
+.inner-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.forms-wrap {
+  position: absolute;
+  height: 100%;
+  width: 45%;
+  top: 0;
+  left: 0;
+}
+
+.welcome-box {
+  position: absolute;
+  height: 100%;
+  width: 55%;
+  top: 0;
+  left: 45%;
+  background-color: #229f94;
+}
+
+.login-form {
+    display: none !important;
+  max-width: 260px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-bottom: 4rem;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    opacity: 0.8;
+    margin-top: 8px;
+  }
+}
+
+
+.login-header h2 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.login-logo {
+  width: 52px;
+}
+
+.actual-form,
+.input-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-wrap {
+  margin: 8px 0;
+}
+
+.input-wrap label {
+  text-align: left;
+  justify-self: flex-start;
+  align-self: start;
+  margin-bottom: 5px;
+  padding-left: 5px;
+}
+
+.input-wrap input {
+  height: 2rem;
+  padding-left: 1rem;
+  border: 2px solid var(--clr-black);
+  outline: none;
+  filter: drop-shadow(5px 5px 0px #000);
+}
+
+.login-btn {
+  background-color: #ff91e8;
+  padding: 0.75rem 3rem;
+  margin-bottom: 1rem;
+  border: 2px solid var(--clr-black);
+  outline: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: 0.2s ease;
+}
+
+.login-btn:hover {
+    transform: translate(-0.25rem, -0.25rem);
+    box-shadow: 0.25rem 0.25rem 0rem var(--clr-black);
+    outline: 1px solid var(--clr-black);
 }

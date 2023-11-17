@@ -1,14 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="/src/js/pages/login.js" defer type="module"></script>
     <title>B-Diddy | Login</title>
-</head>
-<body class="body-login">
-    <a href="/sp2-bdiddy/index.html">GO BACK</a>
-    
-</body>
+  </head>
+  <body class="body-login">
+    <main class="main-login">
+      <!-- <a href="/sp2-bdiddy/index.html">GO BACK</a> -->
+      <div class="box">
+        <div class="inner-box">
+          <div class="forms-wrap">
+            <form action="/sp2-bdiddy/index.html" class="login-form">
+                <img class="login-logo" src="/assets/img/logo.svg" alt="B-Diddy logo" />
+
+
+              <div class="login-header">
+                <h2>Welcome Back</h2>
+                <h6>Not registered yet?</h6>
+                <a href="" class="login-toggle">Register here!</a>
+              </div>
+
+              <div class="actual-form">
+                <div class="input-wrap">
+                  <label for="name">Username</label>
+                  <input type="text" name="name" id="name" required />
+                </div>
+                <div class="input-wrap">
+                  <label for="password">Password</label>
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    required
+                  />
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+
+                <p>Forgot password? Click here.</p>
+              </div>
+            </form>
+
+            <form action="/sp2-bdiddy/index.html" class="register-form">
+              <img class="login-logo" src="/assets/img/logo.svg" alt="B-Diddy logo" />
+
+
+            <div class="login-header">
+              <h2>Get Started</h2>
+              <h6>Already registered?</h6>
+              <a href="" class="login-toggle">Login here!</a>
+            </div>
+
+            <div class="actual-form">
+              <div class="input-wrap">
+                <label for="name">Username</label>
+                <input type="text" name="name" id="name" required />
+              </div>
+              <div class="input-wrap">
+                <label for="name">Email</label>
+                <input type="email" name="email" id="email" required />
+              </div>
+              <div class="input-wrap">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  required
+                />
+              </div>
+              <button type="submit" class="login-btn">Sign Up</button>
+
+              <p>By signing up I agree to the terms of services</p>
+            </div>
+          </form>
+          </div>
+          <div class="welcome-box"></div>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
