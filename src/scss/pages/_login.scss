@@ -1,3 +1,12 @@
 .body-login {
-    background-color: red;
+  background-color: #fceee3;
+  opacity: 0.8;
+  background-size: 80px 80px;
+  background-image: repeating-linear-gradient(
+    to right,
+    #000000,
+    #000000 2px,
+    #fceee3 4px,
+    #fceee3
+  );
 }
