@@ -19,7 +19,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  // gap: 2rem;
   justify-content: center;
   font-family: "MabryPro-Regular";
   margin-bottom: 3rem;
@@ -28,9 +28,14 @@
     font-family: "BLACK emerson";
     font-size: var(--f-xl);
     color: desertFruit.$h1;
-    margin-bottom: 6rem;
     text-transform: uppercase;
     align-self: center;
+  }
+
+  .header-text {
+    align-self: center;
+    margin-bottom: 7rem;
+    font-size: 1.25rem;
   }
 
   .search {
@@ -40,6 +45,7 @@
     justify-content: center;
     align-self: center;
     width: 70%;
+    margin-bottom: 2rem;
   }
 
   .search i {
@@ -250,5 +256,35 @@
         font-style: italic;
       }
     }
+  }
+}
+
+
+[data-theme="neon-mountain"] {
+  .filter__menu-btn,
+  .filter__menu,
+  .filter__menu.active {
+    background-color: neonMountain.$header;
+  }
+}
+[data-theme="funky-corals"] {
+  .filter__menu-btn,
+  .filter__menu,
+  .filter__menu.active {
+    background-color: funkyCorals.$header;
+  }
+}
+[data-theme="snowy-snow"] {
+  .filter__menu-btn,
+  .filter__menu,
+  .filter__menu.active {
+    background-color: snowySnow.$header;
+  }
+}
+[data-theme="flower-power"] {
+  .filter__menu-btn,
+  .filter__menu,
+  .filter__menu.active {
+    background-color: flowerPower.$header;
   }
 }

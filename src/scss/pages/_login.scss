@@ -14,7 +14,7 @@
     to right,
     #000000,
     #000000 2px,
-    #fceee3 4px,
+    #fceee3 1px,
     #fceee3
   );
 }
@@ -58,6 +58,32 @@
   left: 45%;
   background-color: #229f94;
   transition: .8s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    width: 9rem;
+    padding-bottom: 5rem;
+  }
+
+  .login-front-logo {
+    fill: #EA4C89;
+  }
+}
+
+.login-toggle {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.login-form,
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-form {
