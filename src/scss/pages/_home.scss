@@ -4,9 +4,10 @@
 @use "../themes/funky-corals" as funkyCorals;
 @use "../themes/snowy-snow" as snowySnow;
 @use "../themes/flower-power" as flowerPower;
+@use "../themes/main-theme" as mainTheme;
 
 body {
-  background-color: desertFruit.$body;
+  background-color: mainTheme.$body;
 
   .showMoreBtn {
     display: flex;
@@ -73,7 +74,24 @@ body {
       justify-self: flex-end;
     }
   }
+  
 
+  &[data-theme="desert-fruit"] {
+    background-color: desertFruit.$body;
+
+    .showMoreBtn {
+      background-color: desertFruit.$secondary-color;
+    }
+
+    footer {
+      background-color: desertFruit.$footer;
+      .footer__content {
+        .footer-logo-clr {
+            fill: desertFruit.$secondary-color;
+        }
+      }
+    }
+  }
   &[data-theme="neon-mountain"] {
     background-color: neonMountain.$body;
 

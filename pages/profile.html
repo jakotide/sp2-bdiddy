@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/src/js/pages/profile.js" defer type="module"></script>
     <title>B-Diddy | Profile</title>
 </head>
-<body>
+<body class="profile-body">
     <header>
         <nav aria-label="Navigation" class="nav">
           <a href="/sp2-bdiddy/pages/login.html" class="logo">
@@ -45,7 +46,7 @@
             </div>
           </button>
           <ul class="nav__content">
-            <li><a href="" class="header__links"></a>Profile</li>
+            <li><a href="/pages/profile.html" class="header__links"></a>Profile</li>
             <li class="mobile-listing">
               <a href="" class="header__links"></a>Create Listing
             </li>
@@ -54,5 +55,21 @@
           </ul>
         </nav>
       </header>
+      <main>
+        <section class="profile-outer-box">
+            <div class="profile-box">
+                <img src="/assets/img/grid_0 (2).png" alt="">
+                <div class="profile-name">BOBS PROFILE</div>
+                <!-- <div>Change avatar</div> -->
+                <div>
+                    <div>
+                        <div>Email:</div>
+                        <div>Funds:</div>
+                        <div>Wins:</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+      </main>
 </body>
 </html>
