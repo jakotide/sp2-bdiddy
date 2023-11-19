@@ -84,6 +84,11 @@
   gap: 2rem;
   justify-content: center;
   align-items: center;
+
+  p {
+    opacity: 0.8;
+    margin: 0.5rem 2rem 0;
+  }
 }
 
 .login-form {
@@ -97,11 +102,6 @@
   padding-bottom: 4rem;
   justify-content: center;
   align-items: center;
-
-  p {
-    opacity: 0.8;
-    margin-top: 8px;
-  }
 }
 
 .forms-wrap form {
@@ -118,7 +118,7 @@
 
 .login-header h2 {
     font-size: 2rem;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .login-logo {
@@ -205,6 +205,13 @@
         position: revert;
         width: 100%;
         height: auto;
+    }
+
+    .welcome-box {
+      svg {
+        width: 3rem;
+        padding-bottom: 0;
+      }
     }
 
     .forms-wrap form {
