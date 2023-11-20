@@ -3,11 +3,12 @@
 @use "../themes/funky-corals" as funkyCorals;
 @use "../themes/snowy-snow" as snowySnow;
 @use "../themes/flower-power" as flowerPower;
+@use "../themes/main-theme" as mainTheme;
 
 .marquee {
   position: relative;
-  background: desertFruit.$marquee;
-  color: desertFruit.$c-black;
+  background: mainTheme.$marquee;
+  color: mainTheme.$c-black;
   padding: 3rem 0;
   font-weight: 600;
   font-size: var(--f-la);
@@ -16,6 +17,11 @@
   overflow: hidden;
   margin-bottom: 5rem;
 
+
+&[data-theme="desert-fruit"] {
+    background: desertFruit.$marquee;
+    color: desertFruit.$c-black;
+  }
   &[data-theme="neon-mountain"] {
     background: neonMountain.$marquee;
     color: neonMountain.$c-black;

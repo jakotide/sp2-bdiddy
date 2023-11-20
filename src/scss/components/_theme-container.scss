@@ -3,6 +3,7 @@
 @use "../themes/funky-corals.scss" as funkyCorals;
 @use "../themes/snowy-snow" as snowySnow;
 @use "../themes/flower-power" as flowerPower;
+@use "../themes/main-theme" as mainTheme;
 
 .theme__container {
   position: fixed;
@@ -13,7 +14,7 @@
   gap: 1rem;
   border: 2px solid var(--clr-black);
   border-left: none;
-  background-color: desertFruit.$primary-color;
+  background-color: mainTheme.$primary-color;
   width: 3.5rem;
   align-items: center;
   padding-bottom: 1rem;
@@ -22,12 +23,12 @@
 
   button {
     border: var(--clr-black);
-    background-color: desertFruit.$primary-color;
+    background-color: mainTheme.$primary-color;
   }
 
   .hideThemesBtn {
     border-bottom: 2px solid var(--clr-black);
-    background-color: desertFruit.$secondary-color;
+    background-color: mainTheme.$secondary-color;
     color: var(--clr-black);
     text-transform: uppercase;
     font-size: var(--f-xs);
@@ -35,6 +36,17 @@
     height: 100%;
     padding: 0.5rem 0;
     cursor: pointer;
+  }
+
+  &[data-theme="desert-fruit"] {
+    background-color: desertFruit.$primary-color;
+
+    button {
+      background-color: desertFruit.$primary-color;
+    }
+    .hideThemesBtn {
+      background-color: desertFruit.$secondary-color;
+    }
   }
 
   &[data-theme="neon-mountain"] {
@@ -159,13 +171,16 @@
   border-left: none;
   transition: 0.3s ease;
   cursor: pointer;
-  background-color: desertFruit.$secondary-color;
+  background-color: mainTheme.$secondary-color;
 
 
 }
 
 .showThemesBtn.active {
   left: 0;
+  &[data-theme="desert-fruit"] {
+    background-color: desertFruit.$secondary-color;
+  }
   &[data-theme="neon-mountain"] {
     background-color: neonMountain.$secondary-color;
   }
