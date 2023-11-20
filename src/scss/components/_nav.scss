@@ -3,14 +3,15 @@
 @use "../themes/funky-corals" as funkyCorals;
 @use "../themes/snowy-snow" as snowySnow;
 @use "../themes/flower-power" as flowerPower;
+@use "../themes/main-theme" as mainTheme;
 
 .nav {
   display: flex;
   font-family: "MabryPro-Regular";
   justify-content: flex-end;
   align-items: center;
-  background-color: desertFruit.$primary-color;
-  border-bottom: 3px solid desertFruit.$c-black;
+  background-color: mainTheme.$primary-color;
+  border-bottom: 3px solid mainTheme.$c-black;
   height: 5.6rem;
   padding: 0 0 0 4rem;
   position: fixed;
@@ -24,7 +25,7 @@
   }
 
   .logo-color {
-    fill: desertFruit.$secondary-color;
+    fill: mainTheme.$secondary-color;
   }
 
   button {
@@ -44,7 +45,7 @@
   .line {
     width: 2.4rem;
     height: 0.188rem;
-    background-color: desertFruit.$c-black;
+    background-color: mainTheme.$c-black;
     transition: transform 0.3s ease;
   }
 
@@ -68,25 +69,27 @@
   .hamburger {
     height: 100%;
     width: 12.5rem;
-    border-left: solid 3px desertFruit.$c-black;
+    border-left: solid 3px mainTheme.$c-black;
   }
 
-  .listing a {
+  .listing a,
+  .header__links {
     text-decoration: none;
+    color: var(--clr-black);
   }
 
   .hamburger {
-    background-color: desertFruit.$secondary-color;
+    background-color: mainTheme.$secondary-color;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .nav__content {
-    background-color: desertFruit.$secondary-color;
+    background-color: mainTheme.$secondary-color;
     display: flex;
     flex-direction: column;
-    border-left: 3px solid desertFruit.$c-black;
+    border-left: 3px solid mainTheme.$c-black;
     align-items: center;
     gap: 2rem;
     padding-top: 3rem;
@@ -105,7 +108,7 @@
   }
 
   .nav__content li {
-    border-bottom: 1px solid desertFruit.$c-black;
+    border-bottom: 1px solid mainTheme.$c-black;
     cursor: pointer;
     width: 80%;
     text-align: center;
@@ -118,8 +121,8 @@
   }
 
   .listing {
-    background-color: desertFruit.$header;
-    color: desertFruit.$c-black;
+    background-color: mainTheme.$header;
+    color: mainTheme.$c-black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -127,6 +130,22 @@
 
   .mobile-listing {
     display: none;
+  }
+  &[data-theme="desert-fruit"] {
+    background-color: desertFruit.$primary-color;
+
+    .hamburger,
+    .nav__content {
+      background-color: desertFruit.$secondary-color;
+    }
+
+    .logo-color {
+      fill: desertFruit.$secondary-color;
+    }
+
+    .listing {
+      background-color: desertFruit.$header;
+    }
   }
 
   &[data-theme="neon-mountain"] {

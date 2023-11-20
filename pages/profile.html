@@ -10,7 +10,7 @@
 <body class="profile-body">
     <header>
         <nav aria-label="Navigation" class="nav">
-          <a href="/sp2-bdiddy/pages/login.html" class="logo">
+          <a href="/sp2-bdiddy/index.html" class="logo">
             <svg
               class="logo-header-svg"
               width="84"
@@ -46,28 +46,162 @@
             </div>
           </button>
           <ul class="nav__content">
-            <li><a href="/pages/profile.html" class="header__links"></a>Profile</li>
+            <li><a href="/pages/profile.html" class="header__links">Profile</a></li>
             <li class="mobile-listing">
-              <a href="" class="header__links"></a>Create Listing
+              <a href="" class="header__links">Create Listing</a>
             </li>
-            <li><a href="" class="header__links"></a>Contact</li>
-            <li><a href="" class="header__links"></a>Logout</li>
+            <li><a href="" class="header__links">Contact</a></li>
+            <li><a href="/sp2-bdiddy/pages/login.html" class="header__links">Logout</a></li>
           </ul>
         </nav>
       </header>
       <main>
-        <section class="profile-outer-box">
+        <section class="profile-section border shadow">
             <div class="profile-box">
                 <img src="/assets/img/grid_0 (2).png" alt="">
                 <div class="profile-name">BOBS PROFILE</div>
                 <!-- <div>Change avatar</div> -->
                 <div>
-                    <div>
-                        <div>Email:</div>
-                        <div>Funds:</div>
-                        <div>Wins:</div>
+                    <div class="profile-info">
+                        <div>Email: bob@noroff.no</div>
+                        <div>Funds: 600$</div>
+                        <div>Wins: 99</div>
                     </div>
                 </div>
+            </div>
+            <div>
+              <h1 class="border">Your Bids:</h1>
+              <div class="your-bids">
+                <a class="card | shadow">
+                  <img class="card__img" src="/assets/img/grid_0 (2).png" alt="" />
+                  <div class="card__details">
+                    <div>Jakob listed:</div>
+                    <h3>Cool Car</h3>
+                    <div>Current leader: Bob</div>
+                  </div>
+                  <div class="card__price | flex-row">
+                    <div>40$</div>
+                    <svg
+                      class="arrow"
+                      viewBox="0 0 24 15"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
+                      />
+                    </svg>
+                  </div>
+                </a>
+                <a class="card | shadow">
+                  <img class="card__img" src="/assets/img/grid_0 (2).png" alt="" />
+                  <div class="card__details">
+                    <div>Jakob listed:</div>
+                    <h3>Cool Car</h3>
+                    <div>Current leader: Bob</div>
+                  </div>
+                  <div class="card__price | flex-row">
+                    <div>40$</div>
+                    <svg
+                      class="arrow"
+                      viewBox="0 0 24 15"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
+                      />
+                    </svg>
+                  </div>
+                </a>
+                <a class="card | shadow">
+                  <img class="card__img" src="/assets/img/grid_0 (2).png" alt="" />
+                  <div class="card__details">
+                    <div>Jakob listed:</div>
+                    <h3>Cool Car</h3>
+                    <div>Current leader: Bob</div>
+                  </div>
+                  <div class="card__price | flex-row">
+                    <div>40$</div>
+                    <svg
+                      class="arrow"
+                      viewBox="0 0 24 15"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
+                      />
+                    </svg>
+                  </div>
+                </a>
+              </div>              
+              <h2 class="border">Your Listings:</h2>
+              <div class="your-bids">
+                <a class="card | shadow">
+                  <img class="card__img" src="/assets/img/grid_0 (2).png" alt="" />
+                  <div class="card__details">
+                    <div>Jakob listed:</div>
+                    <h3>Cool Car</h3>
+                    <div>Current leader: Bob</div>
+                  </div>
+                  <div class="card__price | flex-row">
+                    <div>40$</div>
+                    <svg
+                      class="arrow"
+                      viewBox="0 0 24 15"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
+                      />
+                    </svg>
+                  </div>
+                </a>
+                <a class="card | shadow">
+                  <img class="card__img" src="/assets/img/grid_0 (2).png" alt="" />
+                  <div class="card__details">
+                    <div>Jakob listed:</div>
+                    <h3>Cool Car</h3>
+                    <div>Current leader: Bob</div>
+                  </div>
+                  <div class="card__price | flex-row">
+                    <div>40$</div>
+                    <svg
+                      class="arrow"
+                      viewBox="0 0 24 15"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
+                      />
+                    </svg>
+                  </div>
+                </a>
+                <a class="card | shadow">
+                  <img class="card__img" src="/assets/img/grid_0 (2).png" alt="" />
+                  <div class="card__details">
+                    <div>Jakob listed:</div>
+                    <h3>Cool Car</h3>
+                    <div>Current leader: Bob</div>
+                  </div>
+                  <div class="card__price | flex-row">
+                    <div>40$</div>
+                    <svg
+                      class="arrow"
+                      viewBox="0 0 24 15"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
+                      />
+                    </svg>
+                  </div>
+                </a>
+              </div>              
             </div>
         </section>
       </main>

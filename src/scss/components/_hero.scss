@@ -3,6 +3,7 @@
 @use "../themes/funky-corals" as funkyCorals;
 @use "../themes/snowy-snow" as snowySnow;
 @use "../themes/flower-power" as flowerPower;
+@use "../themes/main-theme" as mainTheme;
 
 .container {
   max-width: 72rem;
@@ -19,7 +20,6 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  // gap: 2rem;
   justify-content: center;
   font-family: "MabryPro-Regular";
   margin-bottom: 3rem;
@@ -27,7 +27,7 @@
   .h1-main {
     font-family: "BLACK emerson";
     font-size: var(--f-xl);
-    color: desertFruit.$h1;
+    color: mainTheme.$h1;
     text-transform: uppercase;
     align-self: center;
   }
@@ -73,15 +73,13 @@
     z-index: 5;
     height: 3rem;
     width: 5rem;
-    background-color: desertFruit.$header;
+    background-color: mainTheme.$header;
     border: 2px solid var(--clr-black);
     cursor: pointer;
   }
 
   .filter__menu-desktop {
     display: flex;
-    // align-items:flex-end;
-    // justify-self:flex-end;
     gap: 2.25rem;
   }
 
@@ -96,23 +94,42 @@
     cursor: pointer;
     overflow: hidden;
     white-space: nowrap;
-    color: desertFruit.$c-black;
+    color: mainTheme.$c-black;
   }
 
   .filter__btn.active {
-    background-color: desertFruit.$border;
+    background-color: mainTheme.$border;
     outline: 1px solid var(--clr-black);
   }
 
   .filter__btn:hover {
     transform: translate(-0.25rem, -0.25rem);
     box-shadow: 0.25rem 0.25rem 0rem var(--clr-black);
-    background-color: desertFruit.$border;
+    background-color: mainTheme.$border;
     outline: 1px solid var(--clr-black);
   }
 
   .filter__menu-btn {
     display: none;
+  }
+
+  &[data-theme="desert-fruit"] {
+    .h1-main {
+      color: desertFruit.$h1;
+    }
+
+    .search button {
+      background-color: desertFruit.$secondary-color;
+    }
+
+    .filter__btn {
+      color: desertFruit.$c-black;
+    }
+
+    .filter__btn.active,
+    .filter__btn:hover {
+      background-color: desertFruit.$header;
+    }
   }
 
   &[data-theme="neon-mountain"] {
@@ -216,8 +233,8 @@
     .filter__menu-btn {
       width: 4rem;
       height: 3rem;
-      background-color: desertFruit.$header;
-      border: 2px solid desertFruit.$c-black;
+      background-color: mainTheme.$header;
+      border: 2px solid mainTheme.$c-black;
       position: relative;
       margin-left: auto;
 
@@ -230,7 +247,7 @@
         padding-top: 3rem;
         left: -14rem;
         border-right: 3px solid var(--clr-black);
-        background-color: desertFruit.$header;
+        background-color: mainTheme.$header;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -259,7 +276,13 @@
   }
 }
 
-
+[data-theme="desert-fruit"] {
+  .filter__menu-btn,
+  .filter__menu,
+  .filter__menu.active {
+    background-color: desertFruit.$header;
+  }
+}
 [data-theme="neon-mountain"] {
   .filter__menu-btn,
   .filter__menu,
