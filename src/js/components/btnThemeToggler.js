@@ -1,7 +1,7 @@
 const desertFruitBtn = document.querySelector(".desertBtn");
 const neonMountainBtn = document.querySelector(".mountainBtn");
 const funkyCoralsBtn = document.querySelector(".coralBtn");
-const snowBtn = document.querySelector(".snowBtn");
+const mainBtn = document.querySelector(".mainBtn");
 const flowerBtn = document.querySelector(".flowerBtn");
 
 const body = document.querySelector(".body");
@@ -68,10 +68,10 @@ funkyCoralsBtn.addEventListener("click", () => {
     toggleGlobalTheme("funky-corals");
 })
 
-snowBtn.addEventListener("click", () => {
+mainBtn.addEventListener("click", () => {
   cardContainer.forEach((container) => {
-    toggleCardTheme(container, "snowy-snow");
-    toggleGlobalTheme("snowy-snow");
+    toggleCardTheme(container, "main-theme");
+    toggleGlobalTheme("main-theme");
   })
 });
 

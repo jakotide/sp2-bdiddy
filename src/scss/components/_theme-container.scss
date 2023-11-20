@@ -117,8 +117,8 @@
 .mountainBtn::before,
 .coralBtn::after,
 .coralBtn::before,
-.snowBtn::after,
-.snowBtn::before,
+.mainBtn::after,
+.mainBtn::before,
 .flowerBtn::after,
 .flowerBtn::before {
   --scale: 0;
@@ -133,7 +133,7 @@
 .desertBtn::before,
 .mountainBtn::before,
 .coralBtn::before,
-.snowBtn::before,
+.mainBtn::before,
 .flowerBtn::before {
   background: #292929;
   color: white;
@@ -146,7 +146,7 @@
 .desertBtn:hover::before,
 .mountainBtn:hover::before,
 .coralBtn:hover::before,
-.snowBtn:hover::before,
+.mainBtn:hover::before,
 .flowerBtn:hover::before {
   --scale: 1;
 }
@@ -172,8 +172,6 @@
   transition: 0.3s ease;
   cursor: pointer;
   background-color: mainTheme.$secondary-color;
-
-
 }
 
 .showThemesBtn.active {
