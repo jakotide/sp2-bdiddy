@@ -20,6 +20,7 @@ closeModalBtn.addEventListener("click", () => {
 document.addEventListener('DOMContentLoaded', function () {
     const createForm = document.querySelector('.create-form');
     const uploadImagesForm = document.querySelector('.upload-images-form');
+    const thumbnailsContainer = document.querySelector('.thumbnails-container');
 
     createForm.addEventListener('submit', function (e) {
         e.preventDefault(); // Prevent form submission
@@ -27,9 +28,38 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     uploadImagesForm.addEventListener('submit', function (e) {
-        e.preventDefault(); // Prevent form submission
-        // Your form submission logic here
+        e.preventDefault();
+    
+        // Get image URLs from the form
+        const url1 = document.querySelector('[name="url1"]').value.trim();
+        const url2 = document.querySelector('[name="url2"]').value.trim();
+        const url3 = document.querySelector('[name="url3"]').value.trim();
+    
+        // Create thumbnails only for non-empty URLs
+        if (url1 !== '') {
+            createThumbnail(url1, 1);
+        }
+    
+        if (url2 !== '') {
+            createThumbnail(url2, 2);
+        }
+    
+        if (url3 !== '') {
+            createThumbnail(url3, 3);
+        }
     });
+
+    function createThumbnail(imageUrl, position) {
+        const thumbnail = document.createElement("img");
+        thumbnail.src = imageUrl;
+        
+        // Assuming you have an element with class 'thumbnail-box'
+        const thumbnailBox = document.querySelector(`.thumbnail-box:nth-child(${position})`);
+        thumbnailBox.innerHTML = '';
+        // Append the thumbnail to the corresponding thumbnail box
+        thumbnailBox.append(thumbnail);
+    }
+   
 
     const titleInput = document.getElementById('title');
     const tagsInput = document.getElementById('tags');

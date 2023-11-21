@@ -63,6 +63,20 @@
         textarea {
             resize: none;
         }
+
+        .thumbnails-container {
+            display: flex;
+            gap: 18px;
+
+            img {
+                aspect-ratio: 1 / 1;
+                height: auto;
+                width: 20%;
+                object-fit: cover;
+                border: 2px solid var(--clr-black);
+                 filter: drop-shadow(5px 5px var(--clr-black));
+            }
+        }
         
         #tags {
             margin-bottom: 0.825rem; 

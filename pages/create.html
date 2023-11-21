@@ -66,6 +66,11 @@
                 <textarea type="text" id="description" name="description"></textarea>
                 <label for="media">Media</label>
                 <button name="media" id="media" class="media-btn" data-open-modal>Upload media</button>
+                <div class="thumbnails-container" aria-label="Image Thumbnails Preview">
+                    <div class="thumbnail-box"></div>
+                    <div class="thumbnail-box"></div>
+                    <div class="thumbnail-box"></div>
+                </div>
                 <label for="tags">Add tags</label>
                 <input type="text" name="tags" id="tags" placeholder="Press enter to add tag">
                 <div class="tags-container"></div>
@@ -86,13 +91,13 @@
                 <form action="" class="upload-images-form">
                     <h2>Upload Images</h2>
                     <label for="url1">Image URL 1</label>
-                    <input type="text" name="url1" required>
+                    <input type="text" name="url1" >
             
                     <label for="url2">Image URL 2</label>
-                    <input type="text" name="url2" required>
+                    <input type="text" name="url2" >
             
                     <label for="url3">Image URL 3</label>
-                    <input type="text" name="url3" required>
+                    <input type="text" name="url3" >
             
                     <button type="submit">Upload</button>
                     <button data-close-modal>Close</button>
