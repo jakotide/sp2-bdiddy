@@ -1,0 +1,90 @@
+@use "../themes/main-theme" as mainTheme;
+
+.main-create {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 2rem;
+  background-color: #fceee3;
+  font-family: "MabryPro-Regular";
+  opacity: 0.8;
+  background-size: 80px 80px;
+  background-image: repeating-linear-gradient(
+    to right,
+    #000000,
+    #000000 2px,
+    #fceee3 1px,
+    #fceee3
+  );
+
+  .create-box {
+    max-width: 64rem;
+    width: 100%;
+    height: 42rem;
+    background-color: mainTheme.$star;
+
+    .create-form {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        margin-inline: auto;
+        padding-top: 3rem;
+
+        h1 {
+            font-size: var(--f-m);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        label {
+            margin-bottom: 0.25rem;
+        }
+
+        input, textarea, button {
+            padding: 0.5rem 1rem;
+            outline: none;
+            border: 2px solid var(--clr-black);
+            filter: drop-shadow(5px 5px var(--clr-black));
+            margin-bottom: 1.25rem;
+        }
+
+        .media-btn,
+        .create-btn {
+            cursor: pointer;
+            background-color: mainTheme.$header;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .date-flex {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            
+            :first-child {
+                width: 55%;
+
+                input {
+                    width: 100%;
+                }
+            }
+            :last-child {
+                width: 45%;
+
+                input {
+                    width: 100%;
+                    
+                }
+            }
+        }
+      }
+  }
+}
+
+

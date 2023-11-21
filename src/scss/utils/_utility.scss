@@ -3,10 +3,20 @@
     flex-direction: row;
 }
 
+.flex-col {
+    display: flex;
+    flex-direction: column; 
+}
+
 .shadow {
     filter: drop-shadow(8px 8px 0px #000);
 }
 
 .border {
     border: 3px solid var(--clr-black);
+}
+
+.hide {
+    display: none;
+    pointer-events: none;
 }

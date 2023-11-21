@@ -1,3 +1,5 @@
+@use "../themes/main-theme" as mainTheme;
+
 .main-login {
   display: flex;
   justify-content: center;
@@ -6,7 +8,7 @@
   min-height: 100vh;
   overflow: hidden;
   padding: 2rem;
-  background-color: #fceee3;
+  background-color: mainTheme.$body;
   font-family: "MabryPro-Regular";
   opacity: 0.8;
   background-size: 80px 80px;
@@ -20,10 +22,10 @@
 }
 
 .box {
-  max-width: 1020px;
+  max-width: 64rem;
   width: 100%;
-  height: 640px;
-  background-color: white;
+  height: 40rem;
+  background-color: mainTheme.$primary-color;
   filter: drop-shadow(12px 12px 0px #000);
   position: relative;
   border: var(--clr-black) 3px solid;
@@ -39,15 +41,15 @@
 }
 
 .forms-wrap {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   position: absolute;
   height: 100%;
   width: 45%;
   top: 0;
   left: 0;
-  transition: .8s ease-in-out;
+  transition: 0.8s ease-in-out;
 }
 
 .welcome-box {
@@ -56,8 +58,8 @@
   width: 55%;
   top: 0;
   left: 45%;
-  background-color: #229f94;
-  transition: .8s ease-in-out;
+  background-color: mainTheme.$secondary-color;
+  transition: 0.8s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,7 +70,7 @@
   }
 
   .login-front-logo {
-    fill: #EA4C89;
+    fill: #ea4c89;
   }
 }
 
@@ -105,20 +107,19 @@
 }
 
 .forms-wrap form {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    transition: opacity 0.02s 0.4s;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  transition: opacity 0.02s 0.4s;
 }
 
 .forms-wrap form.register-form {
-    opacity: 0;
-    pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
-
 .login-header h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
+  font-size: 2rem;
+  margin-bottom: 15px;
 }
 
 .login-logo {
@@ -164,73 +165,71 @@
 }
 
 .login-btn:hover {
-    transform: translate(-0.25rem, -0.25rem);
-    box-shadow: 0.25rem 0.25rem 0rem var(--clr-black);
-    outline: 1px solid var(--clr-black);
+  transform: translate(-0.25rem, -0.25rem);
+  box-shadow: 0.25rem 0.25rem 0rem var(--clr-black);
+  outline: 1px solid var(--clr-black);
 }
 
 .main-login.active .forms-wrap form.login-form {
-    opacity: 0;
-    pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .main-login.active .forms-wrap form.register-form {
-    opacity: 1;
-    pointer-events: all;
+  opacity: 1;
+  pointer-events: all;
 }
 
 .main-login.active .forms-wrap {
-    left: 55%;
+  left: 55%;
 }
 .main-login.active .welcome-box {
-    left: 0;
+  left: 0;
 }
 
 @media (max-width: 850px) {
-    .box {
-        height: auto;
-        max-width: 550px;
-        overflow: hidden;
+  .box {
+    height: auto;
+    max-width: 550px;
+    overflow: hidden;
+  }
+
+  .inner-box {
+    position: static;
+    transform: none;
+    width: revert;
+    height: revert;
+  }
+
+  .forms-wrap,
+  .welcome-box {
+    position: revert;
+    width: 100%;
+    height: auto;
+  }
+
+  .welcome-box {
+    svg {
+      width: 3rem;
+      padding-bottom: 0;
     }
+  }
 
-    .inner-box {
-        position: static;
-        transform: none;
-        width: revert;
-        height: revert;
-    }
+  .forms-wrap form {
+    max-width: revert;
+    height: 650px;
+    transition: transform 0.8s ease-in-out, opacity 0.45s linear;
+  }
 
-    .forms-wrap,
-    .welcome-box {
-        position: revert;
-        width: 100%;
-        height: auto;
-    }
+  .forms-wrap form.register-form {
+    transform: translateX(100%);
+  }
 
-    .welcome-box {
-      svg {
-        width: 3rem;
-        padding-bottom: 0;
-      }
-    }
+  .main-login.active .login-form {
+    transform: translateX(-100%);
+  }
 
-    .forms-wrap form {
-        max-width: revert;
-        height: 650px;
-        transition: transform .8s ease-in-out, opacity .45s linear;
-    }
-
-
-    .forms-wrap form.register-form {
-        transform: translateX(100%);
-    }
-
-    .main-login.active .login-form {
-        transform: translateX(-100%);
-    }
-
-    .main-login.active .register-form {
-        transform: translateX(0%);
-    }
-
+  .main-login.active .register-form {
+    transform: translateX(0%);
+  }
 }
