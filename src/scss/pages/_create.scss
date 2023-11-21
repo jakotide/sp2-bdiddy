@@ -21,9 +21,10 @@
   );
 
   .create-box {
+    padding: 1rem 0 5rem;
     max-width: 64rem;
     width: 100%;
-    height: 42rem;
+    height: auto;
     background-color: mainTheme.$star;
 
     .create-form {
@@ -56,16 +57,57 @@
         .create-btn {
             cursor: pointer;
             background-color: mainTheme.$header;
+            font-weight: 700;
         }
 
         textarea {
             resize: none;
         }
+        
+        #tags {
+            margin-bottom: 0.825rem; 
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            height: auto;
+            width: 100%;
+            max-width: 32rem;
+        }
+
+        .tags-container .tag {
+            display: inline-block;
+            padding: 4px 14px;
+            font-size: 14px;
+            background: #eee;
+            margin: 3px;
+            text-transform: lowercase;
+            cursor: default;
+            line-height: 1rem;
+            filter: drop-shadow(3px 2px var(--clr-black));
+          }
+          
+          .tags-container .tag .tag-close {
+            cursor: pointer;
+            margin-left: 5px;
+            font-size: 14px;
+          }
 
         .date-flex {
             display: flex;
             gap: 1rem;
-            margin-bottom: 1rem;
+            margin: 1rem 0;
+
+            input[type=date] {
+                color: mainTheme.$c-black;
+                // background-color: mainTheme.$secondary-color;
+            }
+
+            input[type=time] {
+                color: mainTheme.$c-black;
+                // background-color: mainTheme.$border;
+            }
             
             :first-child {
                 width: 55%;
@@ -87,4 +129,35 @@
   }
 }
 
+[data-modal] {
+    margin: auto;
+    height: 44rem;
+    width: 100%;
+    max-width: 44rem;
+    background-color: mainTheme.$border;
+    padding: 2rem 0;
 
+    h2 {
+        text-align: center;
+        font-size: var(--f-m);
+        padding-bottom: 2rem;
+    }
+
+    .upload-images-form {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 60%;
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 0.5rem 1rem;
+            outline: none;
+            border: 2px solid var(--clr-black);
+            margin-bottom: 1.25rem;
+        }
+    }
+}
