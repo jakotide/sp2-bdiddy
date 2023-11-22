@@ -52,14 +52,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const thumbnailBox = document.querySelector(
       `.thumbnail-box:nth-child(${position})`
     );
-    thumbnailBox.innerHTML = "";
+    if(thumbnailBox) {
+        thumbnailBox.innerHTML = "";
+    }
 
     const xThumbnail = document.createElement("div");
     xThumbnail.classList.add("remove-thumbnail");
     xThumbnail.textContent = " 🗙 ";
 
     xThumbnail.addEventListener("click", (e) => {
-      e.target.parentElement.remove();
+      const parent = e.target.parentElement;
+      if(parent) {
+        parent.remove();
+      }
     });
 
     thumbnailBox.append(thumbnail, xThumbnail);

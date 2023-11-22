@@ -52,8 +52,13 @@
         padding: 0.5rem 1rem;
         outline: none;
         border: 2px solid var(--clr-black);
-        filter: drop-shadow(5px 5px var(--clr-black));
         margin-bottom: 1.25rem;
+        transition: .2s ease;
+
+        &:focus {
+          transform: translate(-5px, -5px);
+          filter: drop-shadow(5px 5px var(--clr-black));
+        }
       }
 
       .media-btn,
@@ -61,6 +66,12 @@
         cursor: pointer;
         background-color: mainTheme.$header;
         font-weight: 700;
+        transition: .2s ease;
+
+        &:hover {
+          transform: translate(-5px, -5px);
+          filter: drop-shadow(5px 5px var(--clr-black));
+        }
       }
 
       textarea {
@@ -76,6 +87,7 @@
           position: relative;
 
           .remove-thumbnail {
+            cursor: pointer;
             position: absolute;
             font-size: 14px;
             line-height: 14px;
@@ -90,7 +102,6 @@
             border-right: 2px solid var(--clr-black);
           }
         }
-
 
         div {
           aspect-ratio: 1 / 1;
@@ -121,7 +132,7 @@
 
       .tags-container .tag {
         display: inline-block;
-        padding: 4px 14px;
+        padding: 4px 10px;
         font-size: 14px;
         background: #eee;
         margin: 3px;
@@ -144,11 +155,13 @@
 
         input[type="date"] {
           color: mainTheme.$c-black;
+          height: 3rem;
           // background-color: mainTheme.$secondary-color;
         }
 
         input[type="time"] {
           color: mainTheme.$c-black;
+          height: 3rem;
           // background-color: mainTheme.$border;
         }
 
@@ -173,15 +186,18 @@
 
 [data-modal] {
   margin: auto;
-  height: 44rem;
-  width: 100%;
+  height: 40rem;
+  width: 80%;
   max-width: 44rem;
-  background-color: mainTheme.$border;
-  padding: 2rem 0;
+  background-color: mainTheme.$secondary-color;
+  padding: 8rem 1rem 1rem;
+  position: relative;
+  overflow: hidden;
 
   h2 {
     text-align: center;
     font-size: var(--f-m);
+    font-weight: 700;
     padding-bottom: 2rem;
   }
 
@@ -200,6 +216,54 @@
       outline: none;
       border: 2px solid var(--clr-black);
       margin-bottom: 1.25rem;
+      filter: drop-shadow(3px 2px var(--clr-black));
+    }
+
+    .upload-btn {
+      background-color: mainTheme.$header;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      outline: none;
+      border: 2px solid var(--clr-black);
+      transition: .2s ease;
+      margin-bottom: 1.25rem;
+
+      &:hover {
+        filter: drop-shadow(5px 5px var(--clr-black));
+        transform: translate(-5px, -5px);
+      }
+    }
+
+    [data-close-modal] {
+      background-color: mainTheme.$header;
+      cursor: pointer;
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      aspect-ratio: 1 / 1;
+      height: 3rem;
+      font-size: 1.5rem;
+      outline: none;
+      border: 3px solid var(--clr-black);
+    }
+  }
+}
+
+@media (max-width: 42em) {
+  .main-create {
+    .create-box {
+      .create-form {
+        .date-flex {
+          flex-direction: column;
+
+          :first-child {
+            width: 100%;
+          }
+          :last-child {
+            width: 100%;
+          }
+        }
+      }
     }
   }
 }
