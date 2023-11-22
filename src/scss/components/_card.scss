@@ -14,6 +14,7 @@
   justify-content: center;
   margin-bottom: 5rem;
 
+
   h2 {
     color: mainTheme.$c-black;
     font-family: "MabryPro-Regular";
@@ -31,7 +32,9 @@
       max-height: 500px;
       border: 3px solid mainTheme.$c-black;
       background-color: mainTheme.$primary-color;
+      color: mainTheme.$c-black;
       cursor: pointer;
+      text-decoration: none;
       display: grid;
       grid-template-rows: 45% 35% 20%;
       grid-template-areas:
@@ -59,7 +62,7 @@
       }
 
       .card__details > * {
-        color: mainTheme.$c-black;
+        // color: mainTheme.$c-black;
         grid-area: details;
       }
 
@@ -91,6 +94,7 @@
       }
 
       .card__price {
+        // color: mainTheme.$c-black;
         background-color: mainTheme.$secondary-color;
         border-top: 1.25rem solid mainTheme.$border;
         grid-area: price;
@@ -116,7 +120,6 @@
       // DATA-THEMES
 
       &[data-theme="desert-fruit"] {
-
         .card__details {
           background-color: desertFruit.$primary-color;
         }
@@ -128,7 +131,6 @@
       }
 
       &[data-theme="neon-mountain"] {
-
         .card__details {
           background-color: neonMountain.$primary-color;
         }
@@ -139,7 +141,6 @@
         }
       }
       &[data-theme="funky-corals"] {
-
         .card__details {
           background-color: funkyCorals.$primary-color;
         }
@@ -148,10 +149,8 @@
           background-color: funkyCorals.$secondary-color;
           border-top: 1.25rem solid funkyCorals.$border;
         }
-
       }
       &[data-theme="snowy-snow"] {
-
         .card__details {
           background-color: snowySnow.$primary-color;
         }
@@ -160,10 +159,8 @@
           background-color: snowySnow.$secondary-color;
           border-top: 1.25rem solid snowySnow.$border;
         }
-
       }
       &[data-theme="flower-power"] {
-
         .card__details {
           background-color: flowerPower.$primary-color;
         }
@@ -172,36 +169,34 @@
           background-color: flowerPower.$green;
           border-top: 1.25rem solid flowerPower.$border;
         }
-
       }
     }
   }
   &[data-theme="desert-fruit"] {
     h2 {
       color: desertFruit.$c-black;
-    } 
+    }
   }
   &[data-theme="neon-mountain"] {
     h2 {
       color: neonMountain.$c-white;
-    } 
+    }
   }
   &[data-theme="funky-corals"] {
     h2 {
       color: funkyCorals.$c-black;
-    } 
+    }
   }
   &[data-theme="snowy-snow"] {
     h2 {
       color: snowySnow.$c-black;
-    } 
+    }
   }
   &[data-theme="flower-power"] {
     h2 {
       color: flowerPower.$c-black;
-    } 
+    }
   }
-
 }
 
 // HOVER EFFECTS
