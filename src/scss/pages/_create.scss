@@ -21,6 +21,7 @@
   );
 
   .create-box {
+    margin-top: 5rem;
     padding: 1rem 0 5rem;
     max-width: 64rem;
     width: 100%;
@@ -28,150 +29,177 @@
     background-color: mainTheme.$star;
 
     .create-form {
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+      margin-inline: auto;
+      padding-top: 3rem;
+
+      h1 {
+        font-size: var(--f-m);
+        font-weight: 700;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      label {
+        margin-bottom: 0.25rem;
+      }
+
+      input,
+      textarea,
+      button {
+        padding: 0.5rem 1rem;
+        outline: none;
+        border: 2px solid var(--clr-black);
+        filter: drop-shadow(5px 5px var(--clr-black));
+        margin-bottom: 1.25rem;
+      }
+
+      .media-btn,
+      .create-btn {
+        cursor: pointer;
+        background-color: mainTheme.$header;
+        font-weight: 700;
+      }
+
+      textarea {
+        resize: none;
+      }
+
+      .thumbnails-container {
         display: flex;
-        flex-direction: column;
-        width: 60%;
-        margin-inline: auto;
-        padding-top: 3rem;
+        gap: 1rem;
+        margin-bottom: 1.25rem;
 
-        h1 {
-            font-size: var(--f-m);
-            font-weight: 700;
-            margin-bottom: 2rem;
+        .thumbnail-box {
+          position: relative;
+
+          .remove-thumbnail {
+            position: absolute;
+            font-size: 14px;
+            line-height: 14px;
             text-align: center;
+            height: 18px;
+            width: 18px;
+            background-color: mainTheme.$secondary-color;
+            color: var(--clr-black);
+            top: 0;
+            right: 0;
+            border-top: 2px solid var(--clr-black);
+            border-right: 2px solid var(--clr-black);
+          }
         }
 
-        label {
-            margin-bottom: 0.25rem;
-        }
 
-        input, textarea, button {
-            padding: 0.5rem 1rem;
-            outline: none;
+        div {
+          aspect-ratio: 1 / 1;
+          height: auto;
+          max-width: 6rem;
+
+          img {
+            aspect-ratio: 1 / 1;
+            width: 100%;
+            object-fit: cover;
             border: 2px solid var(--clr-black);
             filter: drop-shadow(5px 5px var(--clr-black));
-            margin-bottom: 1.25rem;
-        }
-
-        .media-btn,
-        .create-btn {
-            cursor: pointer;
-            background-color: mainTheme.$header;
-            font-weight: 700;
-        }
-
-        textarea {
-            resize: none;
-        }
-
-        .thumbnails-container {
-            display: flex;
-            gap: 18px;
-
-            img {
-                aspect-ratio: 1 / 1;
-                height: auto;
-                width: 20%;
-                object-fit: cover;
-                border: 2px solid var(--clr-black);
-                 filter: drop-shadow(5px 5px var(--clr-black));
-            }
-        }
-        
-        #tags {
-            margin-bottom: 0.825rem; 
-        }
-
-        .tags-container {
-            display: flex;
-            flex-wrap: wrap;
-            height: auto;
-            width: 100%;
-            max-width: 32rem;
-        }
-
-        .tags-container .tag {
-            display: inline-block;
-            padding: 4px 14px;
-            font-size: 14px;
-            background: #eee;
-            margin: 3px;
-            text-transform: lowercase;
-            cursor: default;
-            line-height: 1rem;
-            filter: drop-shadow(3px 2px var(--clr-black));
           }
-          
-          .tags-container .tag .tag-close {
-            cursor: pointer;
-            margin-left: 5px;
-            font-size: 14px;
-          }
-
-        .date-flex {
-            display: flex;
-            gap: 1rem;
-            margin: 1rem 0;
-
-            input[type=date] {
-                color: mainTheme.$c-black;
-                // background-color: mainTheme.$secondary-color;
-            }
-
-            input[type=time] {
-                color: mainTheme.$c-black;
-                // background-color: mainTheme.$border;
-            }
-            
-            :first-child {
-                width: 55%;
-
-                input {
-                    width: 100%;
-                }
-            }
-            :last-child {
-                width: 45%;
-
-                input {
-                    width: 100%;
-                    
-                }
-            }
         }
       }
+
+      #tags {
+        margin-bottom: 0.825rem;
+      }
+
+      .tags-container {
+        display: flex;
+        flex-wrap: wrap;
+        height: auto;
+        width: 100%;
+        max-width: 32rem;
+      }
+
+      .tags-container .tag {
+        display: inline-block;
+        padding: 4px 14px;
+        font-size: 14px;
+        background: #eee;
+        margin: 3px;
+        text-transform: lowercase;
+        cursor: default;
+        line-height: 1rem;
+        filter: drop-shadow(3px 2px var(--clr-black));
+      }
+
+      .tags-container .tag .tag-close {
+        cursor: pointer;
+        margin-left: 5px;
+        font-size: 14px;
+      }
+
+      .date-flex {
+        display: flex;
+        gap: 1rem;
+        margin: 1rem 0;
+
+        input[type="date"] {
+          color: mainTheme.$c-black;
+          // background-color: mainTheme.$secondary-color;
+        }
+
+        input[type="time"] {
+          color: mainTheme.$c-black;
+          // background-color: mainTheme.$border;
+        }
+
+        :first-child {
+          width: 55%;
+
+          input {
+            width: 100%;
+          }
+        }
+        :last-child {
+          width: 45%;
+
+          input {
+            width: 100%;
+          }
+        }
+      }
+    }
   }
 }
 
 [data-modal] {
+  margin: auto;
+  height: 44rem;
+  width: 100%;
+  max-width: 44rem;
+  background-color: mainTheme.$border;
+  padding: 2rem 0;
+
+  h2 {
+    text-align: center;
+    font-size: var(--f-m);
+    padding-bottom: 2rem;
+  }
+
+  .upload-images-form {
+    display: flex;
+    flex-direction: column;
     margin: auto;
-    height: 44rem;
-    width: 100%;
-    max-width: 44rem;
-    background-color: mainTheme.$border;
-    padding: 2rem 0;
+    width: 60%;
 
-    h2 {
-        text-align: center;
-        font-size: var(--f-m);
-        padding-bottom: 2rem;
+    label {
+      margin-bottom: 5px;
     }
 
-    .upload-images-form {
-        display: flex;
-        flex-direction: column;
-        margin: auto;
-        width: 60%;
-
-        label {
-            margin-bottom: 5px;
-        }
-
-        input {
-            padding: 0.5rem 1rem;
-            outline: none;
-            border: 2px solid var(--clr-black);
-            margin-bottom: 1.25rem;
-        }
+    input {
+      padding: 0.5rem 1rem;
+      outline: none;
+      border: 2px solid var(--clr-black);
+      margin-bottom: 1.25rem;
     }
+  }
 }
