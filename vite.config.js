@@ -1,4 +1,3 @@
-// vite.config.js
 import { defineConfig } from "vite";
 import { resolve } from "path";
 
@@ -9,6 +8,9 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         login: resolve(__dirname, "pages/login.html"),
+        create: resolve(__dirname, "pages/create.html"),
+        profile: resolve(__dirname, "pages/profile.html"),
+        listing: resolve(__dirname, "pages/listing.html"),
       },
     },
   },

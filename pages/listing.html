@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
     <script src="/src/js//pages/listing.js" defer type="module"></script>
     <title>B-Diddy | Listing</title>
   </head>
@@ -63,30 +67,87 @@
       </nav>
     </header>
     <main class="main-listing">
-      <section class="listing-box shadow">
-        <div class="image-profile-container">
-          <div class="carousel">
-            <button class="carousel-btn prev">&#8592;</button>
-            <button class="carousel-btn next">&#8594;</button>
-            <ul>
-              <li>
-                <img class="slide" data-active src="/assets/img/grid_0 (2).png" alt="Listing Image nr 1" />
+      <div class="listing-box shadow border">
+        <section class="image-profile-container">
+          <div class="carousel" data-carousel>
+            <button class="carousel-button prev" data-carousel-button="prev">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <button class="carousel-button next" data-carousel-button="next">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <ul data-slides>
+              <li class="slide" data-active>
+                <img
+                  src="https://source.unsplash.com/78A265wPiO4"
+                  alt="Nature Image #1"
+                />
               </li>
-              <li>
-                <img class="slide" src="/assets/img/grid_0 (2).png" alt="Listing Image nr 2" />
+              <li class="slide">
+                <img
+                  src="https://source.unsplash.com/eOpewngf68w"
+                  alt="Nature Image #2"
+                />
               </li>
-              <li>
-                <img class="slide" src="/assets/img/grid_0 (2).png" alt="Listing Image nr 3" />
+              <li class="slide">
+                <img
+                  src="https://source.unsplash.com/ndN00KmbJ1c"
+                  alt="Nature Image #3"
+                />
               </li>
             </ul>
           </div>
           <div class="profile-box">
             <div>Listed by:</div>
-            <img src="" alt="Profile Image">
+            <div class="img-box">
+              <img class="border" src="/assets/img/0_0.png" alt="" />
+            </div>
+
             <div class="profile-name">Bob</div>
           </div>
-        </div>
-      </section>
+        </section>
+        <section class="listing-description">
+          <div class="description">
+            <h1>Cool Car</h1>
+            <p>Lorem ipsum</p>
+          </div>
+          <div class="start-end">
+            <div>Started: 23.22.2222, 12pm</div>
+            <div class="end">Ends at: 23.23.2222, 10pm</div>
+          </div>
+        </section>
+        <section class="bidding-section">
+          <div class="leader-box">
+            <div>Current Highest Bidder:</div>
+            <div class="leader-flex">
+              <div>400$</div>
+              <div>Bobby</div>
+            </div>
+          </div>
+          <div class="bidding-box">
+            <form action="" class="bid-form">
+              <div>Funds available: 800$</div>
+              <div class="amount-box">
+                <button class="amount-btn">
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+                <label for="amount"></label>
+                <input
+                  class="border"
+                  type="number"
+                  id="amount"
+                  name="amount"
+                  placeholder="Enter Amount"
+                />
+                <button class="amount-btn">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+              <button class="bid-btn border" type="submit">Place Bid</button>
+            </form>
+          </div>
+        </section>
+      </div>
     </main>
   </body>
 </html>

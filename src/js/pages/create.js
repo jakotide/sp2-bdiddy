@@ -3,7 +3,7 @@ import "../../scss/main.scss";
 
 // JS
 import "../components/hamburger";
-import "../components/tags.js";
+import "../components/tags";
 
 const openModalBtn = document.querySelector("[data-open-modal]");
 const closeModalBtn = document.querySelector("[data-close-modal]");
