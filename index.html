@@ -10,14 +10,15 @@
     />
     
     <title>B-Diddy | Home</title>
-    <script type="module" crossorigin src="/sp2-bdiddy/assets/main-9a1df13b.js"></script>
-    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/btnThemeToggler-da82a2dd.js">
-    <link rel="stylesheet" href="/sp2-bdiddy/assets/btnThemeToggler-acca9257.css">
+    <script type="module" crossorigin src="/sp2-bdiddy/assets/main-51c7da19.js"></script>
+    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/main-aab10879.js">
+    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/hamburger-79a04485.js">
+    <link rel="stylesheet" href="/sp2-bdiddy/assets/main-e779ba39.css">
   </head>
   <body class="body">
     <header>
       <nav aria-label="Navigation" class="nav">
-        <a href="/sp2-bdiddy/pages/login.html" class="logo">
+        <a href="/sp2-bdiddy/pages/login.html" class="logo"><span class="hide">Home</span>
           <svg
             class="logo-header-svg"
             width="84"
@@ -39,7 +40,7 @@
           </svg>
         </a>
         <div class="listing">
-          <a href="/">Create Listing</a>
+          <a href="/sp2-bdiddy/pages/create.html">Create Listing</a>
         </div>
         <button
           class="hamburger"
@@ -53,12 +54,12 @@
           </div>
         </button>
         <ul class="nav__content">
-          <li><a href="" class="header__links"></a>Profile</li>
+          <li><a href="/sp2-bdiddy/pages/profile.html" class="header__links">Profile</a></li>
           <li class="mobile-listing">
-            <a href="" class="header__links"></a>Create Listing
+            <a href="" class="header__links">Create Listing</a>
           </li>
-          <li><a href="" class="header__links"></a>Contact</li>
-          <li><a href="" class="header__links"></a>Logout</li>
+          <li><a href="" class="header__links">Contact</a></li>
+          <li><a href="" class="header__links">Logout</a></li>
         </ul>
       </nav>
     </header>
@@ -67,9 +68,9 @@
       <div class="container">
         <div class="hero__grid">
           <h1 class="h1-main">B-Diddy</h1>
-          <div>The Nr.1 Auction House</div>
+          <div class="header-text">The Nr.1 Auction House</div>
           <form action="" class="search shadow">
-            <label for="search-input"></label>
+            <label for="search-input"><span class="hide">Search</span></label>
             <i class="fa-solid fa-magnifying-glass"></i>
             <input
               type="search"
@@ -106,13 +107,13 @@
       </div>
 
       <div class="card__container">
-        <h3>New listings:</h3>
+        <h2>New listings:</h3>
         <div class="card-grid">
-          <a class="card | shadow">
+          <a class="card | shadow" href="/sp2-bdiddy/pages/listing.html">
             <img class="card__img" src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="" />
             <div class="card__details">
               <div>Jakob listed:</div>
-              <h2>Cool Carddsfsdsdfsdfsdfsd</h2>
+              <h3>Cool Carddsfsdsdfsdfsdfsd</h3>
               <div>Current leader: Bob</div>
             </div>
             <div class="card__price | flex-row">
@@ -494,7 +495,13 @@
       <div class="theme__container">
         <button class="hideThemesBtn" title="Hide themes">Hide</button>
         <div>Themes</div>
-
+        <button class="mainBtn theme__button" height="14px" width="15px" data-tooltip="Main Theme">
+          <img
+            src="/sp2-bdiddy/assets/main-217d6b71.gif"
+            class="theme__icon"
+            alt="Gif of an animated snoflake"
+          />
+        </button>
         <button class="desertBtn theme__button" data-tooltip="Desert Fruit">
           <img
             src="/sp2-bdiddy/assets/cactus-1a1391f7.gif"
@@ -514,13 +521,6 @@
             src="/sp2-bdiddy/assets/coral-31e7575e.gif"
             class="theme__icon"
             alt="Gif of an animated coral"
-          />
-        </button>
-        <button class="snowBtn theme__button" data-tooltip="Snowy Snow">
-          <img
-            src="/sp2-bdiddy/assets/snow-daf59fb4.gif"
-            class="theme__icon"
-            alt="Gif of an animated snoflake"
           />
         </button>
         <button class="flowerBtn theme__button" data-tooltip="Flower Power">
