@@ -9,12 +9,16 @@ const openModalBtn = document.querySelector("[data-open-modal]");
 const closeModalBtn = document.querySelector("[data-close-modal]");
 const modal = document.querySelector("[data-modal]");
 
+gsap.set(modal, { y: -50, opacity: 1 });
+
 openModalBtn.addEventListener("click", () => {
   modal.showModal();
+  gsap.to(modal, { duration: 0.8, ease: "elastic.out(1.2,0.5)", y: 0, opacity: 1 });
 });
 
 closeModalBtn.addEventListener("click", () => {
   modal.close();
+  gsap.to(modal, { duration: 1, y: -50, opacity: 0 });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
