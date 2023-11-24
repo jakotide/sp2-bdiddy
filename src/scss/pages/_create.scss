@@ -187,11 +187,10 @@
 
 [data-modal] {
   margin: auto;
-  height: 40rem;
+  height: 42rem;
   width: 80%;
   max-width: 44rem;
   background-color: mainTheme.$secondary-color;
-  padding: 8rem 1rem 1rem;
   position: relative;
   overflow: hidden;
 
@@ -205,8 +204,10 @@
   .upload-images-form {
     display: flex;
     flex-direction: column;
-    margin: auto;
-    width: 60%;
+    margin-inline: auto;
+    padding: 6rem;
+    height: 100%;
+    width: 100%;
 
     label {
       margin-bottom: 5px;
@@ -254,6 +255,9 @@
   .main-create {
     .create-box {
       .create-form {
+
+        width: 90%;
+
         .date-flex {
           flex-direction: column;
 

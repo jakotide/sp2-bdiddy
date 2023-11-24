@@ -103,8 +103,8 @@
         </form>
       </section>
 
-      <dialog data-modal>
-        <form action="" class="upload-images-form">
+      <dialog data-modal onclick="event.target==this && this.close()">
+        <form action="" method="dialog" class="upload-images-form">
           <h2>Upload Images</h2>
           <label for="url1">Image URL 1</label>
           <input type="text" name="url1" id="url1"/>
