@@ -30,6 +30,7 @@
     .card {
       aspect-ratio: 1 / 1.5;
       max-height: 500px;
+      width: 100%;
       border: 3px solid mainTheme.$c-black;
       background-color: mainTheme.$primary-color;
       color: mainTheme.$c-black;
@@ -62,7 +63,6 @@
       }
 
       .card__details > * {
-        // color: mainTheme.$c-black;
         grid-area: details;
       }
 
@@ -94,7 +94,6 @@
       }
 
       .card__price {
-        // color: mainTheme.$c-black;
         background-color: mainTheme.$secondary-color;
         border-top: 1.25rem solid mainTheme.$border;
         grid-area: price;
@@ -196,6 +195,12 @@
     h2 {
       color: flowerPower.$c-black;
     }
+  }
+}
+
+@media (max-width: 30em) {
+  .card__container {
+    padding-inline: 1.5rem;
   }
 }
 

@@ -65,18 +65,33 @@
         <div class="hero__grid">
           <h1 class="h1-main">B-Diddy</h1>
           <div class="header-text">The Nr.1 Auction House</div>
-          <form action="" class="search shadow">
-            <label for="search-input"><span class="hide">Search</span></label>
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input
-              type="search"
-              id="search-input"
-              name="search-input"
-              required
-              title="Please enter a value"
-            />
-            <button type="submit">Search</button>
-          </form>
+          <div class="mobile-filter-row">
+            <form action="" class="search shadow">
+              <label for="search-input"><span class="hide">Search</span></label>
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input
+                type="search"
+                id="search-input"
+                name="search-input"
+                required
+                title="Please enter a value"
+                placeholder="Search Listings"
+              />
+              <button type="submit">Search</button>
+            </form>
+            <button class="filter__menu-btn">
+              Filter
+              <ul class="filter__menu">
+                <li><a href="">All</a></li>
+                <li><a href="">Electronics</a></li>
+                <li><a href="">Fashion</a></li>
+                <li><a href="">Vehicles</a></li>
+                <li><a href="">Retro</a></li>
+                <li><a href="">Food</a></li>
+                <li><a href="">Art</a></li>
+              </ul>
+            </button>
+          </div>
           <div class="filter__menu-desktop">
             <div class="filter__btn active">All</div>
             <div class="filter__btn">Electronics</div>
@@ -87,18 +102,6 @@
             <div class="filter__btn">Art</div>
             <div class="filter__btn">Housing</div>
           </div>
-          <button class="filter__menu-btn">
-            Filter
-            <ul class="filter__menu">
-              <li><a href="">All</a></li>
-              <li><a href="">Electronics</a></li>
-              <li><a href="">Fashion</a></li>
-              <li><a href="">Vehicles</a></li>
-              <li><a href="">Retro</a></li>
-              <li><a href="">Food</a></li>
-              <li><a href="">Art</a></li>
-            </ul>
-          </button>
         </div>
       </div>
 

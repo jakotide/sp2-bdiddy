@@ -1,5 +1,10 @@
 @use "../themes/main-theme" as mainTheme;
 
+.listing-body {
+  height: 100vh;
+  width: 100%;
+}
+
 .main-listing {
   display: flex;
   justify-content: center;
@@ -10,15 +15,6 @@
   padding: 2rem;
   background-color: mainTheme.$star;
   font-family: "MabryPro-Regular";
-  opacity: 0.8;
-  // background-size: 80px 80px;
-  // background-image: repeating-linear-gradient(
-  //   to right,
-  //   #000000,
-  //   #000000 2px,
-  //   #fceee3 1px,
-  //   #fceee3
-  // );
 
   .listing-box {
     margin-top: 5rem;

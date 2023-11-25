@@ -34,6 +34,7 @@ body {
     justify-content: center;
     padding: 2rem;
     font-family: "MabryPro-Regular";
+    border-top: 3px solid var(--clr-black);
 
     .footer__content {
       max-width: 64rem;
@@ -59,7 +60,7 @@ body {
     }
 
     .socials > *:hover {
-        font-style: italic;
+      font-style: italic;
     }
 
     .author {
@@ -78,7 +79,6 @@ body {
       justify-self: flex-end;
     }
   }
-  
 
   &[data-theme="desert-fruit"] {
     background-color: desertFruit.$body;
@@ -91,7 +91,7 @@ body {
       background-color: desertFruit.$footer;
       .footer__content {
         .footer-logo-clr {
-            fill: desertFruit.$secondary-color;
+          fill: desertFruit.$secondary-color;
         }
       }
     }
@@ -107,7 +107,7 @@ body {
       background-color: neonMountain.$footer;
       .footer__content {
         .footer-logo-clr {
-            fill: neonMountain.$secondary-color;
+          fill: neonMountain.$secondary-color;
         }
       }
     }
@@ -123,7 +123,7 @@ body {
       background-color: funkyCorals.$footer;
       .footer__content {
         .footer-logo-clr {
-            fill: funkyCorals.$secondary-color;
+          fill: funkyCorals.$secondary-color;
         }
       }
     }
@@ -139,7 +139,7 @@ body {
       background-color: snowySnow.$footer;
       .footer__content {
         .footer-logo-clr {
-            fill: snowySnow.$secondary-color;
+          fill: snowySnow.$secondary-color;
         }
       }
     }
@@ -155,7 +155,7 @@ body {
       background-color: flowerPower.$footer;
       .footer__content {
         .footer-logo-clr {
-            fill: flowerPower.$secondary-color;
+          fill: flowerPower.$secondary-color;
         }
       }
     }
@@ -165,7 +165,6 @@ body {
 @media (max-width: 56em) {
   body {
     footer {
-    
       .footer__content {
         gap: 2rem;
 
@@ -177,10 +176,6 @@ body {
         .footer-logo {
           width: 4rem;
         }
-
-        .author {
-          padding-bottom: 2rem;
-        }
       }
     }
   }
@@ -189,20 +184,16 @@ body {
 @media (max-width: 36em) {
   body {
     footer {
-      height: 38rem;
+      height: 32rem;
 
       .footer__content {
         grid-template-columns: 100%;
         grid-template-rows: 1fr 1fr 1fr 1fr;
       }
 
-      .footer-bdiddy {
-        font-size: 2.9rem;
-      }
-
-      .footer__content p {
-        grid-row: 1;
-        font-size: 1.5rem;
+      .slogan div {
+        font-size: 2rem;
+        text-align: center;
       }
 
       .footer-logo {
@@ -222,36 +213,3 @@ body {
     }
   }
 }
-
-@media (max-width: 36em) {
-    body {
-      footer {
-        height: 38rem;
-  
-        .footer__content {
-          grid-template-columns: 100%;
-          grid-template-rows: 1fr 1fr 1fr 1fr;
-        }
-   
-        .slogan div {
-            font-size: 2rem;
-            text-align: center;
-        }
-  
-        .footer-logo {
-          grid-row: 2;
-          justify-self: center;
-        }
-  
-        .socials {
-          grid-row: 3;
-          justify-self: center;
-        }
-  
-        .author {
-          grid-row: 4;
-          justify-self: center;
-        }
-      }
-    }
-  }

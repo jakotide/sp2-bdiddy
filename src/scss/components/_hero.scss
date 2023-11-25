@@ -43,7 +43,7 @@
     grid-template-columns: 2rem 1fr 3rem;
     grid-template-rows: 1fr;
     justify-content: center;
-    align-self: center;
+    margin: 0 auto;
     width: 70%;
     margin-bottom: 2rem;
   }
@@ -217,8 +217,11 @@
     grid-template-columns: 80% 1fr;
 
     .search {
-      grid-area: bot;
-      width: 100%;
+      width: 80%;
+
+      button {
+        display: none;
+      }
     }
 
     .filter__menu-desktop {
@@ -230,6 +233,11 @@
       display: block;
       font-family: "MabryPro-Regular";
       grid-area: topr;
+    }
+
+    .mobile-filter-row {
+      display: flex;
+      gap: 1rem;
     }
 
     .filter__menu-btn {
@@ -275,6 +283,12 @@
         font-style: italic;
       }
     }
+  }
+}
+
+@media (max-width: 30em) {
+  .container {
+    padding-inline: 1.5rem;
   }
 }
 
