@@ -46,6 +46,22 @@ function toggleGlobalTheme(theme) {
   applyTheme([body, nav, hero, marquee, themeContainer, showBtn], theme);
 }
 
+function hideBtnMobile(mediaQuery) {
+  if (mediaQuery.matches) {
+    themeContainer.classList.toggle("active");
+    showBtn.classList.toggle("active");
+  }
+}
+
+let mediaQuery = window.matchMedia("(max-width: 30em)");
+
+hideBtnMobile(mediaQuery);
+
+mediaQuery.addEventListener("change", function (event) {
+  hideBtnMobile(event.target);
+});
+
+
 
 
 desertFruitBtn.addEventListener("click", () => {

@@ -192,3 +192,10 @@
     background-color: flowerPower.$secondary-color;
   }
 }
+
+@media (max-width: 30em) {
+  .theme__container,
+  .showThemesBtn {
+    top: 7rem;
+  }
+}
