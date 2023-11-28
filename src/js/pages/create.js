@@ -5,50 +5,26 @@ import "../../scss/main.scss";
 import "../components/hamburger";
 import "../components/tags";
 
-// const openModalBtn = document.querySelector("[data-open-modal]");
-// const closeModalBtn = document.querySelector("[data-close-modal]");
-// const modal = document.querySelector("[data-modal]");
-// const modalContent = document.querySelector(".upload-images-form");
-
-// gsap.set(modal, { y: -50, opacity: 1 });
-
-// openModalBtn.addEventListener("click", () => {
-//   modal.showModal();
-//   gsap.to(modal, { duration: 0.8, ease: "elastic.out(1.2,0.5)", y: 0, opacity: 1 });
-
-//   document.addEventListener("mousedown", handleOutsideClick);
-// });
-
-// closeModalBtn.addEventListener("click", () => {
-//   closeModal();
-// });
-
-
-
-// function handleOutsideClick(event) {
-//   // Check if the click is outside the modal and its content
-//   if (!modalContent.contains(event.target) && !modal.contains(event.target)) {
-//     closeModal();
-//   }
-// }
 const openModalBtn = document.querySelector("[data-open-modal]");
 const closeModalBtn = document.querySelector("[data-close-modal]");
 const modal = document.querySelector("[data-modal]");
-// const modalContent = document.querySelector(".upload-images-form");
 
 gsap.set(modal, { y: -50, opacity: 1 });
 
 openModalBtn.addEventListener("click", () => {
   modal.showModal();
-  gsap.to(modal, { duration: 0.8, ease: "elastic.out(1.2,0.5)", y: 0, opacity: 1 });
+  gsap.to(modal, {
+    duration: 0.8,
+    ease: "elastic.out(1.2,0.5)",
+    y: 0,
+    opacity: 1,
+  });
 });
 
 closeModalBtn.addEventListener("click", () => {
   modal.close();
   gsap.to(modal, { duration: 0.8, ease: "elastic.out(1.2,0.5)", y: -50 });
 });
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
   const createForm = document.querySelector(".create-form");
@@ -85,8 +61,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const thumbnailBox = document.querySelector(
       `.thumbnail-box:nth-child(${position})`
     );
-    if(thumbnailBox) {
-        thumbnailBox.innerHTML = "";
+    if (thumbnailBox) {
+      thumbnailBox.innerHTML = "";
     }
 
     const xThumbnail = document.createElement("div");
@@ -95,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     xThumbnail.addEventListener("click", (e) => {
       const parent = e.target.parentElement;
-      if(parent) {
+      if (parent) {
         parent.remove();
       }
     });
