@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/src/js/pages/profile.js" defer type="module"></script>
+    <title>B-Diddy | Profile</title>
+</head>
+<body>
+    <header>
+        <nav aria-label="Navigation" class="nav">
+          <a href="/sp2-bdiddy/" class="logo">
+            <svg
+              class="logo-header-svg"
+              width="84"
+              height="144"
+              viewBox="0 0 84 144"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M9.92 108.56V43.024C9.92 42.1707 10.2187 41.4453 10.816 40.848C11.4133 40.2507 12.1387 39.952 12.992 39.952H78.528C79.3813 39.952 80.1067 40.2507 80.704 40.848C81.3013 41.4453 81.6 42.1707 81.6 43.024V71.056C81.6 71.9093 81.3013 72.6347 80.704 73.232C80.1067 73.8293 79.3813 74.128 78.528 74.128C77.4187 74.128 76.864 74.6827 76.864 75.792C76.864 76.816 77.4187 77.328 78.528 77.328C79.3813 77.328 80.1067 77.6267 80.704 78.224C81.3013 78.8213 81.6 79.5893 81.6 80.528V108.56C81.6 109.413 81.3013 110.139 80.704 110.736C80.1067 111.333 79.3813 111.632 78.528 111.632H12.992C12.1387 111.632 11.4133 111.333 10.816 110.736C10.2187 110.139 9.92 109.413 9.92 108.56ZM42.56 81.68V94.48C42.56 95.5893 43.1147 96.144 44.224 96.144C45.248 96.144 45.76 95.5893 45.76 94.48V81.68C45.76 80.5707 45.248 80.016 44.224 80.016C43.1147 80.016 42.56 80.5707 42.56 81.68ZM44.224 63.632C45.248 63.632 45.76 63.0773 45.76 61.968V53.648C45.76 52.5387 45.248 51.984 44.224 51.984C43.1147 51.984 42.56 52.5387 42.56 53.648V61.968C42.56 63.0773 43.1147 63.632 44.224 63.632Z"
+                fill="#1E1E1E"
+              />
+              <path
+                d="M1.92 105.56V40.024C1.92 39.1707 2.21867 38.4453 2.816 37.848C3.41333 37.2507 4.13867 36.952 4.992 36.952H70.528C71.3813 36.952 72.1067 37.2507 72.704 37.848C73.3013 38.4453 73.6 39.1707 73.6 40.024V68.056C73.6 68.9093 73.3013 69.6347 72.704 70.232C72.1067 70.8293 71.3813 71.128 70.528 71.128C69.4187 71.128 68.864 71.6827 68.864 72.792C68.864 73.816 69.4187 74.328 70.528 74.328C71.3813 74.328 72.1067 74.6267 72.704 75.224C73.3013 75.8213 73.6 76.5893 73.6 77.528V105.56C73.6 106.413 73.3013 107.139 72.704 107.736C72.1067 108.333 71.3813 108.632 70.528 108.632H4.992C4.13867 108.632 3.41333 108.333 2.816 107.736C2.21867 107.139 1.92 106.413 1.92 105.56ZM34.56 78.68V91.48C34.56 92.5893 35.1147 93.144 36.224 93.144C37.248 93.144 37.76 92.5893 37.76 91.48V78.68C37.76 77.5707 37.248 77.016 36.224 77.016C35.1147 77.016 34.56 77.5707 34.56 78.68ZM36.224 60.632C37.248 60.632 37.76 60.0773 37.76 58.968V50.648C37.76 49.5387 37.248 48.984 36.224 48.984C35.1147 48.984 34.56 49.5387 34.56 50.648V58.968C34.56 60.0773 35.1147 60.632 36.224 60.632Z"
+                fill="#F05542"
+                class="logo-color"
+              />
+            </svg>
+          </a>
+          <div class="listing">
+            <a href="/sp2-bdiddy/create/">Create Listing</a>
+          </div>
+          <button
+            class="hamburger"
+            title="Menu"
+            aria-expanded="false"
+            aria-label="Hamburger button"
+          >
+            <div class="lines">
+              <div class="line line-one"></div>
+              <div class="line line-two"></div>
+            </div>
+          </button>
+          <ul class="nav__content">
+            <li><a href="/sp2-bdiddy/profile/" class="header__links">Profile</a></li>
+            <li class="mobile-listing">
+              <a href="/sp2-bdiddy/create/" class="header__links">Create Listing</a>
+            </li>
+            <li><a href="" class="header__links">Contact</a></li>
+            <li><a href="/sp2-bdiddy/authentication/" class="header__links">Logout</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main class="profile-main">
+        <section class="profile-section border shadow">
+          <article class="profile-info">
+            <div>
+              <figure>
+                <img class="border" src="/assets/img/loveride-image.png" alt="Bob's Profile Picture">
+              </figure>
+              <h1 class="name">Bob</h1>
+            </div>
+            <ul class="info-list">
+              <li>Email: <a href="mailto:bob@bobmail.com">bob@bobmail.com</a></li>
+              <li>Wins: 9</li>
+              <li>Listings: 3</li>
+              <li class="funds">Funds: $500</li>
+            </ul>
+          </article>
+          <article class="card-article">
+            <h2>Your Bids:</h2>
+            <div class="profile-card-container">
+              
+                <a href="" class="profile-card border">
+                  <img src="/assets/img/loveride-image.png" alt="">
+                  <div>
+                    Cool Car Bla bla blaniiiiiiiiooasdjasidjaskld
+                  </div>
+                </a>
+         
+              <a href="" class="profile-card border">
+                <img src="/assets/img/loveride-image.png" alt="">
+                <div>
+                  Cool Car Bla bla blaniiiiiiiiooasdjasidjaskld
+                </div>
+              </a>
+              <a href="" class="profile-card border">
+                <img src="/assets/img/loveride-image.png" alt="">
+                <div>
+                  Cool Car Bla bla blaniiiiiiiiooasdjasidjaskld
+                </div>
+              </a>
+              <a href="" class="profile-card border">
+                <img src="/assets/img/loveride-image.png" alt="">
+                <div>
+                  Cool Car Bla bla blaniiiiiiiiooasdjasidjaskld
+                </div>
+              </a>
+              <a href="" class="profile-card border">
+                <img src="/assets/img/loveride-image.png" alt="">
+                <div>
+                  Cool Car Bla bla blaniiiiiiiiooasdjasidjaskld
+                </div>
+              </a>
+              <a href="" class="profile-card border">
+                <img src="/assets/img/loveride-image.png" alt="">
+                <div>
+                  Cool Car Bla bla blaniiiiiiiiooasdjasidjaskld
+                </div>
+              </a>
+              <a href="" class="profile-card border">
+                <img src="/assets/img/loveride-image.png" alt="">
+                <div>
+                  Cool Car Bla bla blaniiiiiiiiooasdjasidjaskld
+                </div>
+              </a>
+            </div>
+          </article>
+        </section>
+   
+      </main>
+</body>
+</html>
