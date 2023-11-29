@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <title>B-Diddy | Create Listing</title>
-    <script type="module" crossorigin src="/sp2-bdiddy/assets/create-7afe1d58.js"></script>
-    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/main-aab10879.js">
+    <script type="module" crossorigin src="/sp2-bdiddy/assets/create-04fddfcc.js"></script>
+    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/main-cb7af1f5.js">
     <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/hamburger-79a04485.js">
-    <link rel="stylesheet" href="/sp2-bdiddy/assets/main-e779ba39.css">
+    <link rel="stylesheet" href="/sp2-bdiddy/assets/main-774ac5bc.css">
   </head>
   <body>
     <header>
       <nav aria-label="Navigation" class="nav">
-        <a href="/sp2-bdiddy/index.html" class="logo"><span class="hide">Home</span>
+        <a href="/sp2-bdiddy/" class="logo"><span class="hide">Home</span>
           <svg
             class="logo-header-svg"
             width="84"
@@ -36,7 +36,7 @@
           </svg>
         </a>
         <div class="listing">
-          <a href="/">Create Listing</a>
+          <a href="/sp2-bdiddy/create/">Create Listing</a>
         </div>
         <button
           class="hamburger"
@@ -51,14 +51,14 @@
         </button>
         <ul class="nav__content">
           <li>
-            <a href="/pages/profile.html" class="header__links">Profile</a>
+            <a href="/sp2-bdiddy/profile/" class="header__links">Profile</a>
           </li>
           <li class="mobile-listing">
             <a href="" class="header__links">Create Listing</a>
           </li>
           <li><a href="" class="header__links">Contact</a></li>
           <li>
-            <a href="/sp2-bdiddy/pages/login.html" class="header__links"
+            <a href="/sp2-bdiddy/authentication/" class="header__links"
               >Logout</a
             >
           </li>
@@ -107,8 +107,8 @@
         </form>
       </section>
 
-      <dialog data-modal>
-        <form action="" class="upload-images-form">
+      <dialog data-modal onclick="event.target==this && this.close()">
+        <form action="" method="dialog" class="upload-images-form">
           <h2>Upload Images</h2>
           <label for="url1">Image URL 1</label>
           <input type="text" name="url1" id="url1"/>
@@ -124,5 +124,6 @@
         </form>
       </dialog>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   </body>
 </html>

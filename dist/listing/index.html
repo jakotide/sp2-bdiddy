@@ -4,16 +4,21 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/sp2-bdiddy/assets/logo-046ab9f6.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
     
     <title>B-Diddy | Listing</title>
-    <script type="module" crossorigin src="/sp2-bdiddy/assets/main-aab10879.js"></script>
-    <script type="module" crossorigin src="/sp2-bdiddy/assets/hamburger-79a04485.js"></script>
-    <link rel="stylesheet" href="/sp2-bdiddy/assets/main-e779ba39.css">
+    <script type="module" crossorigin src="/sp2-bdiddy/assets/listing-6e8365bd.js"></script>
+    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/main-cb7af1f5.js">
+    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/hamburger-79a04485.js">
+    <link rel="stylesheet" href="/sp2-bdiddy/assets/main-774ac5bc.css">
   </head>
-  <body>
+  <body class="listing-body">
     <header>
       <nav aria-label="Navigation" class="nav">
-        <a href="/sp2-bdiddy/index.html" class="logo"
+        <a href="/sp2-bdiddy/" class="logo"
           ><span class="hide">Home</span>
           <svg
             class="logo-header-svg"
@@ -51,14 +56,14 @@
         </button>
         <ul class="nav__content">
           <li>
-            <a href="/pages/profile.html" class="header__links">Profile</a>
+            <a href="/sp2-bdiddy/profile/" class="header__links">Profile</a>
           </li>
           <li class="mobile-listing">
-            <a href="" class="header__links">Create Listing</a>
+            <a href="/sp2-bdiddy/create/" class="header__links">Create Listing</a>
           </li>
           <li><a href="" class="header__links">Contact</a></li>
           <li>
-            <a href="/sp2-bdiddy/pages/login.html" class="header__links"
+            <a href="/sp2-bdiddy/authentication/" class="header__links"
               >Logout</a
             >
           </li>
@@ -66,30 +71,91 @@
       </nav>
     </header>
     <main class="main-listing">
-      <section class="listing-box shadow">
-        <div class="image-profile-container">
-          <div class="carousel">
-            <button class="carousel-btn prev">&#8592;</button>
-            <button class="carousel-btn next">&#8594;</button>
-            <ul>
-              <li>
-                <img class="slide" data-active src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="Listing Image nr 1" />
+      <div class="listing-box shadow border">
+        <section class="image-profile-container">
+          <div class="carousel" data-carousel>
+            <button class="carousel-button prev" data-carousel-button="prev">
+              <span class="hide">Previous Image</span>
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <button class="carousel-button next" data-carousel-button="next">
+              <span class="hide">Next Image</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <ul data-slides>
+              <li class="slide" data-active>
+                <img
+                  src="https://source.unsplash.com/78A265wPiO4"
+                  alt="Listing image 1"
+                />
               </li>
-              <li>
-                <img class="slide" src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="Listing Image nr 2" />
+              <li class="slide">
+                <img
+                  src="https://source.unsplash.com/eOpewngf68w"
+                  alt="Listing image 2"
+                />
               </li>
-              <li>
-                <img class="slide" src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="Listing Image nr 3" />
+              <li class="slide">
+                <img
+                  src="https://source.unsplash.com/ndN00KmbJ1c"
+                  alt="Listing image 3"
+                />
               </li>
             </ul>
           </div>
           <div class="profile-box">
             <div>Listed by:</div>
-            <img src="" alt="Profile Image">
+            <div class="img-box">
+              <img class="border" src="/sp2-bdiddy/assets/0_0-57bf4983.png" alt="Users Profile Picture" />
+            </div>
             <div class="profile-name">Bob</div>
+            <div class="mobile-date">2023.23.23</div>
           </div>
-        </div>
-      </section>
+        </section>
+        <section class="listing-description">
+          <div class="description">
+            <h1>Cool Car</h1>
+            <p>Lorem ipsum</p>
+          </div>
+          <div class="start-end">
+            <div class="desktop-start-date">Started: 23.22.2222, 12pm</div>
+            <div class="end">Ends at: 23.23.2222, 10pm</div>
+          </div>
+        </section>
+        <section class="bidding-section">
+          <div class="leader-box">
+            <div>Current Highest Bidder:</div>
+            <div class="leader-flex">
+              <div>400$</div>
+              <div>Bobby</div>
+            </div>
+          </div>
+          <div class="bidding-box">
+            <form action="" class="bid-form">
+              <div>Funds available: 800$</div>
+              <div class="amount-box">
+                <button class="amount-btn">
+                  <span class="hide">Minus</span>
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+                <label for="amount"><span class="hide">Amount</span></label>
+                <input
+                  class="border"
+                  type="number"
+                  id="amount"
+                  name="amount"
+                  placeholder="Enter Amount"
+                />
+                <button class="amount-btn">
+                  <span class="hide">Pluss</span>
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+              <button class="bid-btn border" type="submit">Place Bid</button>
+            </form>
+          </div>
+        </section>
+      </div>
     </main>
   </body>
 </html>
