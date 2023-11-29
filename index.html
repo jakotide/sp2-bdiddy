@@ -10,15 +10,15 @@
     />
     
     <title>B-Diddy | Home</title>
-    <script type="module" crossorigin src="/sp2-bdiddy/assets/main-51c7da19.js"></script>
-    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/main-aab10879.js">
+    <script type="module" crossorigin src="/sp2-bdiddy/assets/main-e2aecfaa.js"></script>
+    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/main-cb7af1f5.js">
     <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/hamburger-79a04485.js">
-    <link rel="stylesheet" href="/sp2-bdiddy/assets/main-e779ba39.css">
+    <link rel="stylesheet" href="/sp2-bdiddy/assets/main-774ac5bc.css">
   </head>
   <body class="body">
     <header>
       <nav aria-label="Navigation" class="nav">
-        <a href="/sp2-bdiddy/pages/login.html" class="logo"><span class="hide">Home</span>
+        <a href="/sp2-bdiddy/" class="logo"><span class="hide">Home</span>
           <svg
             class="logo-header-svg"
             width="84"
@@ -40,7 +40,7 @@
           </svg>
         </a>
         <div class="listing">
-          <a href="/sp2-bdiddy/pages/create.html">Create Listing</a>
+          <a href="/sp2-bdiddy/create/">Create Listing</a>
         </div>
         <button
           class="hamburger"
@@ -54,12 +54,12 @@
           </div>
         </button>
         <ul class="nav__content">
-          <li><a href="/sp2-bdiddy/pages/profile.html" class="header__links">Profile</a></li>
+          <li><a href="/sp2-bdiddy/profile/" class="header__links">Profile</a></li>
           <li class="mobile-listing">
-            <a href="" class="header__links">Create Listing</a>
+            <a href="/sp2-bdiddy/create/" class="header__links">Create Listing</a>
           </li>
           <li><a href="" class="header__links">Contact</a></li>
-          <li><a href="" class="header__links">Logout</a></li>
+          <li><a href="/sp2-bdiddy/authentication/" class="header__links">Logout</a></li>
         </ul>
       </nav>
     </header>
@@ -69,18 +69,33 @@
         <div class="hero__grid">
           <h1 class="h1-main">B-Diddy</h1>
           <div class="header-text">The Nr.1 Auction House</div>
-          <form action="" class="search shadow">
-            <label for="search-input"><span class="hide">Search</span></label>
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input
-              type="search"
-              id="search-input"
-              name="search-input"
-              required
-              title="Please enter a value"
-            />
-            <button type="submit">Search</button>
-          </form>
+          <div class="mobile-filter-row">
+            <form action="" class="search shadow">
+              <label for="search-input"><span class="hide">Search</span></label>
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input
+                type="search"
+                id="search-input"
+                name="search-input"
+                required
+                title="Please enter a value"
+                placeholder="Search Listings"
+              />
+              <button type="submit">Search</button>
+            </form>
+            <button class="filter__menu-btn">
+              Filter
+              <ul class="filter__menu">
+                <li><a href="">All</a></li>
+                <li><a href="">Electronics</a></li>
+                <li><a href="">Fashion</a></li>
+                <li><a href="">Vehicles</a></li>
+                <li><a href="">Retro</a></li>
+                <li><a href="">Food</a></li>
+                <li><a href="">Art</a></li>
+              </ul>
+            </button>
+          </div>
           <div class="filter__menu-desktop">
             <div class="filter__btn active">All</div>
             <div class="filter__btn">Electronics</div>
@@ -91,18 +106,6 @@
             <div class="filter__btn">Art</div>
             <div class="filter__btn">Housing</div>
           </div>
-          <button class="filter__menu-btn">
-            Filter
-            <ul class="filter__menu">
-              <li><a href="">All</a></li>
-              <li><a href="">Electronics</a></li>
-              <li><a href="">Fashion</a></li>
-              <li><a href="">Vehicles</a></li>
-              <li><a href="">Retro</a></li>
-              <li><a href="">Food</a></li>
-              <li><a href="">Art</a></li>
-            </ul>
-          </button>
         </div>
       </div>
 
@@ -113,7 +116,7 @@
             <img class="card__img" src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="" />
             <div class="card__details">
               <div>Jakob listed:</div>
-              <h3>Cool Carddsfsdsdfsdfsdfsd</h3>
+              <h3>Cool car that is working almost ok ok ok</h3>
               <div>Current leader: Bob</div>
             </div>
             <div class="card__price | flex-row">
