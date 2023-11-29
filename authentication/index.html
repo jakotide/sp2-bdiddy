@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="/src/js/pages/login.js" defer type="module"></script>
+    <script src="/src/js/pages/authentication.js" defer type="module"></script>
     <title>B-Diddy | Login</title>
   </head>
   <body class="body-login">
@@ -39,7 +39,7 @@
               </div>
             </form>
 
-            <form action="" class="register-form">
+            <form action="" class="register-form" id="register-form">
               <div class="login-header">
                 <h2>Get Started</h2>
                 <h6>Already registered?</h6>
@@ -49,11 +49,24 @@
               <div class="actual-form">
                 <div class="input-wrap">
                   <label for="name">Username</label>
-                  <input type="text" name="name" id="reg-name" required />
+                  <input
+                    type="text"
+                    name="name"
+                    id="reg-name"
+                    required
+                    pattern="^[\w]+$"
+                    maxlength="20"
+                    title="Username can only contain lowercase and uppercase letters and underscore (_). Example: User_Name123"
+                  />
                 </div>
                 <div class="input-wrap">
                   <label for="name">Email</label>
-                  <input type="email" name="email" id="email" required />
+                  <input type="email" name="email" id="email" required pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+                  title="Only stud.noroff.no or noroff.no domains can register"/>
+                </div>
+                <div class="input-wrap">
+                  <label for="avatar">Avatar</label>
+                  <input type="url" name="avatar" id="avatar" placeholder="Enter Your URL"/>
                 </div>
                 <div class="input-wrap">
                   <label for="password">Password</label>
@@ -61,7 +74,9 @@
                     type="password"
                     name="password"
                     id="reg-password"
+                    minLength="8"
                     required
+                    title="Password must contain 8 characters"
                   />
                 </div>
                 <button type="submit" class="login-btn">Sign Up</button>
