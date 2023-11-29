@@ -1,13 +1,13 @@
 import { API_AUCTION_URL } from "../constants";
 
-const path = "/auth/register/";
+const path = "/auth/login/";
 const method = "post";
 
-export async function register(profile) {
-    const regUrl = API_AUCTION_URL + path;
-    console.log(regUrl)
+export async function login(profile) {
+    const loginUrl = API_AUCTION_URL + path;
+    console.log(loginUrl)
     try {
-        const response = await fetch(regUrl, {
+        const response = await fetch(loginUrl, {
             headers: {
                 "Content-Type": "application/json"
             },
@@ -26,5 +26,3 @@ export async function register(profile) {
         // console.error("An error occurred during registration:", error);
     }
 }
-
-
