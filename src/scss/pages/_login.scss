@@ -155,12 +155,13 @@
 
 .login-btn {
   background-color: #ff91e8;
-  padding: 0.75rem 3rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   border: 2px solid var(--clr-black);
   outline: none;
   cursor: pointer;
-  margin-top: 1rem;
+  text-align: center;
+  width: 160px;
+  height: 50px;
   transition: 0.2s ease;
 }
 
@@ -186,6 +187,26 @@
 .main-login.active .welcome-box {
   left: 0;
 }
+
+.loader {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--clr-black);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  } 
 
 @media (max-width: 850px) {
   .box {

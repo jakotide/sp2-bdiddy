@@ -5,7 +5,11 @@ import '../../scss/main.scss';
 import '../components/loginSlider';
 import { register } from '../api/auth/register'; 
 import { registerFormListener } from '../handlers/registerForm';
+import { loginFormListener } from '../handlers/loginForm';
 
  
-register(); 
+// register(); 
+
 registerFormListener();
+
+loginFormListener();

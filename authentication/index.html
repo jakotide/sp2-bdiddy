@@ -12,7 +12,7 @@
       <div class="box">
         <div class="inner-box">
           <div class="forms-wrap">
-            <form action="/sp2-bdiddy/" class="login-form">
+            <form class="login-form">
               <div class="login-header">
                 <h2>Welcome Back</h2>
                 <h6>Not registered yet?</h6>
@@ -48,7 +48,7 @@
 
               <div class="actual-form">
                 <div class="input-wrap">
-                  <label for="name">Username</label>
+                  <label for="reg-name">Username</label>
                   <input
                     type="text"
                     name="name"
@@ -60,7 +60,7 @@
                   />
                 </div>
                 <div class="input-wrap">
-                  <label for="name">Email</label>
+                  <label for="email">Email</label>
                   <input type="email" name="email" id="email" required pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
                   title="Only stud.noroff.no or noroff.no domains can register"/>
                 </div>
@@ -79,7 +79,7 @@
                     title="Password must contain 8 characters"
                   />
                 </div>
-                <button type="submit" class="login-btn">Sign Up</button>
+                <button type="submit" class="login-btn" id="signUpBtn">Sign Up</button>
 
                 <p>By signing up I agree to the terms of services</p>
               </div>
