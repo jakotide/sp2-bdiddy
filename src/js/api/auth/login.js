@@ -1,19 +1,16 @@
 import { API_AUCTION_URL } from "../constants";
+import { AUTH_LOGIN } from "../constants";
 import { save } from "../../storage/save";
 
-
-const path = "/auth/login/";
-const method = "post";
-
 export async function login(profile) {
-  const loginUrl = API_AUCTION_URL + path;
-  console.log(loginUrl);
+  const loginUrl = API_AUCTION_URL + AUTH_LOGIN;
+
   try {
     const response = await fetch(loginUrl, {
       headers: {
         "Content-Type": "application/json",
       },
-      method,
+      method: "POST",
       body: JSON.stringify(profile),
     });
 
@@ -22,8 +19,7 @@ export async function login(profile) {
       console.error("Login failed:", errorData);
       alert("Something went wrong!");
     } else {
-      const { accessToken, ...user} = await response.json();
-    //   console.log("Registration successful:", result);
+      const { accessToken, ...user } = await response.json();
 
       save("token", accessToken);
       save("User", user);
