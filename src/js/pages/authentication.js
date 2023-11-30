@@ -7,9 +7,6 @@ import { register } from '../api/auth/register';
 import { registerFormListener } from '../handlers/registerForm';
 import { loginFormListener } from '../handlers/loginForm';
 
- 
-// register(); 
-
 registerFormListener();
 
 loginFormListener();
