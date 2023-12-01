@@ -52,6 +52,10 @@
         border-bottom: 2px solid var(--clr-black);
       }
 
+      .no-image {
+        background-image: url('/assets/img/noimage.jpg');
+      }
+
       &__details {
         background-color: mainTheme.$primary-color;
         display: flex;

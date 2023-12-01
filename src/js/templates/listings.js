@@ -4,9 +4,22 @@ export function listingsTemplate(listingData) {
   card.href = "/sp2-bdiddy/listing/";
 
   const listingImg = document.createElement("img");
-  listingImg.src = listingData.media;
   listingImg.classList.add("card__img");
-  listingImg.alt = "Image of the listed item.";
+  if (!listingData.media || listingData.media === " ") {
+    cardImage.src = "/assets/img/noimage.jpg"
+  } else {
+    const image = new Image();
+    image.src = listingData.media;
+    image.classList.add("card__img");
+
+    image.onload = function () {
+        listingImg.src = listingData.media;
+    };
+    image.onerror = function () {
+      listingImg.src =
+        "/assets/img/noimage.jpg";
+    };
+  }
 
   const listingDetails = document.createElement("div");
   listingDetails.classList.add("card__details");
