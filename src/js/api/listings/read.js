@@ -3,7 +3,8 @@ import { LISTING } from "../constants";
 import { getApiHeaders } from "../../handlers/headers.js";
 
 export async function getListings() {
-  const listingsURL = API_AUCTION_URL + LISTING;
+  const listingsURL = `${API_AUCTION_URL}${LISTING}?_bids=true&_seller=true&_tags=true&_active=true`;
+
   try {
     const response = await fetch(listingsURL, {
       headers: getApiHeaders(),
@@ -14,8 +15,6 @@ export async function getListings() {
     console.error("Error:", error);
   }
 };
-
-getListings();
 
 export async function getListing(id) {
   if (!id) {
@@ -32,5 +31,3 @@ export async function getListing(id) {
     console.error("Error:", error);
   }
 };
-
-getListing("1fd16e0d-8bd0-4aa6-8e82-dc45ad4eb8ad").then(console.log);
