@@ -8,7 +8,7 @@
   min-height: 100vh;
   overflow: hidden;
   padding: 2rem;
-  background-color: mainTheme.$border;
+  background-color: mainTheme.$body;
   font-family: "MabryPro-Regular";
 
   .profile-section {
@@ -16,7 +16,7 @@
     max-width: 84rem;
     width: 100%;
     height: auto;
-    background-color: mainTheme.$primary-color;
+    background-color: mainTheme.$border;
 
     .profile-info {
       display: flex;
@@ -26,11 +26,16 @@
       border-bottom: 3px solid var(--clr-black);
       padding: 2rem;
 
-      img {
-        border-radius: 50%;
-        width: 100%;
+      .profile-img {
+        border-radius: 100%;
+        width: 16rem;
         height: 16rem;
         object-fit: cover;
+      }
+
+      .email {
+        text-decoration: none;
+        color: var(--clr-black);
       }
 
       .name {
@@ -50,9 +55,16 @@
         font-weight: 700;
       }
     }
+    .current {
+      background-color: mainTheme.$star;
+    }
+    .listings {
+      background-color: mainTheme.$secondary-color;
+    }
 
     .card-article {
       padding: 2rem 4rem;
+      border-bottom: 3px solid var(--clr-black);
 
       h2 {
         font-size: 1.5rem;
@@ -63,12 +75,12 @@
         width: 100%;
         height: auto;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 13rem));
         gap: 2rem;
 
         .profile-card {
-          max-height: 18rem;
-          width: 12rem;
+          height: 18rem;
+          width: 100%;
           transition: 0.2s ease;
           text-decoration: none;
 
@@ -85,14 +97,34 @@
           }
           div {
             text-align: left;
+            height: 40%;
             padding: 1rem;
             font-size: 1.25rem;
             font-family: "BasementGrotesque";
             color: var(--clr-black);
             overflow: hidden;
             text-overflow: ellipsis;
+            background-color: mainTheme.$primary-color;
           }
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 42rem) {
+  .profile-main {
+    .profile-section {
+      .card-article {
+        padding: 2rem 2rem;
+
+        .profile-card-container {
+          grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+        }
+      }
+
+      .profile-info {
+        flex-direction: column;
       }
     }
   }
