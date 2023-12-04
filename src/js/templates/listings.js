@@ -5,22 +5,19 @@ export function listingsTemplate(listingData) {
 
   const listingImg = document.createElement("img");
   listingImg.classList.add("card__img");
-  
+
   if (!listingData.media || listingData.media === " ") {
-    cardImage.src = "/assets/img/noimage.jpg"
+    cardImage.src = "/assets/img/noimage.jpg";
   } else {
     const image = new Image();
     image.src = listingData.media;
-    // image.classList.add("card__img");
 
     image.onload = function () {
-        listingImg.src = listingData.media;
-        listingImg.alt = "Image of " + listingData.title;
-        // image.classList.add("card__img");
+      listingImg.src = listingData.media;
+      listingImg.alt = "Image of " + listingData.title;
     };
     image.onerror = function () {
-      listingImg.src =
-        "/assets/img/noimage.jpg";
+      listingImg.src = "/assets/img/noimage.jpg";
     };
   }
 
@@ -37,6 +34,31 @@ export function listingsTemplate(listingData) {
 
   const title = document.createElement("h3");
   title.textContent = listingData.title;
+
+  function findHighestBid(bids) {
+    return bids.reduce(
+      (highest, current) =>
+        current.amount > highest.amount ? current : highest,
+      bids[0]
+    );
+  }
+
+  const highestBid = findHighestBid(listingData.bids);
+
+  let leader;
+
+  if (window.innerWidth < 450) {
+    if (highestBid) {
+      leader = document.createElement("div");
+      leader.textContent = "Current leader: " + highestBid.bidderName;
+    } else {
+      leader = document.createElement("div");
+      leader.textContent = "";
+    }
+  } else {
+    leader = document.createElement("div");
+    leader.textContent = "";
+  }
 
   const priceSection = document.createElement("div");
   priceSection.classList.add("card__price", "flex-row");
@@ -61,7 +83,7 @@ export function listingsTemplate(listingData) {
   const arrow = document.createElement("i");
   arrow.classList.add("fa-solid", "fa-arrow-right");
 
-  listingDetails.append(seller, title);
+  listingDetails.append(seller, title, leader);
   priceSection.append(currentBid, arrow);
   card.append(listingImg, listingDetails, priceSection);
   return card;

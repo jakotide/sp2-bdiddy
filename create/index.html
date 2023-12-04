@@ -32,7 +32,7 @@
           </svg>
         </a>
         <div class="listing">
-          <a href="/sp2-bdiddy/create/">Create Listing</a>
+          <a href="/sp2-bdiddy/create/" class="listingLink">Create Listing</a>
         </div>
         <button
           class="hamburger"
@@ -46,18 +46,12 @@
           </div>
         </button>
         <ul class="nav__content">
-          <li>
-            <a href="/sp2-bdiddy/profile/" class="header__links">Profile</a>
-          </li>
+          <li><a href="/sp2-bdiddy/profile/" class="header__links">Profile</a></li>
           <li class="mobile-listing">
-            <a href="" class="header__links">Create Listing</a>
+            <a href="/sp2-bdiddy/create/" class="header__links">Create Listing</a>
           </li>
           <li><a href="" class="header__links">Contact</a></li>
-          <li>
-            <a href="/sp2-bdiddy/authentication/" class="header__links logOutBtn"
-              >Logout</a
-            >
-          </li>
+          <li><a href="/sp2-bdiddy/authentication/" class="header__links logOutBtn">Logout</a></li>
         </ul>
       </nav>
     </header>
@@ -70,9 +64,9 @@
           <label for="description">Description</label>
           <textarea type="text" id="description" name="description"></textarea>
           <label for="media">Media</label>
-          <button name="media" id="media" class="media-btn" data-open-modal>
+          <div name="media" id="media" class="media-btn" data-open-modal>
             Upload media
-          </button>
+          </div>
           <div
             class="thumbnails-container"
             aria-label="Image Thumbnails Preview"
@@ -102,23 +96,23 @@
           <button type="submit" class="create-btn">Create Listing</button>
         </form>
       </section>
-
       <dialog data-modal onclick="event.target==this && this.close()">
         <form action="" method="dialog" class="upload-images-form">
           <h2>Upload Images</h2>
-          <label for="url1">Image URL 1</label>
-          <input type="text" name="url1" id="url1"/>
-
-          <label for="url2">Image URL 2</label>
-          <input type="text" name="url2" id="url2"/>
-
-          <label for="url3">Image URL 3</label>
-          <input type="text" name="url3" id="url3"/>
-
+          <label for="media">Image URL 1</label>
+          <input type="text" name="media" id="url1" />
+      
+          <label for="media">Image URL 2</label>
+          <input type="text" name="media" id="url2" />
+      
+          <label for="media">Image URL 3</label>
+          <input type="text" name="media" id="url3" />
+      
           <button type="submit" class="upload-btn">Upload</button>
           <button data-close-modal>🗙</button>
         </form>
       </dialog>
+      
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   </body>

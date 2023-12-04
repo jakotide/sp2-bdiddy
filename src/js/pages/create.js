@@ -4,6 +4,8 @@ import "../../scss/main.scss";
 // JS
 import "../components/hamburger";
 import "../components/tags";
+import "../handlers/submitListing.js";
+import { submitListing } from "../handlers/submitListing.js";
 
 const openModalBtn = document.querySelector("[data-open-modal]");
 const closeModalBtn = document.querySelector("[data-close-modal]");
@@ -37,9 +39,9 @@ document.addEventListener("DOMContentLoaded", function () {
   uploadImagesForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const url1 = document.querySelector('[name="url1"]').value.trim();
-    const url2 = document.querySelector('[name="url2"]').value.trim();
-    const url3 = document.querySelector('[name="url3"]').value.trim();
+    const url1 = document.querySelector("#url1").value.trim();
+    const url2 = document.querySelector("#url2").value.trim();
+    const url3 = document.querySelector("#url3").value.trim();
 
     if (url1 !== "") {
       createThumbnail(url1, 1);
@@ -94,3 +96,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+submitListing();
