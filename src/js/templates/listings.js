@@ -1,19 +1,22 @@
 export function listingsTemplate(listingData) {
   const card = document.createElement("a");
   card.classList.add("card", "shadow");
-  card.href = "/sp2-bdiddy/listing/";
+  card.href = "/sp2-bdiddy/listing/?id=" + listingData.id;
 
   const listingImg = document.createElement("img");
   listingImg.classList.add("card__img");
+  
   if (!listingData.media || listingData.media === " ") {
     cardImage.src = "/assets/img/noimage.jpg"
   } else {
     const image = new Image();
     image.src = listingData.media;
-    image.classList.add("card__img");
+    // image.classList.add("card__img");
 
     image.onload = function () {
         listingImg.src = listingData.media;
+        listingImg.alt = "Image of " + listingData.title;
+        // image.classList.add("card__img");
     };
     image.onerror = function () {
       listingImg.src =
@@ -29,7 +32,7 @@ export function listingsTemplate(listingData) {
   if (listingData.seller && listingData.seller.name) {
     seller.textContent = `${listingData.seller.name} listed:`;
   } else {
-    seller.textContent = "Seller information not available";
+    seller.textContent = "User listed:";
   }
 
   const title = document.createElement("h3");

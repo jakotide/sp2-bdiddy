@@ -4,7 +4,7 @@ import { getApiHeaders } from "../../handlers/headers.js";
 
 export async function getListings() {
   const listingsURL = `${API_AUCTION_URL}${LISTING}?_bids=true&_seller=true&_tags=true&_active=true`;
-
+  
   try {
     const response = await fetch(listingsURL, {
       headers: getApiHeaders(),
@@ -16,18 +16,26 @@ export async function getListings() {
   }
 };
 
+
 export async function getListing(id) {
-  if (!id) {
-    throw new Error("Get listing requires ID.");
-  };
-  const listingURL = `${API_AUCTION_URL}${LISTING}${id}`;
   try {
-    const response = await fetch(listingURL, {
+    if (!id) {
+      throw new Error("Get requires a listing id");
+    }
+
+    const response = await fetch(`${API_AUCTION_URL}${LISTING}${id}?_seller=true&_bids=true`, {
+      method: "GET",
       headers: getApiHeaders(),
     });
 
-    return await response.json();
+    if (response.ok) {
+      return await response.json();
+    } else {
+      throw new Error(response.statusText);
+    }
   } catch (error) {
-    console.error("Error:", error);
+    throw new Error(error);
   }
-};
+}
+
+

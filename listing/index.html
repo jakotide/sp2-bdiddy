@@ -36,7 +36,7 @@
             />
           </svg>
         </a>
-        <div class="listing">
+        <div class="listingLink listing">
           <a href="/">Create Listing</a>
         </div>
         <button
@@ -55,11 +55,15 @@
             <a href="/sp2-bdiddy/profile/" class="header__links">Profile</a>
           </li>
           <li class="mobile-listing">
-            <a href="/sp2-bdiddy/create/" class="header__links">Create Listing</a>
+            <a href="/sp2-bdiddy/create/" class="header__links"
+              >Create Listing</a
+            >
           </li>
           <li><a href="" class="header__links">Contact</a></li>
           <li>
-            <a href="/sp2-bdiddy/authentication/" class="header__links"
+            <a
+              href="/sp2-bdiddy/authentication/"
+              class="header__links logOutBtn"
               >Logout</a
             >
           </li>
@@ -78,53 +82,29 @@
               <span class="hide">Next Image</span>
               <i class="fa-solid fa-arrow-right"></i>
             </button>
-            <ul data-slides>
-              <li class="slide" data-active>
-                <img
-                  src="https://source.unsplash.com/78A265wPiO4"
-                  alt="Listing image 1"
-                />
-              </li>
-              <li class="slide">
-                <img
-                  src="https://source.unsplash.com/eOpewngf68w"
-                  alt="Listing image 2"
-                />
-              </li>
-              <li class="slide">
-                <img
-                  src="https://source.unsplash.com/ndN00KmbJ1c"
-                  alt="Listing image 3"
-                />
-              </li>
+            <ul data-slides class="dataSlide">
+              <li class="slide slideImg" data-active></li>
+              <li class="slide2 slideImg"></li>
+              <li class="slide3 slideImg"></li>
+              <li class="slide4 slideImg"></li>
             </ul>
           </div>
           <div class="profile-box">
             <div>Listed by:</div>
-            <div class="img-box">
-              <img class="border" src="/assets/img/0_0.png" alt="Users Profile Picture" />
-            </div>
-            <div class="profile-name">Bob</div>
+            <div class="img-box"></div>
+            <div class="profileName"></div>
+
             <div class="mobile-date">2023.23.23</div>
           </div>
         </section>
         <section class="listing-description">
-          <div class="description">
-            <h1>Cool Car</h1>
-            <p>Lorem ipsum</p>
-          </div>
-          <div class="start-end">
-            <div class="desktop-start-date">Started: 23.22.2222, 12pm</div>
-            <div class="end">Ends at: 23.23.2222, 10pm</div>
-          </div>
+          <div class="description"></div>
+          <div class="start-end"></div>
         </section>
         <section class="bidding-section">
           <div class="leader-box">
             <div>Current Highest Bidder:</div>
-            <div class="leader-flex">
-              <div>400$</div>
-              <div>Bobby</div>
-            </div>
+            <div class="leader-flex"></div>
           </div>
           <div class="bidding-box">
             <form action="" class="bid-form">
