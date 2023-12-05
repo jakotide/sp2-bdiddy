@@ -12,7 +12,7 @@ export async function getProfile(name) {
         method: "GET",
         headers: getApiHeaders(),
       });
-    
+      console.log(response.status)
       if (response.ok) {
         // return await response.json();
         const result = await response.json();

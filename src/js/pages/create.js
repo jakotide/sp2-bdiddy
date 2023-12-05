@@ -7,6 +7,7 @@ import "../components/tags";
 import "../handlers/submitListing.js";
 import { submitListing } from "../handlers/submitListing.js";
 
+
 const openModalBtn = document.querySelector("[data-open-modal]");
 const closeModalBtn = document.querySelector("[data-close-modal]");
 const modal = document.querySelector("[data-modal]");
@@ -65,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     if (thumbnailBox) {
       thumbnailBox.innerHTML = "";
+      thumbnailBox.appendChild(thumbnail);
     }
 
     const xThumbnail = document.createElement("div");
