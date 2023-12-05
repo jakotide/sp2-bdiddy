@@ -26,7 +26,7 @@ export async function register(profile) {
 
       setTimeout(() => {
         loginBtn.textContent = "Success!";
-      }, 5000);
+      }, 2000);
     }
   } catch (error) {
     console.error("An error occurred during registration:", error);
