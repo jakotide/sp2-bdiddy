@@ -90,8 +90,31 @@ export function listingsTemplate(listingData) {
 }
 
 export function renderListings(listingsData, parent1, parent2) {
-  const firstEightListings = listingsData.slice(0, 8);
-  const restListings = listingsData.slice(8);
+  const filteredListings = listingsData.filter((listing) => {
+    const lowerCaseTitle = listing.title.toLowerCase();
+    return (
+      !lowerCaseTitle.includes("test") &&
+      !lowerCaseTitle.includes("testing") &&
+      !listing.title.includes("tester")
+    );
+  });
+
+  const sortedNewest = filteredListings.sort(
+    (a, b) => new Date(b.created) - new Date(a.created)
+  );
+
+  const firstEightListings = sortedNewest.slice(0, 8);
+  let restListings = sortedNewest.slice(8, 40);
+
+  const showMoreBtn = document.querySelector(".showMoreBtn");
+
+  showMoreBtn.addEventListener("click", () => {
+    showMoreBtn.innerHTML = `<span class="loader"></span>`;
+    setTimeout(() => {
+      parent2.append(...restListings.map(listingsTemplate));
+      showMoreBtn.style.display = "none";
+    }, 2000);
+  });
 
   parent1.append(...firstEightListings.map(listingsTemplate));
   parent2.append(...restListings.map(listingsTemplate));

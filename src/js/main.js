@@ -4,6 +4,23 @@ import "../scss/main.scss";
 import "../js/components/index.js";
 import * as templates from "../js/templates/listings.js";
 import * as listings from "../js/api/listings/index.js";
+import * as search from "../js/handlers/search.js";
+
+async function displaySearchResult() {
+  const searchGrid = document.querySelector("#searchResults");
+  const searchContainer = document.querySelector("#searchContainer");
+  const searchResults = await search.search();
+
+  
+
+  const searchBtn = document.querySelector("#searchButton");
+  searchBtn.addEventListener("click", () => {
+    search.renderSearchResults(searchResults, searchGrid);
+    searchContainer.style.display = "Block";
+  })
+}
+
+displaySearchResult();
 
 async function listingsHomeTemplate() {
   const cardListings = await listings.getListings();
@@ -13,3 +30,4 @@ async function listingsHomeTemplate() {
 }
 
 listingsHomeTemplate();
+

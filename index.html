@@ -77,7 +77,7 @@
                 title="Please enter a value"
                 placeholder="Search Listings"
               />
-              <button type="submit">Search</button>
+              <button type="submit" id="searchButton">Search</button>
             </form>
             <button class="filter__menu-btn">
               Filter
@@ -105,8 +105,14 @@
         </div>
       </div>
 
+
+      <div class="card__container " id="searchContainer">
+        <h2>Results:</h2>
+        <div class="card-grid" id="searchResults"></div>
+      </div>
+
       <div class="card__container">
-        <h2>New listings:</h3>
+        <h2>New listings:</h2>
         <div class="card-grid" id="newContainer">
           <!-- <a class="card | shadow" href="/sp2-bdiddy/listing">
             <img class="card__img" src="/assets/img/grid_0 (2).png" alt="" />
@@ -129,8 +135,6 @@
               </svg>
             </div>
           </a> -->
-
-
         </div>
       </div>
 

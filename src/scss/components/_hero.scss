@@ -63,6 +63,7 @@
     grid-column: 1 / 6;
     grid-row: 1 / 4;
     padding-left: 3rem;
+    padding-right: 1rem;
     border: 2px solid var(--clr-black);
     outline: none;
   }
@@ -210,6 +211,11 @@
       background-color: flowerPower.$header;
     }
   }
+}
+
+
+#searchContainer {
+  display: none;
 }
 
 @media (max-width: 56em) {
