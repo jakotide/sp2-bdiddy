@@ -47,7 +47,6 @@ export async function renderProfile() {
       const profileCard = document.createElement("a");
       profileCard.classList.add("profile-card", "border");
       profileCard.href = "/sp2-bdiddy/listing/?id=" + listing.id;
-      console.log(profileCard);
 
       const profileCardImage = document.createElement("img");
       if (Array.isArray(listing.media)) {

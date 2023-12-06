@@ -50,8 +50,6 @@ export function renderSearchResults(searchResults, parent) {
     noResultsMessage.textContent = "No matching results found.";
     searchContainer.style.display = "Block";
     parent.appendChild(noResultsMessage);
-
-    console.error("Invalid searchResults:", searchResults);
     return;
   }
 

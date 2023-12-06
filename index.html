@@ -14,7 +14,8 @@
   <body class="body">
     <header>
       <nav aria-label="Navigation" class="nav">
-        <a href="/sp2-bdiddy/" class="logo"><span class="hide">Home</span>
+        <a href="/sp2-bdiddy/" class="logo"
+          ><span class="hide">Home</span>
           <svg
             class="logo-header-svg"
             width="84"
@@ -50,12 +51,22 @@
           </div>
         </button>
         <ul class="nav__content">
-          <li><a href="/sp2-bdiddy/profile/" class="header__links">Profile</a></li>
+          <li>
+            <a href="/sp2-bdiddy/profile/" class="header__links">Profile</a>
+          </li>
           <li class="mobile-listing">
-            <a href="/sp2-bdiddy/create/" class="header__links">Create Listing</a>
+            <a href="/sp2-bdiddy/create/" class="header__links"
+              >Create Listing</a
+            >
           </li>
           <li><a href="" class="header__links">Contact</a></li>
-          <li><a href="/sp2-bdiddy/authentication/" class="header__links logOutBtn">Logout</a></li>
+          <li>
+            <a
+              href="/sp2-bdiddy/authentication/"
+              class="header__links logOutBtn"
+              >Logout</a
+            >
+          </li>
         </ul>
       </nav>
     </header>
@@ -93,20 +104,19 @@
             </button>
           </div>
           <div class="filter__menu-desktop">
-            <div class="filter__btn active">All</div>
-            <div class="filter__btn">Electronics</div>
-            <div class="filter__btn">Fashion</div>
-            <div class="filter__btn">Vehicles</div>
-            <div class="filter__btn">Retro</div>
-            <div class="filter__btn">Food</div>
-            <div class="filter__btn">Art</div>
-            <div class="filter__btn">Housing</div>
+            <div class="filter__btn active" id="all">All</div>
+            <div class="filter__btn" id="electronics">Electronics</div>
+            <div class="filter__btn" id="fashion">Fashion</div>
+            <div class="filter__btn" id="vehicles">Vehicles</div>
+            <div class="filter__btn" id="retro">Retro</div>
+            <div class="filter__btn" id="food">Food</div>
+            <div class="filter__btn" id="art">Art</div>
+            <div class="filter__btn" id="housing">Housing</div>
           </div>
         </div>
       </div>
 
-
-      <div class="card__container " id="searchContainer">
+      <div class="card__container" id="searchContainer">
         <h2>Results:</h2>
         <div class="card-grid" id="searchResults"></div>
       </div>
@@ -175,8 +185,7 @@
 
       <div class="card__container">
         <h2>Popular listings:</h2>
-        <div class="card-grid" id="allContainer">
-        </div>
+        <div class="card-grid" id="allContainer"></div>
       </div>
 
       <button class="showMoreBtn" title="Show more listings">Show More</button>
@@ -185,7 +194,12 @@
       <div class="theme__container">
         <button class="hideThemesBtn" title="Hide themes">Hide</button>
         <div>Themes</div>
-        <button class="mainBtn theme__button" height="14px" width="15px" data-tooltip="Main Theme">
+        <button
+          class="mainBtn theme__button"
+          height="14px"
+          width="15px"
+          data-tooltip="Main Theme"
+        >
           <img
             src="/assets/img/main.gif"
             class="theme__icon"
