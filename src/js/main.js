@@ -7,25 +7,18 @@ import * as listings from "../js/api/listings/index.js";
 import * as search from "../js/handlers/search.js";
 import * as filter from "../js/handlers/filter.js";
 
-
+const searchGrid = document.querySelector("#searchResults");
 
 async function displayFilterResults() {
-  const filterGrid = document.querySelector("#filterResults");
   const filteredResultCards = await filter.filterListings();
   if (filteredResultCards) {
-    filter.renderFiltered(filteredResultCards, filterGrid);
-  } else {
-    console.log("No results");
-  }
+    filter.renderFiltered(filteredResultCards, searchGrid);
+  };
 }
 
 displayFilterResults();
 
-
-
 async function displaySearchResult() {
-  const searchGrid = document.querySelector("#searchResults");
-  const searchContainer = document.querySelector("#searchContainer");
   const searchResults = await search.search();
   const searchBtn = document.querySelector("#searchButton");
   searchBtn.addEventListener("click", () => {

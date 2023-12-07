@@ -213,8 +213,8 @@
   }
 }
 
-
-#searchContainer {
+#searchContainer,
+#filterContainer {
   display: none;
 }
 
@@ -281,12 +281,6 @@
         width: 80%;
         text-align: center;
         padding-bottom: 1.5rem;
-      }
-      .filter__menu li a {
-        text-decoration: none;
-      }
-      .filter__menu li a:hover {
-        font-style: italic;
       }
     }
   }
