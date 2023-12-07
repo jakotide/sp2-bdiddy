@@ -3,39 +3,41 @@ import { listingsTemplate } from "../templates/listings";
 
 export async function filterListings() {
   const listings = await getListings();
-  const searchResultsContainer = document.querySelector("#searchResults");
   const allBtn = document.querySelector("#all");
   const electroBtn = document.querySelector("#electronics");
   const fashionBtn = document.querySelector("#fashion");
   const vehiclesBtn = document.querySelector("#vehicles");
   const retroBtn = document.querySelector("#retro");
   const artBtn = document.querySelector("#art");
+  const housingBtn = document.querySelector("#housing");
 
-  allBtn.addEventListener("click", () => handleFilterClick("all", listings, searchResultsContainer));
-  electroBtn.addEventListener("click", () => handleFilterClick("Electronics", listings, searchResultsContainer));
-  fashionBtn.addEventListener("click", () => handleFilterClick("Fashion", listings, searchResultsContainer));
-  vehiclesBtn.addEventListener("click", () => handleFilterClick("Vehicles", listings, searchResultsContainer));
-  retroBtn.addEventListener("click", () => handleFilterClick("Retro", listings, searchResultsContainer));
-  artBtn.addEventListener("click", () => handleFilterClick("Art", listings, searchResultsContainer));
+  allBtn.addEventListener("click", () => handleFilterClick("all", listings));
+  electroBtn.addEventListener("click", () => handleFilterClick("Electronics", listings));
+  fashionBtn.addEventListener("click", () => handleFilterClick("Fashion", listings));
+  vehiclesBtn.addEventListener("click", () => handleFilterClick("Vehicles", listings));
+  retroBtn.addEventListener("click", () => handleFilterClick("Retro", listings));
+  artBtn.addEventListener("click", () => handleFilterClick("Art", listings));
+  housingBtn.addEventListener("click", () => handleFilterClick("Housing", listings));
 }
 
-function handleFilterClick(category, listings, searchResultsContainer) {
-  const filteredResults = filterListingsByCategory(category, listings);
+async function handleFilterClick(category, listings) {
+  const filteredResults = await filterListingsByCategory(category, listings);
   console.log("Filtered results:", filteredResults);
 
-  renderFiltered(filteredResults, searchResultsContainer);
+  const filterContainer = document.querySelector("#filterResults");
+  renderFiltered(filteredResults, filterContainer);
 }
 
-function filterListingsByCategory(category, listings) {
-  
+async function filterListingsByCategory(category, listings) {
   const lowerCategory = category.toLowerCase();
 
   const keywordsMap = {
-    electronics: ["electronics", "iphone", "computer"],
-    fashion: ["clothing", "jacket"],
-    vehicles: ["car", "volvo"],
-    retro: ["vintage", "retro", "zoo"],
-    art: ["painting", "sculpture"],
+    electronics: ["electronics", "iphone", "computer", "data", "lamp"],
+    fashion: ["clothing", "jacket", "hat", "gloves"],
+    vehicles: ["car", "volvo", "nissan", "toyota", "ferrari", "boat", "plane", "motor"],
+    retro: ["vintage", "retro", "vinyl", "old"],
+    art: ["painting", "sculpture", "art"],
+    housing: ["house", "apartment", "castle", "tower"],
   };
 
   const keywords = keywordsMap[lowerCategory] || [];
@@ -46,33 +48,12 @@ function filterListingsByCategory(category, listings) {
     return match;
   });
 
-
   console.log("Filtered results:", filteredResults);
   return filteredResults;
 }
 
-// export function renderFiltered(filteredResults, parent) {
-//   // Clear previous results
-//   parent.innerHTML = "";
-
-//   if (!filteredResults || filteredResults.length === 0) {
-//     console.log("No results");
-//     return;
-//   }
-
-//   // Map the filtered results to HTML elements
-//   const filteredResultCards = filteredResults.map(listingsTemplate);
-
-//   // Append the cards to the container
-//   filteredResultCards.forEach(cardTemplate => {
-//     const card = document.createElement("div");
-//     card.innerHTML = cardTemplate;
-//     parent.appendChild(card);
-//   });
-// }
-
 export function renderFiltered(filteredResults, parent) {
-  // Clear previous results
+  console.log("Rendering filtered results:", filteredResults);
   parent.innerHTML = "";
 
   if (!filteredResults || filteredResults.length === 0) {
@@ -80,16 +61,21 @@ export function renderFiltered(filteredResults, parent) {
     return;
   }
 
-  // Map the filtered results to HTML elements
   const fragment = document.createDocumentFragment();
   filteredResults.forEach(listing => {
     const card = listingsTemplate(listing);
     fragment.appendChild(card);
   });
 
-  // Append the fragment to the container
   parent.appendChild(fragment);
 }
+
+// Call filterListings to set up event listeners
+filterListings();
+
+
+
+
 
 
 

@@ -10,12 +10,17 @@ import * as filter from "../js/handlers/filter.js";
 
 
 async function displayFilterResults() {
-  const searchGrid = document.querySelector("#searchResults");
+  const filterGrid = document.querySelector("#filterResults");
   const filteredResultCards = await filter.filterListings();
-  filter.renderFiltered(filteredResultCards, searchGrid);
+  if (filteredResultCards) {
+    filter.renderFiltered(filteredResultCards, filterGrid);
+  } else {
+    console.log("No results");
+  }
 }
 
 displayFilterResults();
+
 
 
 async function displaySearchResult() {
