@@ -18,6 +18,7 @@ export function listingsTemplate(listingData) {
     };
     image.onerror = function () {
       listingImg.src = "/assets/img/noimage.jpg";
+      listingImg.alt = "No image available"
     };
   }
 
@@ -49,15 +50,19 @@ export function listingsTemplate(listingData) {
 
   if (window.innerWidth < 450) {
     if (highestBid) {
-      leader = document.createElement("div");
-      leader.textContent = "Current leader: " + highestBid.bidderName;
+      const leaderElement = document.createElement("div");
+      leaderElement.style.overflow = "hidden";
+      leaderElement.textContent = "Current leader: " + highestBid.bidderName;
+      leader = leaderElement;
     } else {
-      leader = document.createElement("div");
-      leader.textContent = "";
+      const leaderElement = document.createElement("div");
+      leaderElement.textContent = "";
+      leader = leaderElement;
     }
   } else {
-    leader = document.createElement("div");
-    leader.textContent = "";
+    const leaderElement = document.createElement("div");
+    leaderElement.textContent = "";
+    leader = leaderElement;
   }
 
   const priceSection = document.createElement("div");
@@ -111,6 +116,7 @@ export function renderListings(listingsData, parent1, parent2) {
   showMoreBtn.addEventListener("click", () => {
     showMoreBtn.innerHTML = `<span class="loader"></span>`;
     setTimeout(() => {
+      restListings = sortedNewest.slice(41, 100)
       parent2.append(...restListings.map(listingsTemplate));
       showMoreBtn.style.display = "none";
     }, 2000);
@@ -119,3 +125,5 @@ export function renderListings(listingsData, parent1, parent2) {
   parent1.append(...firstEightListings.map(listingsTemplate));
   parent2.append(...restListings.map(listingsTemplate));
 }
+
+

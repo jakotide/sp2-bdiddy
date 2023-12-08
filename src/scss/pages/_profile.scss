@@ -26,6 +26,22 @@
       border-bottom: 3px solid var(--clr-black);
       padding: 2rem;
 
+      .profile-img-container {
+        position: relative;
+
+        .edit-button {
+          position: absolute;
+          top: 92%;
+          right: 38%;
+          padding: 0.25rem .85rem;
+          font-size: 14px;
+          background-color: mainTheme.$star;
+          outline: none;
+          border: 1px solid var(--clr-black);
+          cursor: pointer;
+        }
+      }
+
       .profile-img {
         border-radius: 100%;
         width: 16rem;
