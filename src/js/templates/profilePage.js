@@ -49,11 +49,23 @@ export async function renderProfile() {
       profileCard.href = "/sp2-bdiddy/listing/?id=" + listing.id;
 
       const profileCardImage = document.createElement("img");
-      if (Array.isArray(listing.media)) {
-        profileCardImage.src = listing.media[0];
+    
+      if (!listing.media || listing.media === " ") {
+        cardImage.src = "/assets/img/noimage.jpg";
       } else {
-        profileCardImage.src = "/assets/img/noimage.jpg";
+        const image = new Image();
+        image.src = listing.media;
+    
+        image.onload = function () {
+          profileCardImage.src = listing.media;
+          profileCardImage.alt = "Image of " + listing.title;
+        };
+        image.onerror = function () {
+          profileCardImage.src = "/assets/img/noimage.jpg";
+          profileCardImage.alt = "No image available"
+        };
       }
+
       const profileCardTitle = document.createElement("div");
       profileCardTitle.textContent = listing.title;
 

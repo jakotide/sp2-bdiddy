@@ -5,12 +5,15 @@ import '../../scss/main.scss';
 import "../storage/load.js";
 import '../components/hamburger';
 import { renderProfile } from '../templates/profilePage';
+import { editProfileImage } from '../api/listings/editProfile';
+import { editImage } from '../handlers/editProfile';
 
 const modal = document.querySelector("[data-modal]");
 const close = document.querySelector("[data-close-modal]");
 const open = document.querySelector("[data-open-modal]");
 
 renderProfile();
+editImage();
 
 gsap.set(modal, { y: -50, opacity: 1 });
 
