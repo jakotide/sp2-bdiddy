@@ -77,7 +77,7 @@
                 src="/assets/img/loveride-image.png"
                 alt="Bob's Profile Picture"
               />
-              <button class="edit-button">Edit</button>
+              <button class="edit-button" data-open-modal>Edit</button>
             </figure>
             <h1 class="name"></h1>
           </div>
@@ -97,6 +97,15 @@
           <div class="profile-card-container"></div>
         </article>
       </section>
+      <dialog data-modal class="profile-img-modal" onclick="event.target==this && this.close()">
+        <form action="" method="dialog" class="profile-img-form">
+          <label for="profile-url">Enter your URL here:</label>
+          <input type="text" id="profile-url">
+          <button type="submit">Submit</button>
+          <button data-close-modal>🗙</button>
+        </form>
+      </dialog>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   </body>
 </html>

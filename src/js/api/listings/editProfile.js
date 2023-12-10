@@ -17,9 +17,7 @@ export async function editProfileImage(user) {
       if (response.ok) {
         return await response.json();
       } else {
-        const errorResponse = await response.json();
-        const errorMessage = errorResponse.errors[0].message;
-        throw new Error(errorMessage);
+        console.log(error)
       }
     } catch (error) {
       throw error;

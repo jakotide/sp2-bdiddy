@@ -11,6 +11,49 @@
   background-color: mainTheme.$body;
   font-family: "MabryPro-Regular";
 
+  .profile-img-modal {
+    height: 14rem;
+    width: 24rem;
+    background-color: mainTheme.$star;
+    position: relative;
+
+    .profile-img-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 2.5rem;
+
+      [data-close-modal] {
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        background-color: mainTheme.$header;
+      }
+
+      label {
+        margin-bottom: 1.5rem;
+      }
+
+      button {
+        background-color: mainTheme.$header;
+        cursor: pointer;
+      }
+
+      input,
+      button {
+        padding: 0.5rem 1rem;
+        outline: none;
+        border: 2px solid var(--clr-black);
+        margin-bottom: 1.25rem;
+        transition: .2s ease;
+        &:focus {
+          transform: translate(-5px, -5px);
+          box-shadow: (5px 5px var(--clr-black));
+        }
+      }
+    }
+  }
+
   .profile-section {
     margin-top: 5rem;
     max-width: 84rem;
