@@ -1,6 +1,7 @@
 @use "../themes/main-theme" as mainTheme;
 
 .main-login {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,6 +20,18 @@
     #fceee3 1px,
     #fceee3
   );
+
+  .home-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.75rem 1rem;
+    background-color: var(--clr-black);
+    color: var(--clr-white);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+  }
 }
 
 .box {

@@ -6,7 +6,7 @@ export async function singleListingPage() {
   const id = urlParams.get("id");
 
   const listing = await getListing(id);
-  console.log(listing)
+
   const carouselSlides = [
     document.querySelector(".slide"),
     document.querySelector(".slide2"),
@@ -78,6 +78,7 @@ export async function singleListingPage() {
 
     leader = document.createElement("div");
     leader.textContent = highestBid.bidderName;
+    leader.classList.add("leader");
   } else {
     noBidDisplay = document.createElement("div");
     noBidDisplay.textContent = "No bids yet!";
@@ -91,7 +92,7 @@ export async function singleListingPage() {
   listingDescription.append(title, description);
   dateSection.append(startDesktop, endDate);
   if (highestBid) {
-    leaderBox.append(leadAmount, leader);
+    leaderBox.append(leader, leadAmount);
   } else {
     leaderBox.append(noBidDisplay);
   }

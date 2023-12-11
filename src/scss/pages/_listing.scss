@@ -166,9 +166,15 @@
 
       .leader-box {
         font-size: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
 
         .leader-flex {
           display: flex;
+          flex-wrap: wrap;
           gap: 1.5rem;
           font-size: 2rem;
           font-weight: 700;
@@ -294,6 +300,9 @@
 @media (max-width: 40.25em) {
   .main-listing {
     .listing-box {
+      .listed-by {
+        display: none;
+      }
       .listing-description {
         flex-direction: column;
         width: 100%;
@@ -315,6 +324,9 @@
         .profile-box {
           padding-left: 1rem;
           gap: 1rem;
+          .profile-name {
+            font-size: 1rem;
+          }
           .mobile-date {
             padding-right: 1rem;
           }
@@ -325,6 +337,9 @@
           padding: 2rem;
       }
       .bidding-section {
+        .leader {
+          font-size: 24px;
+        }
         .bid-form {
           .amount-btn {
             display: none;

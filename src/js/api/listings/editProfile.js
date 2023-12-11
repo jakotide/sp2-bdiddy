@@ -1,34 +1,3 @@
-// import { API_AUCTION_URL } from "../constants";
-// import { PROFILE } from "../constants";
-// import { getApiHeaders } from "../../handlers/headers";
-// import { load } from "../../storage/load";
-
-// export async function editProfileImage(user) {
-//   const username = load("User");
-//   console.log(username.name)
-//   try {
-//     if (!username) {
-//       console.log("Need username");
-//     }
-
-//     const response = await fetch(
-//       `${API_AUCTION_URL}${PROFILE}${username.name}/media`,
-//       {
-//         method: "PUT",
-//         headers: getApiHeaders(),
-//         body: JSON.stringify(username),
-//       }
-//     );
-
-//     if (response.ok) {
-//       return await response.json();
-//     } else {
-//       console.log(error);
-//     }
-//   } catch (error) {
-//     throw error;
-//   }
-// }
 import { API_AUCTION_URL } from "../constants";
 import { PROFILE } from "../constants";
 import { getApiHeaders } from "../../handlers/headers";
@@ -36,7 +5,6 @@ import { load } from "../../storage/load";
 
 export async function editProfileImage(user) {
   const username = load("User");
-  console.log(username.name);
 
   try {
     if (!username) {

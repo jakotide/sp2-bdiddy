@@ -44,9 +44,9 @@ export async function renderProfile() {
     }
 
     user.listings.forEach((listing) => {
-      const profileCard = document.createElement("a");
+      const profileCard = document.createElement("div");
       profileCard.classList.add("profile-card", "border");
-      profileCard.href = "/sp2-bdiddy/listing/?id=" + listing.id;
+      // profileCard.href = "/sp2-bdiddy/listing/?id=" + listing.id;
 
       const profileCardImage = document.createElement("img");
     
@@ -69,7 +69,20 @@ export async function renderProfile() {
       const profileCardTitle = document.createElement("div");
       profileCardTitle.textContent = listing.title;
 
-      profileCard.append(profileCardImage, profileCardTitle);
+      const buttonContainer = document.createElement("div");
+      buttonContainer.classList.add("btn-container");
+
+      const deleteBtn = document.createElement("a");
+      deleteBtn.textContent = "Delete";
+      deleteBtn.classList.add("deleteBtn");
+
+      const viewBtn = document.createElement("a");
+      viewBtn.textContent = "View";
+      viewBtn.href = "/sp2-bdiddy/listing/?id=" + listing.id;
+      viewBtn.classList.add("viewBtn");
+
+      buttonContainer.append(deleteBtn, viewBtn);
+      profileCard.append(profileCardImage, profileCardTitle, buttonContainer);
       profileCardContainer.append(profileCard);
     });
   } catch (error) {
