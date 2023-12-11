@@ -1,5 +1,7 @@
 import { getProfile } from "../api/listings/getProfile";
 import { load } from "../storage/load";
+import { deleteListing } from "../api/listings/delete";
+import { authorizeToken } from "../storage/authorizeToken";
 
 export async function renderProfile() {
   const user = load("User");
@@ -46,7 +48,6 @@ export async function renderProfile() {
     user.listings.forEach((listing) => {
       const profileCard = document.createElement("div");
       profileCard.classList.add("profile-card", "border");
-      // profileCard.href = "/sp2-bdiddy/listing/?id=" + listing.id;
 
       const profileCardImage = document.createElement("img");
     
@@ -76,6 +77,8 @@ export async function renderProfile() {
       deleteBtn.textContent = "Delete";
       deleteBtn.classList.add("deleteBtn");
 
+      deleteBtn.addEventListener("click", () => openDeleteModal(listing.id));
+
       const viewBtn = document.createElement("a");
       viewBtn.textContent = "View";
       viewBtn.href = "/sp2-bdiddy/listing/?id=" + listing.id;
@@ -89,3 +92,41 @@ export async function renderProfile() {
     console.error("Error fetching user profile:", error.message);
   }
 }
+
+function openDeleteModal(listingId) {
+  const deleteModal = document.getElementById("deleteModal");
+  const confirmDeleteBtn = document.getElementById("confirmDelete");
+  const cancelDeleteBtn = document.getElementById("cancelDelete");
+
+  confirmDeleteBtn.onclick = () => handleDelete(listingId);
+  cancelDeleteBtn.onclick = closeDeleteModal;
+
+  deleteModal.style.display = "block";
+}
+
+function closeDeleteModal() {
+  const deleteModal = document.getElementById("deleteModal");
+  deleteModal.style.display = "none";
+}
+
+async function handleDelete(listingId) {
+  closeDeleteModal();
+
+  try {
+     authorizeToken(
+      async () => {
+        
+        await deleteListing(listingId);
+ 
+      },
+      () => {
+
+        console.error("Invalid token");
+      
+      }
+    );
+  } catch (error) {
+    console.error("Error handling delete:", error);
+  }
+}
+
