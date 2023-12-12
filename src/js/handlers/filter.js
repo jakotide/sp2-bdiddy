@@ -50,7 +50,7 @@ async function filterListingsByCategory(category, listings) {
 
   const keywordsMap = {
     electronics: ["electronics", "iphone", "computer", "data", "lamp"],
-    fashion: ["clothing", "jacket", "hat", "gloves"],
+    fashion: ["clothing", "jacket", "hat", "gloves", "tux", "dress"],
     vehicles: [
       "car",
       "volvo",
@@ -60,9 +60,19 @@ async function filterListingsByCategory(category, listings) {
       "boat",
       "plane",
       "motor",
+      "offroad",
     ],
     retro: ["vintage", "retro", "vinyl", "old"],
-    food: ["cake", "muffin", "banana", "apple", "food"],
+    food: [
+      "cake",
+      "muffin",
+      "banana",
+      "apple",
+      "food",
+      "pizza",
+      "burger",
+      "candy",
+    ],
     art: ["painting", "sculpture", "art"],
     housing: ["house", "apartment", "castle", "tower"],
   };
@@ -71,6 +81,7 @@ async function filterListingsByCategory(category, listings) {
 
   const filteredResults = listings.filter((listing) => {
     const lowerTitle = listing.title.toLowerCase();
+
     const match = keywords.some((keyword) => lowerTitle.includes(keyword));
     return match;
   });
@@ -82,11 +93,11 @@ export function renderFiltered(filteredResults, parent) {
   const filterContainer = document.querySelector("#searchContainer");
   const allBtn = document.querySelectorAll(".all");
   parent.innerHTML = "";
-  allBtn.forEach((btn => {
+  allBtn.forEach((btn) => {
     btn.addEventListener("click", () => {
       filterContainer.style.display = "none";
-    })
-  }));
+    });
+  });
 
   if (!filteredResults || filteredResults.length === 0) {
     const searchContainer = document.querySelector("#searchContainer");

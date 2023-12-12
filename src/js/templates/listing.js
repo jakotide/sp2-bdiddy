@@ -10,8 +10,7 @@ export async function singleListingPage() {
   const carouselSlides = [
     document.querySelector(".slide"),
     document.querySelector(".slide2"),
-    document.querySelector(".slide3"),
-    document.querySelector(".slide4")
+    document.querySelector(".slide3")
   ];
   
   const profileName = document.querySelector(".profileName");

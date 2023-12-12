@@ -8,8 +8,10 @@ import { singleListingPage } from "../templates/listing";
 import { placeBid } from "../handlers/placeBid";
 import { getProfile } from "../api/listings/getProfile";
 import { load } from "../storage/load.js";
+import { authorizeToken } from "../storage/authorizeToken";
 
 const bidForm = document.querySelector(".bid-form");
+const loginMsg = document.querySelector(".login-message");
 
 bidForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -32,6 +34,16 @@ async function renderCurrentFunds() {
     console.error("User not found or missing name property");
   }
 }
+
+authorizeToken(
+  () => {
+
+  },
+  () => {
+    bidForm.style.display = "none";
+    loginMsg.style.display = "block";
+  }
+);
 
 singleListingPage();
 placeBid();

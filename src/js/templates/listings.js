@@ -100,7 +100,8 @@ export function renderListings(listingsData, parent1, parent2) {
     return (
       !lowerCaseTitle.includes("test") &&
       !lowerCaseTitle.includes("testing") &&
-      !listing.title.includes("tester")
+      !lowerCaseTitle.includes("tester") &&
+      !lowerCaseTitle.includes("title")
     );
   });
 

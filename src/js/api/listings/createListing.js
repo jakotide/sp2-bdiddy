@@ -1,5 +1,4 @@
 import { API_AUCTION_URL } from "../constants";
-import { LISTING } from "../constants";
 import { getApiHeaders } from "../../handlers/headers.js";
 
 export async function createListing(listing) {
@@ -9,7 +8,7 @@ export async function createListing(listing) {
       headers: getApiHeaders(),
       body: JSON.stringify(listing),
     });
-    
+
     if (response.ok) {
       return await response.json();
     } else {
@@ -19,4 +18,3 @@ export async function createListing(listing) {
     console.error("Error:", error);
   }
 }
-
