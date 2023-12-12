@@ -12,11 +12,6 @@ export async function search() {
       event.preventDefault();
 
       const searchValue = searchInput.value.trim().toLowerCase();
-    //   if (!searchValue) {
-    //     console.log(searchValue)
-    //     searchResultsContainer.innerHTML = `<div>No matches!</div>`;
-    //     return [];
-    //   }
 
       const searchResults = listings.filter((listing) => {
         const title = (listing.title || "").toLowerCase();
