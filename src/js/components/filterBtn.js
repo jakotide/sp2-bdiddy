@@ -20,3 +20,4 @@ filterBtns.forEach((btn) => {
 filterBtnMobile.addEventListener("click", () => {
   filterMenuMobile.classList.toggle("active");
 });
+

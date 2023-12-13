@@ -14,6 +14,7 @@ export async function submitListing() {
       const tagsInput = document.getElementById("tags");
       const tagsContainer = document.querySelector(".tags-container");
       const createBtn = document.querySelector(".create-btn");
+      const header = document.querySelector(".create-h1");
 
       const listing = {
         title: formData.get("title"),
@@ -49,9 +50,10 @@ export async function submitListing() {
         createBtn.innerHTML = '<span class="loader"></span>';
         await createListing(listing);
         createBtn.textContent = "Success!";
-        // setTimeout(() => {
-
-        // }, 2000);
+        header.textContent = "Listing succesfully created!"
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
       } catch (error) {
         console.error("Error creating listing:", error);
       }

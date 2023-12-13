@@ -72,6 +72,7 @@ async function filterListingsByCategory(category, listings) {
       "pizza",
       "burger",
       "candy",
+      "pear"
     ],
     art: ["painting", "sculpture", "art"],
     housing: ["house", "apartment", "castle", "tower"],

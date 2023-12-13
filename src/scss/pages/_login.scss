@@ -23,14 +23,18 @@
 
   .home-btn {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 1.5rem;
+    right: 1.5rem;
     padding: 0.75rem 1rem;
-    background-color: var(--clr-black);
-    color: var(--clr-white);
+    background-color: mainTheme.$body;
+    color: var(--clr-black);
     text-decoration: none;
-    border: none;
+    border: 2px solid var(--clr-black);
     cursor: pointer;
+
+    &:hover {
+      font-style: italic;
+    }
   }
 }
 
@@ -102,7 +106,7 @@
 
   p {
     opacity: 0.8;
-    margin: 0.5rem 2rem 0;
+    margin: 0.2rem 2rem 1.25rem;
   }
 }
 
@@ -221,7 +225,13 @@
   }
   } 
 
-@media (max-width: 850px) {
+@media (max-width: 53.125em) {
+  .main-login{
+    .home-btn {
+      top: 1rem;
+      right: 1rem;  
+    }
+  }
   .box {
     height: auto;
     max-width: 550px;
