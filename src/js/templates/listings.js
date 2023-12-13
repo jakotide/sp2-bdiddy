@@ -7,7 +7,7 @@ export function listingsTemplate(listingData) {
   listingImg.classList.add("card__img");
 
   if (!listingData.media || listingData.media === " ") {
-    cardImage.src = "/assets/img/noimage.jpg";
+    listingImg.src = "/assets/img/noimage.jpg";
   } else {
     const image = new Image();
     image.src = listingData.media;
