@@ -12,6 +12,10 @@ export function editImage() {
             const editFormData = new FormData(editForm);
             const user = Object.fromEntries(editFormData.entries());
             user.name = name;
+            if (!user.avatar) {
+                
+                return;
+              }
            
             try {
                 button.innerHTML = '<span class="loader"></span>';
@@ -27,3 +31,5 @@ export function editImage() {
         })
     }
 }
+
+

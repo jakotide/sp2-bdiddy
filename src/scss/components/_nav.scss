@@ -107,13 +107,23 @@
     right: 0;
   }
 
-  .nav__content li {
+  .nav__content a {
+    text-decoration: none;
+    color: var(--clr-black);
     border-bottom: 1px solid mainTheme.$c-black;
     cursor: pointer;
     width: 80%;
     text-align: center;
     padding-bottom: 1.5rem;
   }
+
+  // .nav__content li {
+  //   border-bottom: 1px solid mainTheme.$c-black;
+  //   cursor: pointer;
+  //   width: 80%;
+  //   text-align: center;
+  //   padding-bottom: 1.5rem;
+  // }
 
   .nav__content li:hover,
   .listing a:hover {

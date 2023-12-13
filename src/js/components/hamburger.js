@@ -20,7 +20,6 @@ authorizeToken(
   () => {
     listingLink.textContent = "Create Listing";
     mobileListingBtn.textContent = "Create Listing";
-
   },
   () => {
     listingLink.textContent = "Login";
