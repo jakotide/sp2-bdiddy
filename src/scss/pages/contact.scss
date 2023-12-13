@@ -3,4 +3,10 @@ body {
     text-align: center;
     margin-bottom: 12px;
   }
+
+  #successMessage {
+    color: var(--clr-black);
+    text-align: center;
+    display: none;
+  }
 }

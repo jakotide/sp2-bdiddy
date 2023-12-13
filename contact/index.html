@@ -61,7 +61,7 @@
           <a href="/sp2-bdiddy/create/" class="mobile-listing" id="createBtn">
             <li class="header__links">Create Listing</li>
           </a>
-          <a href="#">
+          <a href="/sp2-bdiddy/contact/">
             <li class="header__links">Contact</li>
           </a>
           <a href="/sp2-bdiddy/authentication/">
@@ -71,19 +71,23 @@
       </nav>
     </header>
     <main class="main-create">
-      <section class="create-box border shadow">
-        <form action="" class="create-form">
-          <h1 class="create-h1">Contact</h1>
-          <p class="contact-p">Got any questions? Send us a message!</p>
-          <label for="name">Your name</label>
-          <input type="text" name="name" id="name" required title="Please fill in your name.">
-          <label for="title">Title</label>
-          <input type="text" id="title" name="title" required title="Please fill in a title."/>
-          <label for="description">Message</label>
-          <textarea type="text" id="description" name="description" minlength="10" title="Please enter a message."></textarea>
-          <button type="submit" class="create-btn">Send</button>
-        </form>
-      </section>
+        <section class="create-box border shadow">
+            <form action="" class="create-form" id="contactForm">
+              <h1 class="create-h1">Contact</h1>
+              <p class="contact-p">Got any questions? Send us a message!</p>
+              <label for="name">Your name</label>
+              <input type="text" name="name" id="name" required title="Please fill in your name.">
+              <label for="title">Title</label>
+              <input type="text" id="title" name="title" required title="Please fill in a title."/>
+              <label for="description">Message</label>
+              <textarea type="text" id="description" name="description" minlength="10" title="Please enter a message."></textarea>
+              <button type="submit" class="create-btn">Send</button>
+            </form>
+            <div id="successMessage">
+              Message sent successfully!
+            </div>
+          </section>
+          
     </main>
     <footer>
         <div class="footer__content">
