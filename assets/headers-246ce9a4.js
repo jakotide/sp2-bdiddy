@@ -1,0 +1,1 @@
+import{l as e}from"./hamburger-5bbfc2df.js";function o(){const t=e("token");return t?{"Content-Type":"application/json",Authorization:`Bearer ${t}`}:{"Content-Type":"application/json"}}export{o as g};

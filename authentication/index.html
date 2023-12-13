@@ -6,27 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <title>B-Diddy | Login</title>
-    <script type="module" crossorigin src="/sp2-bdiddy/assets/login-60715d93.js"></script>
-    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/main-cb7af1f5.js">
-    <link rel="stylesheet" href="/sp2-bdiddy/assets/main-774ac5bc.css">
+    <script type="module" crossorigin src="/sp2-bdiddy/assets/login-bb18e68b.js"></script>
+    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/main-18ed1cf8.js">
+    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/constants-88326297.js">
+    <link rel="stylesheet" href="/sp2-bdiddy/assets/main-e51e9dfa.css">
   </head>
   <body class="body-login">
     <main class="main-login">
+      <a href="/sp2-bdiddy/" ><button class="home-btn">Home</button></a>
       <div class="box">
         <div class="inner-box">
           <div class="forms-wrap">
-            <form action="/sp2-bdiddy/" class="login-form">
+            <form class="login-form">
               <div class="login-header">
-                <h2>Welcome Back</h2>
-                <h6>Not registered yet?</h6>
-                <div class="login-toggle">Register here!</div>
+                <h2>Welcome Back</h2>  
               </div>
 
               <div class="actual-form">
                 <div class="input-wrap">
-                  <label for="name">Username</label>
-                  <input type="text" name="name" id="name" required />
+                  <label for="email">Email</label>
+                  <input type="email" name="email" id="loginEmail" required pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+                  title="Make sure you have a registered noroff email." />
+                  
                 </div>
+                
                 <div class="input-wrap">
                   <label for="password">Password</label>
                   <input
@@ -34,29 +37,45 @@
                     name="password"
                     id="password"
                     required
+                    minLength="8"
+                    title="Make sure you have the correct password. 8 characters."
                   />
                 </div>
+                <div class="login-error-msg error-message">The email or password you entered is incorrect. Please try again.</div>
                 <button type="submit" class="login-btn">Login</button>
 
                 <p>Forgot password? Click here.</p>
+                <h6>Not registered yet?</h6>
+                <div class="login-toggle">Register here!</div>
               </div>
             </form>
 
-            <form action="" class="register-form">
+            <form class="register-form" id="register-form">
               <div class="login-header">
                 <h2>Get Started</h2>
-                <h6>Already registered?</h6>
-                <div class="login-toggle">Login here!</div>
               </div>
 
               <div class="actual-form">
                 <div class="input-wrap">
-                  <label for="name">Username</label>
-                  <input type="text" name="name" id="reg-name" required />
+                  <label for="reg-name">Username</label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="reg-name"
+                    required
+                    pattern="^[\w]+$"
+                    maxlength="20"
+                    title="Username can only contain lowercase and uppercase letters and underscore (_). Example: User_Name123"
+                  />
                 </div>
                 <div class="input-wrap">
-                  <label for="name">Email</label>
-                  <input type="email" name="email" id="email" required />
+                  <label for="email">Email</label>
+                  <input type="email" name="email" id="email" required pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+                  title="Only stud.noroff.no or noroff.no domains can register"/>
+                </div>
+                <div class="input-wrap">
+                  <label for="avatar">Avatar</label>
+                  <input type="url" name="avatar" id="avatar" placeholder="Enter Your URL"/>
                 </div>
                 <div class="input-wrap">
                   <label for="password">Password</label>
@@ -64,13 +83,18 @@
                     type="password"
                     name="password"
                     id="reg-password"
+                    minLength="8"
                     required
+                    title="Password must contain 8 characters"
                   />
                 </div>
-                <button type="submit" class="login-btn">Sign Up</button>
+                <button type="submit" class="login-btn" id="signUpBtn">Sign Up</button>
 
                 <p>By signing up I agree to the terms of services</p>
+                <h6>Already registered?</h6>
+                <div class="login-toggle">Login here!</div>
               </div>
+           
             </form>
           </div>
           <div class="welcome-box">

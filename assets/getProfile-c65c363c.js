@@ -1,0 +1,1 @@
+import{A as t,P as o}from"./constants-88326297.js";import{g as s}from"./headers-246ce9a4.js";async function n(e){try{if(!e)throw new Error("Get requires a profile name");const r=await fetch(`${t}${o}${e}?_listings=true&_bids=true&_wins=true`,{method:"GET",headers:s()});if(r.ok)return await r.json();throw new Error(r.statusText)}catch(r){throw new Error(r)}}export{n as g};
