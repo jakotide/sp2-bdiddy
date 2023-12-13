@@ -18,6 +18,7 @@ editImage();
 gsap.set(modal, { y: -50, opacity: 1 });
 
 open.addEventListener("click", () => {
+  modal.classList.add("modal-visible");
   editInput.disabled = false;
     modal.showModal();
     gsap.to(modal, {
@@ -29,6 +30,7 @@ open.addEventListener("click", () => {
   });
 
 close.addEventListener("click", () => {
+  modal.classList.remove("modal-visible");
   editInput.disabled = true;
     modal.close();
 });

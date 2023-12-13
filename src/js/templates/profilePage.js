@@ -92,7 +92,8 @@ export async function renderProfile() {
     console.error("Error fetching user profile:", error.message);
   }
 }
-
+const confirmDeleteBtn = document.getElementById("confirmDelete");
+  const cancelDeleteBtn = document.getElementById("cancelDelete");
 const overlay = document.getElementById("overlay");
 
 function openDeleteModal(listingId) {
@@ -111,8 +112,7 @@ function openDeleteModal(listingId) {
     opacity: 1,
   });
 
-  const confirmDeleteBtn = document.getElementById("confirmDelete");
-  const cancelDeleteBtn = document.getElementById("cancelDelete");
+  
 
   confirmDeleteBtn.onclick = () => handleDelete(listingId);
   cancelDeleteBtn.onclick = closeDeleteModal;
@@ -137,7 +137,8 @@ async function handleDelete(listingId) {
     authorizeToken(
       async () => {
         await deleteListing(listingId);
-
+        confirmDeleteBtn.style.display = "none";
+        cancelDeleteBtn.style.display = "none";
         deleteText.textContent = "Listing successfully deleted.";
         setTimeout(() => {
           closeDeleteModal();

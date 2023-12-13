@@ -14,6 +14,7 @@ const modal = document.querySelector("[data-modal]");
 gsap.set(modal, { y: -50, opacity: 1 });
 
 openModalBtn.addEventListener("click", () => {
+  modal.classList.add("modal-visible");
   modal.showModal();
   gsap.to(modal, {
     duration: 0.8,
@@ -24,6 +25,7 @@ openModalBtn.addEventListener("click", () => {
 });
 
 closeModalBtn.addEventListener("click", () => {
+  modal.classList.remove("modal-visible");
   modal.close();
   gsap.to(modal, { duration: 0.8, ease: "elastic.out(1.2,0.5)", y: -50 });
 });

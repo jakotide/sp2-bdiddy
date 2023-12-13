@@ -75,6 +75,7 @@
           top: 50%;
           transform: translateY(-50%);
           border: solid 3px var(--clr-black);
+          color: var(--clr-black);
         }
 
         .prev {
@@ -226,6 +227,7 @@
 
         .bid-btn {
           background-color: mainTheme.$header;
+          color: var(--clr-black);
           text-transform: uppercase;
           font-weight: 800;
           outline: none;

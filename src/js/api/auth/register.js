@@ -18,7 +18,7 @@ export async function register(profile) {
     if (!response.ok) {
       const errorData = await response.json();
       console.error("Registration failed:", errorData);
-      alert("Something went wrong!");
+      alert("Something went wrong with the registration. Try another username.");
     } else {
       loginBtn.innerHTML = '<span class="loader"></span>';
 

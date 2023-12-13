@@ -70,6 +70,7 @@
       .create-btn {
         cursor: pointer;
         background-color: mainTheme.$header;
+        color: var(--clr-black);
         font-weight: 700;
         transition: .2s ease;
 
@@ -196,6 +197,7 @@
   background-color: mainTheme.$secondary-color;
   position: relative;
   overflow: hidden;
+  display: none;
 
   h2 {
     text-align: center;
@@ -231,6 +233,7 @@
 
     .upload-btn {
       background-color: mainTheme.$header;
+      color: var(--clr-black);
       cursor: pointer;
       padding: 0.5rem 1rem;
       outline: none;
@@ -262,6 +265,10 @@
     }
   }
 }
+[data-modal].modal-visible {
+  display: block;
+}
+
 
 @media (max-width: 42em) {
   .main-create {
