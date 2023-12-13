@@ -6,6 +6,7 @@ import * as templates from "../js/templates/listings.js";
 import * as listings from "../js/api/listings/index.js";
 import * as search from "../js/handlers/search.js";
 import * as filter from "../js/handlers/filter.js";
+import { authorizeToken } from "./storage/authorizeToken";
 
 const searchGrid = document.querySelector("#searchResults");
 
@@ -36,3 +37,14 @@ async function listingsHomeTemplate() {
 }
 
 listingsHomeTemplate();
+
+const createLink = document.querySelector("#createBtn");
+
+authorizeToken(
+  () => {
+      createLink.style.display = "block";
+  },
+  () => {
+      createLink.style.display = "none";
+  }
+);

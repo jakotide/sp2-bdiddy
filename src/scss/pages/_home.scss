@@ -189,6 +189,12 @@ body {
 }
 
 @media (max-width: 56em) {
+  #overlay {  
+    .overlay-x {
+      top: 12%;
+      left: 86%;
+    }
+  }
   body {
     footer {
       .footer__content {
