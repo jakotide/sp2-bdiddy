@@ -1,1 +1,0 @@
-const e=document.querySelector(".lines"),t=document.querySelector(".line-one"),n=document.querySelector(".line-two"),c=document.querySelector(".nav__content");e.addEventListener("click",()=>{c.classList.toggle("active"),t.classList.toggle("active"),n.classList.toggle("active")});

@@ -4,21 +4,29 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/sp2-bdiddy/assets/logo-046ab9f6.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Discover the ultimate auction experience at B-Diddy - the #1 auction house where you can effortlessly sell your treasures, indulge in unique finds from others, and unlock opportunities to earn money. Join us and turn your items into extraordinary bids. Explore, buy, and sell with B-Diddy Auction House today!"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
     
     <title>B-Diddy | Home</title>
-    <script type="module" crossorigin src="/sp2-bdiddy/assets/main-e2aecfaa.js"></script>
-    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/main-cb7af1f5.js">
-    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/hamburger-79a04485.js">
-    <link rel="stylesheet" href="/sp2-bdiddy/assets/main-774ac5bc.css">
+    <script type="module" crossorigin src="/sp2-bdiddy/assets/main-ef824e7d.js"></script>
+    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/main-18ed1cf8.js">
+    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/hamburger-5bbfc2df.js">
+    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/constants-88326297.js">
+    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/headers-246ce9a4.js">
+    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/read-eeac6ab1.js">
+    <link rel="stylesheet" href="/sp2-bdiddy/assets/main-e51e9dfa.css">
   </head>
   <body class="body">
     <header>
       <nav aria-label="Navigation" class="nav">
-        <a href="/sp2-bdiddy/" class="logo"><span class="hide">Home</span>
+        <a href="/sp2-bdiddy/" class="logo"
+          ><span class="hide">Home</span>
           <svg
             class="logo-header-svg"
             width="84"
@@ -40,7 +48,7 @@
           </svg>
         </a>
         <div class="listing">
-          <a href="/sp2-bdiddy/create/">Create Listing</a>
+          <a href="/sp2-bdiddy/create/" class="listingLink">Create Listing</a>
         </div>
         <button
           class="hamburger"
@@ -54,12 +62,18 @@
           </div>
         </button>
         <ul class="nav__content">
-          <li><a href="/sp2-bdiddy/profile/" class="header__links">Profile</a></li>
-          <li class="mobile-listing">
-            <a href="/sp2-bdiddy/create/" class="header__links">Create Listing</a>
-          </li>
-          <li><a href="" class="header__links">Contact</a></li>
-          <li><a href="/sp2-bdiddy/authentication/" class="header__links">Logout</a></li>
+          <a href="/sp2-bdiddy/profile/" class="profileBtn">
+            <li class="header__links">Profile</li>
+          </a>
+          <a href="/sp2-bdiddy/create/" class="mobile-listing" id="createBtn">
+            <li class="header__links">Create Listing</li>
+          </a>
+          <a href="/sp2-bdiddy/contact/">
+            <li class="header__links">Contact</li>
+          </a>
+          <a href="/sp2-bdiddy/authentication/">
+            <li class="header__links logOutBtn">Logout</li>
+          </a>
         </ul>
       </nav>
     </header>
@@ -81,205 +95,47 @@
                 title="Please enter a value"
                 placeholder="Search Listings"
               />
-              <button type="submit">Search</button>
+              <button type="submit" id="searchButton">Search</button>
             </form>
             <button class="filter__menu-btn">
               Filter
               <ul class="filter__menu">
-                <li><a href="">All</a></li>
-                <li><a href="">Electronics</a></li>
-                <li><a href="">Fashion</a></li>
-                <li><a href="">Vehicles</a></li>
-                <li><a href="">Retro</a></li>
-                <li><a href="">Food</a></li>
-                <li><a href="">Art</a></li>
+                <li class="filter-mobile-btn all">All</li>
+                <li class="filter-mobile-btn electronics">Electronics</li>
+                <li class="filter-mobile-btn fashion">Fashion</li>
+                <li class="filter-mobile-btn vehicles">Vehicles</li>
+                <li class="filter-mobile-btn retro">Retro</li>
+                <li class="filter-mobile-btn food">Food</li>
+                <li class="filter-mobile-btn housing">Art</li>
               </ul>
             </button>
           </div>
           <div class="filter__menu-desktop">
-            <div class="filter__btn active">All</div>
-            <div class="filter__btn">Electronics</div>
-            <div class="filter__btn">Fashion</div>
-            <div class="filter__btn">Vehicles</div>
-            <div class="filter__btn">Retro</div>
-            <div class="filter__btn">Food</div>
-            <div class="filter__btn">Art</div>
-            <div class="filter__btn">Housing</div>
+            <div class="filter__btn active all" id="all">All</div>
+            <div class="filter__btn electronics" id="electronics">
+              Electronics
+            </div>
+            <div class="filter__btn fashion" id="fashion">Fashion</div>
+            <div class="filter__btn vehicles" id="vehicles">Vehicles</div>
+            <div class="filter__btn retro" id="retro">Retro</div>
+            <div class="filter__btn food" id="food">Food</div>
+            <div class="filter__btn art" id="art">Art</div>
+            <div class="filter__btn housing" id="housing">Housing</div>
           </div>
         </div>
       </div>
 
+      <div class="card__container" id="searchContainer">
+        <h2>Results:</h2>
+        <div class="card-grid" id="searchResults">
+          
+        </div>
+      </div>
+
       <div class="card__container">
-        <h2>New listings:</h3>
-        <div class="card-grid">
-          <a class="card | shadow" href="/sp2-bdiddy/pages/listing.html">
-            <img class="card__img" src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="" />
-            <div class="card__details">
-              <div>Jakob listed:</div>
-              <h3>Cool car that is working almost ok ok ok</h3>
-              <div>Current leader: Bob</div>
-            </div>
-            <div class="card__price | flex-row">
-              <div>40$</div>
-              <svg
-                class="arrow"
-                viewBox="0 0 24 15"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
-                />
-              </svg>
-            </div>
-          </a>
-          <div class="card | shadow">
-            <img class="card__img" src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="" />
-            <div class="card__details">
-              <div>Jakob listed:</div>
-              <h2>Cool Car</h2>
-              <div>Current leader: Bob</div>
-            </div>
-            <div class="card__price | flex-row">
-              <div>40$</div>
-              <svg
-                class="arrow"
-                viewBox="0 0 24 15"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="card | shadow">
-            <img class="card__img" src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="" />
-            <div class="card__details">
-              <div>Jakob listed:</div>
-              <h2>Cool Car</h2>
-              <div>Current leader: Bob</div>
-            </div>
-            <div class="card__price | flex-row">
-              <div>40$</div>
-              <svg
-                class="arrow"
-                viewBox="0 0 24 15"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="card | shadow">
-            <img class="card__img" src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="" />
-            <div class="card__details">
-              <div>Jakob listed:</div>
-              <h2>Cool Car</h2>
-              <div>Current leader: Bob</div>
-            </div>
-            <div class="card__price | flex-row">
-              <div>40$</div>
-              <svg
-                class="arrow"
-                viewBox="0 0 24 15"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="card | shadow">
-            <img class="card__img" src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="" />
-            <div class="card__details">
-              <div>Jakob listed:</div>
-              <h2>Cool Car</h2>
-              <div>Current leader: Bob</div>
-            </div>
-            <div class="card__price | flex-row">
-              <div>40$</div>
-              <svg
-                class="arrow"
-                viewBox="0 0 24 15"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="card | shadow">
-            <img class="card__img" src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="" />
-            <div class="card__details">
-              <div>Jakob listed:</div>
-              <h2>Cool Car</h2>
-              <div>Current leader: Bob</div>
-            </div>
-            <div class="card__price | flex-row">
-              <div>40$</div>
-              <svg
-                class="arrow"
-                viewBox="0 0 24 15"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="card | shadow">
-            <img class="card__img" src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="" />
-            <div class="card__details">
-              <div>Jakob listed:</div>
-              <h2>Cool Car</h2>
-              <div>Current leader: Bob</div>
-            </div>
-            <div class="card__price | flex-row">
-              <div>40$</div>
-              <svg
-                class="arrow"
-                viewBox="0 0 24 15"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="card | shadow">
-            <img class="card__img" src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="" />
-            <div class="card__details">
-              <div>Jakob listed:</div>
-              <h2>Cool Car</h2>
-              <div>Current leader: Bob</div>
-            </div>
-            <div class="card__price | flex-row">
-              <div>40$</div>
-              <svg
-                class="arrow"
-                viewBox="0 0 24 15"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
-                />
-              </svg>
-            </div>
-          </div>
+        <h2>New listings:</h2>
+        <div class="card-grid" id="newContainer">
+          <span class="loader"></span>
         </div>
       </div>
 
@@ -320,176 +176,7 @@
 
       <div class="card__container">
         <h2>Popular listings:</h2>
-        <div class="card-grid">
-          <a class="card | shadow">
-            <img class="card__img" src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="" />
-            <div class="card__details">
-              <div>Jakob listed:</div>
-              <h3>Cool Car</h3>
-              <div>Current leader: Bob</div>
-            </div>
-            <div class="card__price | flex-row">
-              <div>40$</div>
-              <svg
-                class="arrow"
-                viewBox="0 0 24 15"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
-                />
-              </svg>
-            </div>
-          </a>
-          <div class="card | shadow">
-            <img class="card__img" src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="" />
-            <div class="card__details">
-              <div>Jakob listed:</div>
-              <h2>Cool Car</h2>
-              <div>Current leader: Bob</div>
-            </div>
-            <div class="card__price | flex-row">
-              <div>40$</div>
-              <svg
-                class="arrow"
-                viewBox="0 0 24 15"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="card | shadow">
-            <img class="card__img" src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="" />
-            <div class="card__details">
-              <div>Jakob listed:</div>
-              <h2>Cool Car</h2>
-              <div>Current leader: Bob</div>
-            </div>
-            <div class="card__price | flex-row">
-              <div>40$</div>
-              <svg
-                class="arrow"
-                viewBox="0 0 24 15"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="card | shadow">
-            <img class="card__img" src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="" />
-            <div class="card__details">
-              <div>Jakob listed:</div>
-              <h2>Cool Car</h2>
-              <div>Current leader: Bob</div>
-            </div>
-            <div class="card__price | flex-row">
-              <div>40$</div>
-              <svg
-                class="arrow"
-                viewBox="0 0 24 15"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="card | shadow">
-            <img class="card__img" src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="" />
-            <div class="card__details">
-              <div>Jakob listed:</div>
-              <h2>Cool Car</h2>
-              <div>Current leader: Bob</div>
-            </div>
-            <div class="card__price | flex-row">
-              <div>40$</div>
-              <svg
-                class="arrow"
-                viewBox="0 0 24 15"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="card | shadow">
-            <img class="card__img" src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="" />
-            <div class="card__details">
-              <div>Jakob listed:</div>
-              <h2>Cool Car</h2>
-              <div>Current leader: Bob</div>
-            </div>
-            <div class="card__price | flex-row">
-              <div>40$</div>
-              <svg
-                class="arrow"
-                viewBox="0 0 24 15"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="card | shadow">
-            <img class="card__img" src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="" />
-            <div class="card__details">
-              <div>Jakob listed:</div>
-              <h2>Cool Car</h2>
-              <div>Current leader: Bob</div>
-            </div>
-            <div class="card__price | flex-row">
-              <div>40$</div>
-              <svg
-                class="arrow"
-                viewBox="0 0 24 15"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="card | shadow">
-            <img class="card__img" src="/sp2-bdiddy/assets/grid_0 (2)-3e39bb12.png" alt="" />
-            <div class="card__details">
-              <div>Jakob listed:</div>
-              <h2>Cool Car</h2>
-              <div>Current leader: Bob</div>
-            </div>
-            <div class="card__price | flex-row">
-              <div>40$</div>
-              <svg
-                class="arrow"
-                viewBox="0 0 24 15"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M22.7446 8.20711C23.1351 7.81658 23.1351 7.18342 22.7446 6.79289L16.3807 0.428932C15.9901 0.0384078 15.357 0.0384078 14.9664 0.428932C14.5759 0.819457 14.5759 1.45262 14.9664 1.84315L20.6233 7.5L14.9664 13.1569C14.5759 13.5474 14.5759 14.1805 14.9664 14.5711C15.357 14.9616 15.9901 14.9616 16.3807 14.5711L22.7446 8.20711ZM0.988129 8.5H22.0375V6.5H0.988129V8.5Z"
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
+        <div class="card-grid" id="allContainer"></div>
       </div>
 
       <button class="showMoreBtn" title="Show more listings">Show More</button>
@@ -498,7 +185,12 @@
       <div class="theme__container">
         <button class="hideThemesBtn" title="Hide themes">Hide</button>
         <div>Themes</div>
-        <button class="mainBtn theme__button" height="14px" width="15px" data-tooltip="Main Theme">
+        <button
+          class="mainBtn theme__button"
+          height="14px"
+          width="15px"
+          data-tooltip="Main Theme"
+        >
           <img
             src="/sp2-bdiddy/assets/main-217d6b71.gif"
             class="theme__icon"
@@ -533,6 +225,9 @@
             alt="Gif of an animated flower"
           />
         </button>
+      </div>
+      <div id="overlay">
+        <i class="fa-solid fa-xmark overlay-x"></i>
       </div>
     </main>
 
