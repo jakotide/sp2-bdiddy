@@ -190,7 +190,7 @@
 
 [data-modal] {
   margin: auto;
-  height: 42rem;
+  height: 40rem;
   width: 80%;
   max-width: 44rem;
   background-color: mainTheme.$secondary-color;
@@ -255,6 +255,10 @@
       font-size: 1.5rem;
       outline: none;
       border: 3px solid var(--clr-black);
+    }
+    .camera-icon {
+      margin: auto;
+      font-size: 38px;
     }
   }
 }

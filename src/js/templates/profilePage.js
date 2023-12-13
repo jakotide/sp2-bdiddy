@@ -50,20 +50,20 @@ export async function renderProfile() {
       profileCard.classList.add("profile-card", "border");
 
       const profileCardImage = document.createElement("img");
-    
+
       if (!listing.media || listing.media === " ") {
         cardImage.src = "/assets/img/noimage.jpg";
       } else {
         const image = new Image();
         image.src = listing.media;
-    
+
         image.onload = function () {
           profileCardImage.src = listing.media;
           profileCardImage.alt = "Image of " + listing.title;
         };
         image.onerror = function () {
           profileCardImage.src = "/assets/img/noimage.jpg";
-          profileCardImage.alt = "No image available"
+          profileCardImage.alt = "No image available";
         };
       }
 
@@ -93,40 +93,62 @@ export async function renderProfile() {
   }
 }
 
+const overlay = document.getElementById("overlay");
+
 function openDeleteModal(listingId) {
   const deleteModal = document.getElementById("deleteModal");
+
+  gsap.set(deleteModal, { y: -50, opacity: 0 });
+
+  overlay.style.display = "block";
+  deleteModal.style.display = "block";
+
+  gsap.to(deleteModal, {
+    duration: 0.8,
+    ease: "elastic.out(1.2, 0.5)",
+    y: 0,
+    x: 0,
+    opacity: 1,
+  });
+
   const confirmDeleteBtn = document.getElementById("confirmDelete");
   const cancelDeleteBtn = document.getElementById("cancelDelete");
 
   confirmDeleteBtn.onclick = () => handleDelete(listingId);
   cancelDeleteBtn.onclick = closeDeleteModal;
+  document.body.classList.add("modal-open");
 
-  deleteModal.style.display = "block";
+  overlay.onclick = () => {
+    closeDeleteModal();
+  };
 }
 
 function closeDeleteModal() {
   const deleteModal = document.getElementById("deleteModal");
+  overlay.style.display = "none";
   deleteModal.style.display = "none";
+  document.body.classList.remove("modal-open");
 }
 
-async function handleDelete(listingId) {
-  closeDeleteModal();
 
+const deleteText = document.querySelector(".delete-text");
+async function handleDelete(listingId) {
   try {
-     authorizeToken(
+    authorizeToken(
       async () => {
-        
         await deleteListing(listingId);
- 
+
+        deleteText.textContent = "Listing successfully deleted.";
+        setTimeout(() => {
+          closeDeleteModal();
+          location.reload();
+        }, 1500);
       },
       () => {
-
         console.error("Invalid token");
-      
       }
     );
   } catch (error) {
     console.error("Error handling delete:", error);
   }
 }
-

@@ -4,14 +4,22 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Create a stunning listing with ease! Customize your title, add a captivating description, showcase with images, and tag it with keywords that make your listing stand out. Start selling or sharing your unique item, service, or experience today">
+    <meta
+      name="description"
+      content="Create a stunning listing with ease! Customize your title, add a captivating description, showcase with images, and tag it with keywords that make your listing stand out. Start selling or sharing your unique item, service, or experience today"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
     <script src="/src/js/pages/create.js" defer type="module"></script>
     <title>B-Diddy | Create Listing</title>
   </head>
   <body>
     <header>
       <nav aria-label="Navigation" class="nav">
-        <a href="/sp2-bdiddy/" class="logo"><span class="hide">Home</span>
+        <a href="/sp2-bdiddy/" class="logo"
+          ><span class="hide">Home</span>
           <svg
             class="logo-header-svg"
             width="84"
@@ -47,12 +55,22 @@
           </div>
         </button>
         <ul class="nav__content">
-          <li><a href="/sp2-bdiddy/profile/" class="header__links">Profile</a></li>
+          <li>
+            <a href="/sp2-bdiddy/profile/" class="header__links">Profile</a>
+          </li>
           <li class="mobile-listing">
-            <a href="/sp2-bdiddy/create/" class="header__links">Create Listing</a>
+            <a href="/sp2-bdiddy/create/" class="header__links"
+              >Create Listing</a
+            >
           </li>
           <li><a href="" class="header__links">Contact</a></li>
-          <li><a href="/sp2-bdiddy/authentication/" class="header__links logOutBtn">Logout</a></li>
+          <li>
+            <a
+              href="/sp2-bdiddy/authentication/"
+              class="header__links logOutBtn"
+              >Logout</a
+            >
+          </li>
         </ul>
       </nav>
     </header>
@@ -87,11 +105,11 @@
           <div class="date-flex">
             <div class="flex-col">
               <label for="date">Ending date</label>
-              <input type="date" name="date" id="date"/>
+              <input type="date" name="date" id="date" />
             </div>
             <div class="flex-col">
               <label for="time">Ending time</label>
-              <input type="time" name="time" id="time"/>
+              <input type="time" name="time" id="time" />
             </div>
           </div>
           <button type="submit" class="create-btn">Create Listing</button>
@@ -102,18 +120,18 @@
           <h2>Upload Images</h2>
           <label for="media">Image URL 1</label>
           <input type="text" name="media" id="url1" />
-      
+
           <label for="media">Image URL 2</label>
           <input type="text" name="media" id="url2" />
-      
+
           <label for="media">Image URL 3</label>
           <input type="text" name="media" id="url3" />
-      
+
           <button type="submit" class="upload-btn">Upload</button>
           <button data-close-modal>🗙</button>
+          <i class="fa-solid fa-camera camera-icon"></i>
         </form>
       </dialog>
-      
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   </body>
