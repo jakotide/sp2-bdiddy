@@ -17,7 +17,7 @@ export function listingsTemplate(listingData) {
       listingImg.alt = "Image of " + listingData.title;
     };
     image.onerror = function () {
-      listingImg.src = "/assets/img/noimage.jpg";
+      listingImg.src = "/sp2-bdiddy/assets/img/noimage.jpg";
       listingImg.alt = "No image available"
     };
   }
