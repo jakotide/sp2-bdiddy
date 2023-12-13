@@ -7,7 +7,6 @@ import "../components/tags";
 import "../handlers/submitListing.js";
 import { submitListing } from "../handlers/submitListing.js";
 
-
 const openModalBtn = document.querySelector("[data-open-modal]");
 const closeModalBtn = document.querySelector("[data-close-modal]");
 const modal = document.querySelector("[data-modal]");
@@ -37,26 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
   });
 
-  // uploadImagesForm.addEventListener("submit", function (e) {
-  //   e.preventDefault();
-
-  //   const url1 = document.querySelector("#url1").value.trim();
-  //   const url2 = document.querySelector("#url2").value.trim();
-  //   const url3 = document.querySelector("#url3").value.trim();
-
-  //   if (url1 !== "") {
-  //     createThumbnail(url1, 1);
-  //   }
-
-  //   if (url2 !== "") {
-  //     createThumbnail(url2, 2);
-  //   }
-
-  //   if (url3 !== "") {
-  //     createThumbnail(url3, 3);
-  //   }
-  // });
-
   uploadImagesForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -76,15 +55,15 @@ document.addEventListener("DOMContentLoaded", function () {
       createThumbnail(url3, 3);
     }
 
-    const success = (url1 !== "") || (url2 !== "") || (url3 !== "");
+    const success = url1 !== "" || url2 !== "" || url3 !== "";
 
-    if (success) {      
+    if (success) {
       const submitButton = uploadImagesForm.querySelector("[type='submit']");
-      submitButton.textContent = "Success";    
+      submitButton.textContent = "Success";
 
       setTimeout(() => {
         closeModalBtn.click();
-        submitButton.textContent = "Upload";  
+        submitButton.textContent = "Upload";
       }, 1200);
     }
   });
@@ -101,30 +80,18 @@ document.addEventListener("DOMContentLoaded", function () {
       thumbnailBox.appendChild(thumbnail);
     }
 
-    // const xThumbnail = document.createElement("div");
-    // xThumbnail.classList.add("remove-thumbnail");
-    // xThumbnail.textContent = " 🗙 ";
-
-    // xThumbnail.addEventListener("click", (e) => {
-    //   const parent = e.target.parentElement;
-    //   if (parent) {
-
-    //     parent.remove();
-    //     input.value = "";
-    //   }
-    // });
     const xThumbnail = document.createElement("div");
     xThumbnail.classList.add("remove-thumbnail");
     xThumbnail.textContent = " 🗙 ";
-  
+
     xThumbnail.addEventListener("click", (e) => {
       const parentThumbnailBox = e.target.closest(".thumbnail-box");
       const inputId = `#url${position}`;
       const input = document.querySelector(inputId);
-  
+
       if (parentThumbnailBox && input) {
         parentThumbnailBox.innerHTML = "";
-        input.value = ""; 
+        input.value = "";
       }
     });
 
