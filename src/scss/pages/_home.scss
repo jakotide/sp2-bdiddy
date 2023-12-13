@@ -6,7 +6,6 @@
 @use "../themes/flower-power" as flowerPower;
 @use "../themes/main-theme" as mainTheme;
 
-
 .to-top-btn {
   background-color: mainTheme.$header;
   position: fixed;
@@ -21,7 +20,7 @@
   border: 2px solid var(--clr-black);
   pointer-events: none;
   opacity: 0;
-  transition: all .4s;
+  transition: all 0.4s;
   text-decoration: none;
   cursor: pointer;
   z-index: 1000;
@@ -40,8 +39,18 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); 
-  z-index: 9; 
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+  animation: fade-in 0.5s;
+  z-index: 9;
+
+  @keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+  }
 
   .overlay-x {
     font-size: 42px;
@@ -64,16 +73,16 @@
   display: none;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
-  }
+}
 
-  @keyframes rotation {
+@keyframes rotation {
   0% {
-      transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-      transform: rotate(360deg);
+    transform: rotate(360deg);
   }
-  } 
+}
 
 body.modal-open {
   overflow: hidden;
@@ -236,7 +245,7 @@ body {
 }
 
 @media (max-width: 56em) {
-  #overlay {  
+  #overlay {
     .overlay-x {
       top: 12%;
       left: 86%;

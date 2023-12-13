@@ -1,5 +1,9 @@
 @use "../themes/main-theme" as mainTheme;
 
+body.modal-open {
+  overflow: hidden;
+}
+
 .main-create {
   display: flex;
   justify-content: center;
@@ -54,7 +58,7 @@
         outline: none;
         border: 2px solid var(--clr-black);
         margin-bottom: 1.25rem;
-        transition: .2s ease;
+        transition: 0.2s ease;
 
         &:focus {
           transform: translate(-5px, -5px);
@@ -72,7 +76,7 @@
         background-color: mainTheme.$header;
         color: var(--clr-black);
         font-weight: 700;
-        transition: .2s ease;
+        transition: 0.2s ease;
 
         &:hover {
           transform: translate(-5px, -5px);
@@ -188,14 +192,15 @@
   }
 }
 
-
 [data-modal] {
   margin: auto;
   height: 40rem;
   width: 80%;
   max-width: 44rem;
   background-color: mainTheme.$secondary-color;
-  position: relative;
+  position: fixed;
+  top: 10%;
+  transform: translate(-50%, -50%);
   overflow: hidden;
   display: none;
 
@@ -223,7 +228,7 @@
       outline: none;
       border: 2px solid var(--clr-black);
       margin-bottom: 1.25rem;
-      transition: .1s ease;
+      transition: 0.1s ease;
 
       &:focus {
         transform: translate(-5px, -5px);
@@ -238,7 +243,7 @@
       padding: 0.5rem 1rem;
       outline: none;
       border: 2px solid var(--clr-black);
-      transition: .2s ease;
+      transition: 0.2s ease;
       margin: 1.25rem 0;
 
       &:hover {
@@ -269,12 +274,10 @@
   display: block;
 }
 
-
 @media (max-width: 42em) {
   .main-create {
     .create-box {
       .create-form {
-
         width: 90%;
 
         .date-flex {

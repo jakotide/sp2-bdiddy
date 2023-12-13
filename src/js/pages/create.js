@@ -14,6 +14,7 @@ const modal = document.querySelector("[data-modal]");
 gsap.set(modal, { y: -50, opacity: 1 });
 
 openModalBtn.addEventListener("click", () => {
+  document.body.classList.add("modal-open");
   modal.classList.add("modal-visible");
   modal.showModal();
   gsap.to(modal, {
@@ -22,13 +23,27 @@ openModalBtn.addEventListener("click", () => {
     y: 0,
     opacity: 1,
   });
+
 });
 
 closeModalBtn.addEventListener("click", () => {
   modal.classList.remove("modal-visible");
+  document.body.classList.remove("modal-open");
   modal.close();
   gsap.to(modal, { duration: 0.8, ease: "elastic.out(1.2,0.5)", y: -50 });
 });
+
+const dialog = document.querySelector("dialog");
+
+if (dialog) {
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) {
+      modal.classList.remove("modal-visible");
+      document.body.classList.remove("modal-open");
+      modal.close();
+    }
+  });
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   const createForm = document.querySelector(".create-form");
@@ -62,7 +77,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (success) {
       const submitButton = uploadImagesForm.querySelector("[type='submit']");
       submitButton.textContent = "Success";
-
+      document.body.classList.remove("modal-open");
+      
       setTimeout(() => {
         closeModalBtn.click();
         submitButton.textContent = "Upload";
@@ -73,6 +89,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function createThumbnail(imageUrl, position) {
     const thumbnail = document.createElement("img");
     thumbnail.src = imageUrl;
+    const inputId = `#url${position}`;
+    const input = document.querySelector(inputId);
 
     const thumbnailBox = document.querySelector(
       `.thumbnail-box:nth-child(${position})`
@@ -80,6 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (thumbnailBox) {
       thumbnailBox.innerHTML = "";
       thumbnailBox.appendChild(thumbnail);
+      input.value = "";
     }
 
     const xThumbnail = document.createElement("div");
