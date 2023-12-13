@@ -7,7 +7,8 @@ export function listingsTemplate(listingData) {
   listingImg.classList.add("card__img");
 
   if (!listingData.media || listingData.media === " ") {
-    listingImg.src = "/sp2-bdiddy/assets/img/noimage.jpg";
+    listingImg.src = "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?w=826&t=st=1702494458~exp=1702495058~hmac=d56fbe2332a59ded31ee5d1c49e38e5093f4405411d347c695155c6913e41d80";
+    listingImg.style.objectFit ="cover";
   } else {
     const image = new Image();
     image.src = listingData.media;
@@ -17,8 +18,9 @@ export function listingsTemplate(listingData) {
       listingImg.alt = "Image of " + listingData.title;
     };
     image.onerror = function () {
-      listingImg.src = "/sp2-bdiddy/assets/img/noimage.jpg";
-      listingImg.alt = "No image available"
+      listingImg.src = "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?w=826&t=st=1702494458~exp=1702495058~hmac=d56fbe2332a59ded31ee5d1c49e38e5093f4405411d347c695155c6913e41d80";
+      listingImg.alt = "No image available";
+      listingImg.style.objectFit ="cover";
     };
   }
 
