@@ -14,7 +14,7 @@ async function displayFilterResults() {
   const filteredResultCards = await filter.filterListings();
   if (filteredResultCards) {
     filter.renderFiltered(filteredResultCards, searchGrid);
-  };
+  }
 }
 
 displayFilterResults();
@@ -29,11 +29,31 @@ async function displaySearchResult() {
 
 displaySearchResult();
 
+// async function listingsHomeTemplate() {
+//   const cardListings = await listings.getListings();
+//   const newContainer = document.querySelector("#newContainer");
+//   const allContainer = document.querySelector("#allContainer");
+//   templates.renderListings(cardListings, newContainer, allContainer);
+// }
+
+// listingsHomeTemplate();
+
 async function listingsHomeTemplate() {
-  const cardListings = await listings.getListings();
   const newContainer = document.querySelector("#newContainer");
   const allContainer = document.querySelector("#allContainer");
-  templates.renderListings(cardListings, newContainer, allContainer);
+  const loader = document.querySelector(".loader");
+
+  loader.style.display = "block";
+
+  try {
+    const cardListings = await listings.getListings();
+
+    templates.renderListings(cardListings, newContainer, allContainer);
+    loader.style.display = "none";
+  } catch (error) {
+    console.error("Error fetching listings:", error);
+    loader.style.display = "none";
+  }
 }
 
 listingsHomeTemplate();
@@ -42,9 +62,9 @@ const createLink = document.querySelector("#createBtn");
 
 authorizeToken(
   () => {
-      createLink.style.display = "block";
+    createLink.style.display = "block";
   },
   () => {
-      createLink.style.display = "none";
+    createLink.style.display = "none";
   }
 );
