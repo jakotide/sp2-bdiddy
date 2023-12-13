@@ -1,6 +1,8 @@
 const filterBtnMobile = document.querySelector(".filter__menu-btn");
 const filterMenuMobile = document.querySelector(".filter__menu");
 const filterBtns = document.querySelectorAll(".filter__btn");
+const overlay = document.querySelector("#overlay");
+const mobileBtn = document.querySelectorAll(".filter-mobile-btn");
 let activeBtn = filterBtns[0];
 
 filterBtns.forEach((btn) => {
@@ -19,5 +21,19 @@ filterBtns.forEach((btn) => {
 
 filterBtnMobile.addEventListener("click", () => {
   filterMenuMobile.classList.toggle("active");
+  overlay.style.display = "block";
+  document.body.classList.add("modal-open");
 });
 
+overlay.onclick = () => {
+  filterMenuMobile.classList.toggle("active");
+  overlay.style.display = "none";
+  document.body.classList.remove("modal-open");
+};
+
+document.body.addEventListener("click", (event) => {
+  if (event.target.classList.contains("filter-mobile-btn")) {
+    overlay.style.display = "none";
+    document.body.classList.remove("modal-open");
+  }
+});

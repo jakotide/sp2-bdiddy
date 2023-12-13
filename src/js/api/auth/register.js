@@ -1,6 +1,7 @@
 import { API_AUCTION_URL } from "../constants";
 import { AUTH_REGISTER } from "../constants";
 const loginBtn = document.getElementById("signUpBtn");
+const main = document.querySelector(".main-login");
 
 export async function register(profile) {
   const regUrl = API_AUCTION_URL + AUTH_REGISTER;
@@ -23,9 +24,9 @@ export async function register(profile) {
 
       const result = await response.json();
       console.log("Registration successful:", result);
-
+      loginBtn.textContent = "Success!";
       setTimeout(() => {
-        loginBtn.textContent = "Success!";
+        main.classList.toggle("active");
       }, 2000);
     }
   } catch (error) {

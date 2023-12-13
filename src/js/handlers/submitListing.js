@@ -29,7 +29,7 @@ export async function submitListing() {
         )
         .filter((tag) => tag !== "");
 
-      console.log(tags);
+      
 
       if (tags.length > 0) {
         listing.tags = tags;

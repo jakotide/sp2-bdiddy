@@ -107,6 +107,7 @@
   p {
     opacity: 0.8;
     margin: 0.2rem 2rem 1.25rem;
+    text-align: center;
   }
 }
 
@@ -121,6 +122,16 @@
   padding-bottom: 4rem;
   justify-content: center;
   align-items: center;
+}
+
+.login-error-msg {
+  max-width: 22rem;
+  font-size: 15px;
+  text-align: center;
+}
+
+.error-message {
+  display: none;
 }
 
 .forms-wrap form {

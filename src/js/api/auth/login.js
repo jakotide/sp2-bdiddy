@@ -2,6 +2,9 @@ import { API_AUCTION_URL } from "../constants";
 import { AUTH_LOGIN } from "../constants";
 import { save } from "../../storage/save";
 
+const errorMessage = document.querySelector(".error-message");
+
+
 export async function login(profile) {
   const loginUrl = API_AUCTION_URL + AUTH_LOGIN;
 
@@ -17,7 +20,8 @@ export async function login(profile) {
     if (!response.ok) {
       const errorData = await response.json();
       console.error("Login failed:", errorData);
-      alert("Something went wrong!");
+      errorMessage.style.display = "Block";
+
     } else {
       const { accessToken, ...user } = await response.json();
 
