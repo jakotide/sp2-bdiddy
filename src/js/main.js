@@ -7,6 +7,7 @@ import * as listings from "../js/api/listings/index.js";
 import * as search from "../js/handlers/search.js";
 import * as filter from "../js/handlers/filter.js";
 import { authorizeToken } from "./storage/authorizeToken";
+import { toTopButton } from "./components/toTopBtn";
 
 const searchGrid = document.querySelector("#searchResults");
 
@@ -68,3 +69,5 @@ authorizeToken(
     createLink.style.display = "none";
   }
 );
+
+toTopButton();
