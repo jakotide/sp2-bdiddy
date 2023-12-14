@@ -23,7 +23,6 @@ openModalBtn.addEventListener("click", () => {
     y: 0,
     opacity: 1,
   });
-
 });
 
 closeModalBtn.addEventListener("click", () => {
@@ -78,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const submitButton = uploadImagesForm.querySelector("[type='submit']");
       submitButton.textContent = "Success";
       document.body.classList.remove("modal-open");
-      
+
       setTimeout(() => {
         closeModalBtn.click();
         submitButton.textContent = "Upload";
@@ -89,8 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function createThumbnail(imageUrl, position) {
     const thumbnail = document.createElement("img");
     thumbnail.src = imageUrl;
-    const inputId = `#url${position}`;
-    const input = document.querySelector(inputId);
 
     const thumbnailBox = document.querySelector(
       `.thumbnail-box:nth-child(${position})`
@@ -98,7 +95,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (thumbnailBox) {
       thumbnailBox.innerHTML = "";
       thumbnailBox.appendChild(thumbnail);
-      input.value = "";
     }
 
     const xThumbnail = document.createElement("div");
