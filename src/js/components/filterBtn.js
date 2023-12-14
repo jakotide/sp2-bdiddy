@@ -25,6 +25,13 @@ filterBtnMobile.addEventListener("click", () => {
   document.body.classList.add("modal-open");
 });
 
+filterMenuMobile.addEventListener("click", (event) => {
+  event.stopPropagation(); 
+  filterMenuMobile.classList.toggle("active");
+  overlay.style.display = "none";
+  document.body.classList.remove("modal-open");
+})
+
 overlay.onclick = () => {
   filterMenuMobile.classList.toggle("active");
   overlay.style.display = "none";
@@ -33,6 +40,12 @@ overlay.onclick = () => {
 
 document.body.addEventListener("click", (event) => {
   if (event.target.classList.contains("filter-mobile-btn")) {
+    overlay.style.display = "none";
+    document.body.classList.remove("modal-open");
+  }
+});
+document.body.addEventListener("click", (event) => {
+  if (event.target.classList.contains("active")) {
     overlay.style.display = "none";
     document.body.classList.remove("modal-open");
   }
