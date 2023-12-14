@@ -10,26 +10,63 @@ export async function singleListingPage() {
   const carouselSlides = [
     document.querySelector(".slide"),
     document.querySelector(".slide2"),
-    document.querySelector(".slide3")
+    document.querySelector(".slide3"),
   ];
-  
+
   const profileName = document.querySelector(".profileName");
   const profileAvatar = document.querySelector(".img-box");
   const listingDescription = document.querySelector(".description");
   const dateSection = document.querySelector(".start-end");
   const leaderBox = document.querySelector(".leader-flex");
-  
+
   const slides = [];
+  const nextButton = document.querySelector(".next");
+  const prevButton = document.querySelector(".prev");
+
   for (let i = 0; i < listing.media.length; i++) {
     const slide = document.createElement("img");
     slide.src = listing.media[i];
     slides.push(slide);
   }
-  
+
+  // if (slides.length <= 1) {
+  //   nextButton.style.display = "none";
+  //   prevButton.style.display = "none";
+  // } else {
+  //   nextButton.style.display = "block";
+  //   prevButton.style.display = "block";
+  // }
+  if (listing.media.length === 0) {
+    const placeholder = document.createElement("img");
+    placeholder.src =
+      "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?w=826&t=st=1702494458~exp=1702495058~hmac=d56fbe2332a59ded31ee5d1c49e38e5093f4405411d347c695155c6913e41d80";
+    placeholder.alt = "No image available.";
+    slides.push(placeholder);
+
+    nextButton.style.display = "none";
+    prevButton.style.display = "none";
+  } else if (listing.media.length === 1) {
+    const slide = document.createElement("img");
+    slide.src = listing.media[0];
+    slides.push(slide);
+
+    nextButton.style.display = "none";
+    prevButton.style.display = "none";
+  } else {
+    for (let i = 0; i < listing.media.length; i++) {
+      const slide = document.createElement("img");
+      slide.src = listing.media[i];
+      slides.push(slide);
+    }
+
+    nextButton.style.display = "block";
+    prevButton.style.display = "block";
+  }
+
   const avatar = document.createElement("img");
   avatar.classList.add("border", "img-avatar");
   avatar.src = listing.seller.avatar;
-  
+
   const name = document.createElement("div");
   name.classList.add("profile-name");
   name.textContent = listing.seller.name;
@@ -42,7 +79,7 @@ export async function singleListingPage() {
 
   function formatCustomDate(dateString) {
     const date = new Date(dateString);
-  
+
     const options = {
       year: "numeric",
       month: "2-digit",
@@ -51,10 +88,10 @@ export async function singleListingPage() {
       minute: "numeric",
       hour12: true,
     };
-  
+
     return new Intl.DateTimeFormat("en-US", options).format(date);
   }
-  
+
   const startDesktop = document.createElement("div");
   startDesktop.classList.add("desktop-start-date");
   startDesktop.textContent = "Started: " + formatCustomDate(listing.created);
@@ -64,7 +101,11 @@ export async function singleListingPage() {
   endDate.textContent = "Ends at: " + formatCustomDate(listing.endsAt);
 
   function findHighestBid(bids) {
-    return bids.reduce((highest, current) => (current.amount > highest.amount ? current : highest), bids[0]);
+    return bids.reduce(
+      (highest, current) =>
+        current.amount > highest.amount ? current : highest,
+      bids[0]
+    );
   }
 
   const highestBid = findHighestBid(listing.bids);
@@ -82,7 +123,7 @@ export async function singleListingPage() {
     noBidDisplay = document.createElement("div");
     noBidDisplay.textContent = "No bids yet!";
   }
-  
+
   carouselSlides.forEach((carouselSlide, index) => {
     carouselSlide.append(slides[index]);
   });
@@ -96,5 +137,3 @@ export async function singleListingPage() {
     leaderBox.append(noBidDisplay);
   }
 }
-
-
