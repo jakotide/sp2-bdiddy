@@ -4,6 +4,7 @@
 @use "../themes/snowy-snow" as snowySnow;
 @use "../themes/flower-power" as flowerPower;
 @use "../themes/main-theme" as mainTheme;
+@use "../utils/mixins" as mixins;
 
 .container {
   max-width: 72rem;
@@ -18,9 +19,7 @@
 
 .hero__grid {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @include mixins.flexContainer(column);
   font-family: "MabryPro-Regular";
   margin-bottom: 3rem;
 
@@ -75,8 +74,7 @@
     height: 3rem;
     width: 5rem;
     background-color: mainTheme.$header;
-    border: 2px solid var(--clr-black);
-    cursor: pointer;
+    @include mixins.customLinkStyle(2px);
   }
 
   .filter__menu-desktop {

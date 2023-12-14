@@ -1,27 +1,26 @@
 @use "../themes/main-theme" as mainTheme;
+@use "../utils/mixins" as mixins;
 
 body.modal-open {
   overflow: hidden;
 }
 
 dialog::backdrop {
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8));
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
   animation: fade-in 0.5s;
 }
 
 @keyframes fade-in {
   from {
-      opacity: 0;
+    opacity: 0;
   }
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
 .profile-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include mixins.flexCenter();
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
@@ -32,7 +31,7 @@ dialog::backdrop {
 
   .delete-modal {
     display: none;
-    position: fixed; 
+    position: fixed;
     top: 40%;
     margin: auto;
     transform: translate(-50%, -50%);
@@ -42,29 +41,26 @@ dialog::backdrop {
     padding: 2rem;
     width: 18rem;
     text-align: center;
- 
 
     p {
       margin-bottom: 10px;
     }
 
     button {
+      @include mixins.customLinkStyle(2px);
       padding: 0.5rem 1rem;
       outline: none;
-      border: 2px solid var(--clr-black);
       margin-bottom: 1.25rem;
-      transition: .2s ease;
+      transition: 0.2s ease;
       background-color: mainTheme.$header;
-      color: var(--clr-black);
-      cursor: pointer;
-      
+
       &:hover {
         transform: translate(-3px, -3px);
         box-shadow: (3px 3px var(--clr-black));
       }
     }
   }
-  
+
   #overlay {
     display: none;
     position: fixed;
@@ -72,9 +68,9 @@ dialog::backdrop {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8));
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
     animation: fade-in 0.5s;
-    z-index: 9; 
+    z-index: 9;
 
     .overlay-x {
       font-size: 42px;
@@ -88,10 +84,10 @@ dialog::backdrop {
   }
   @keyframes fade-in {
     from {
-        opacity: 0;
+      opacity: 0;
     }
     to {
-        opacity: 1;
+      opacity: 1;
     }
   }
 
@@ -106,7 +102,6 @@ dialog::backdrop {
       flex-direction: column;
       align-items: center;
       padding-top: 2.5rem;
-      
 
       [data-modal] {
         display: none;
@@ -118,7 +113,6 @@ dialog::backdrop {
         right: -2px;
         background-color: mainTheme.$header;
       }
-  
 
       label {
         margin-bottom: 1.5rem;
@@ -136,7 +130,7 @@ dialog::backdrop {
         border: 2px solid var(--clr-black);
         color: var(--clr-black);
         margin-bottom: 1.25rem;
-        transition: .2s ease;
+        transition: 0.2s ease;
         &:focus {
           transform: translate(-5px, -5px);
           box-shadow: (5px 5px var(--clr-black));
@@ -169,7 +163,7 @@ dialog::backdrop {
           position: absolute;
           top: 92%;
           right: 38%;
-          padding: 0.25rem .85rem;
+          padding: 0.25rem 0.85rem;
           font-size: 14px;
           background-color: mainTheme.$star;
           outline: none;
@@ -266,14 +260,14 @@ dialog::backdrop {
             justify-content: space-evenly;
             align-items: center;
             gap: 0.5rem;
-       
+
             a {
               padding: 5px 8px;
               outline: 2px solid var(--clr-black);
               font-size: 14px;
               text-decoration: none;
               color: var(--clr-black);
-              cursor: pointer; 
+              cursor: pointer;
               width: 4.85rem;
               text-align: center;
               line-height: 20px;

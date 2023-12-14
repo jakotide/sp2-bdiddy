@@ -4,16 +4,14 @@
 @use "../themes/snowy-snow" as snowySnow;
 @use "../themes/flower-power" as flowerPower;
 @use "../themes/main-theme" as mainTheme;
+@use "../utils/mixins" as mixins;
 
 .card__container {
   max-width: 72rem;
   margin-inline: auto;
   padding-inline: 5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @include mixins.flexContainer(column);
   margin-bottom: 5rem;
-
 
   h2 {
     color: mainTheme.$c-black;
@@ -22,21 +20,17 @@
     margin-bottom: 1rem;
   }
 
-
   .card-grid {
     display: grid;
     gap: 1.5rem;
     grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
 
     .card {
+      @include mixins.customLinkStyle();
       aspect-ratio: 1 / 1.5;
       max-height: 500px;
       width: 100%;
-      border: 3px solid mainTheme.$c-black;
       background-color: mainTheme.$primary-color;
-      color: mainTheme.$c-black;
-      cursor: pointer;
-      text-decoration: none;
       display: grid;
       grid-template-rows: 45% 35% 20%;
       grid-template-areas:
@@ -54,7 +48,7 @@
       }
 
       .no-image {
-        background-image: url('/assets/img/noimage.jpg');
+        background-image: url("/assets/img/noimage.jpg");
       }
 
       &__details {
@@ -83,8 +77,6 @@
         text-overflow: ellipsis;
         margin: 0;
         width: 100%;
-        overflow-wrap: normal;
-        word-wrap:normal;
       }
 
       .card__details div {
@@ -113,7 +105,6 @@
 
       .arrow {
         width: 1.75rem;
-
         fill: mainTheme.$c-black;
       }
 
