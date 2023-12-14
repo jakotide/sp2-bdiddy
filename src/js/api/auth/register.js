@@ -2,8 +2,7 @@ import { API_AUCTION_URL } from "../constants";
 import { AUTH_REGISTER } from "../constants";
 const loginBtn = document.getElementById("signUpBtn");
 const main = document.querySelector(".main-login");
-const errorMsg = document.querySelector(".reg-error-msg");
-
+const errorMsg = document.querySelector(".reg-error-message");
 
 export async function register(profile) {
   const regUrl = API_AUCTION_URL + AUTH_REGISTER;
@@ -21,7 +20,6 @@ export async function register(profile) {
       const errorData = await response.json();
       console.error("Registration failed:", errorData);
       errorMsg.style.display = "block";
-      gsap.to(loginBtn, { x: -4, yoyo: true, repeat: 3, duration: 1 });
     } else {
       loginBtn.innerHTML = '<span class="loader"></span>';
 
@@ -32,6 +30,5 @@ export async function register(profile) {
         main.classList.toggle("active");
       }, 2000);
     }
-  } catch (error) {
-  }
+  } catch (error) {}
 }
