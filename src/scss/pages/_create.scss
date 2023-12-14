@@ -1,13 +1,12 @@
 @use "../themes/main-theme" as mainTheme;
+@use "../utils/mixins" as mixins;
 
 body.modal-open {
   overflow: hidden;
 }
 
 .main-create {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include mixins.flexCenter();
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
@@ -191,7 +190,6 @@ body.modal-open {
     }
   }
 }
-
 
 [data-modal] {
   margin: auto;
