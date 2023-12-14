@@ -1,3 +1,8 @@
+/**
+ * Generates a card element representing a listing.
+ * @param {Object} listingData - The data for the listing.
+ * @returns {HTMLAnchorElement} - The generated card element.
+ */
 export function listingsTemplate(listingData) {
   const card = document.createElement("a");
   card.classList.add("card", "shadow");
@@ -8,8 +13,9 @@ export function listingsTemplate(listingData) {
   listingImg.loading = "lazy";
 
   if (!listingData.media || listingData.media === " ") {
-    listingImg.src = "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?w=826&t=st=1702494458~exp=1702495058~hmac=d56fbe2332a59ded31ee5d1c49e38e5093f4405411d347c695155c6913e41d80";
-    listingImg.style.objectFit ="cover";
+    listingImg.src =
+      "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?w=826&t=st=1702494458~exp=1702495058~hmac=d56fbe2332a59ded31ee5d1c49e38e5093f4405411d347c695155c6913e41d80";
+    listingImg.style.objectFit = "cover";
   } else {
     const image = new Image();
     image.src = listingData.media;
@@ -19,9 +25,10 @@ export function listingsTemplate(listingData) {
       listingImg.alt = "Image of " + listingData.title;
     };
     image.onerror = function () {
-      listingImg.src = "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?w=826&t=st=1702494458~exp=1702495058~hmac=d56fbe2332a59ded31ee5d1c49e38e5093f4405411d347c695155c6913e41d80";
+      listingImg.src =
+        "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?w=826&t=st=1702494458~exp=1702495058~hmac=d56fbe2332a59ded31ee5d1c49e38e5093f4405411d347c695155c6913e41d80";
       listingImg.alt = "No image available";
-      listingImg.style.objectFit ="cover";
+      listingImg.style.objectFit = "cover";
     };
   }
 
@@ -39,6 +46,11 @@ export function listingsTemplate(listingData) {
   const title = document.createElement("h3");
   title.textContent = listingData.title;
 
+  /**
+   * Finds the highest bid among the listing bids.
+   * @param {Array} bids - The array of bids for the listing.
+   * @returns {Object|null} - The highest bid or null if no bids.
+   */
   function findHighestBid(bids) {
     return bids.reduce(
       (highest, current) =>
@@ -97,6 +109,12 @@ export function listingsTemplate(listingData) {
   return card;
 }
 
+/**
+ * Renders the listings on the page with a show more button for additional listings.
+ * @param {Array} listingsData - The array of listing data to be rendered.
+ * @param {HTMLElement} parent1 - The first parent element to append the initial listings.
+ * @param {HTMLElement} parent2 - The second parent element to append additional listings.
+ */
 export function renderListings(listingsData, parent1, parent2) {
   const filteredListings = listingsData.filter((listing) => {
     const lowerCaseTitle = listing.title.toLowerCase();
@@ -123,7 +141,7 @@ export function renderListings(listingsData, parent1, parent2) {
   showMoreBtn.addEventListener("click", () => {
     showMoreBtn.innerHTML = `<span class="loader"></span>`;
     setTimeout(() => {
-      restListings = sortedNewest.slice(41, 100)
+      restListings = sortedNewest.slice(41, 100);
       parent2.append(...restListings.map(listingsTemplate));
       showMoreBtn.style.display = "none";
     }, 2000);
@@ -132,5 +150,3 @@ export function renderListings(listingsData, parent1, parent2) {
   parent1.append(...firstEightListings.map(listingsTemplate));
   parent2.append(...restListings.map(listingsTemplate));
 }
-
-

@@ -2,6 +2,10 @@ import { placeBidApi } from "../api/listings";
 import { getListing } from "../api/listings";
 import { load } from "../storage/load";
 
+/**
+ * Function to handle placing bids.
+ * 
+ */
 export async function placeBid() {
   const placeBidForm = document.querySelector(".bid-form");
   const btn = document.querySelector(".bid-btn");
@@ -65,6 +69,11 @@ export async function placeBid() {
   }
 }
 
+/**
+ * Function to find the highest bid from a list of bids.
+ * @param {Array} bids - Array of bids.
+ * @returns {Object} - The highest bid object.
+ */
 function findHighestBid(bids) {
   return bids.reduce(
     (highest, current) => (current.amount > highest.amount ? current : highest),

@@ -1,5 +1,9 @@
 import { login } from '../api/auth/login.js';
 
+/**
+ * Function to listen to form submissions on the login form.
+ * 
+ */
 export function loginFormListener() {
   const regForm = document.querySelector(".login-form");
 

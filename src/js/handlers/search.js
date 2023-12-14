@@ -1,6 +1,11 @@
 import { getListings } from "../api/listings";
 import { listingsTemplate } from "../templates/listings";
 
+
+/**
+ * Asynchronously fetches listings and handles search functionality.
+ * 
+ */
 export async function search() {
   const listings = await getListings();
   const form = document.querySelector(".search");
@@ -32,8 +37,13 @@ export async function search() {
   }
 
   return [];
-}
+};
 
+/**
+ * Renders search results to the specified parent container.
+ * @param {Array} searchResults - The array of search results to be rendered.
+ * @param {HTMLElement} parent - The parent container to which the search results will be appended.
+ */
 export function renderSearchResults(searchResults, parent) {
   parent.innerHTML = "";
 
@@ -51,4 +61,4 @@ export function renderSearchResults(searchResults, parent) {
   const searchResultCards = searchResults.map(listingsTemplate);
 
   parent.append(...searchResultCards);
-}
+};

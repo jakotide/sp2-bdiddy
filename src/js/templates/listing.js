@@ -1,5 +1,10 @@
 import { getListing } from "../api/listings";
 
+/**
+ * Fetches the details of a single listing and updates the corresponding page.
+ * @async
+ * @function
+ */
 export async function singleListingPage() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -29,13 +34,6 @@ export async function singleListingPage() {
     slides.push(slide);
   }
 
-  // if (slides.length <= 1) {
-  //   nextButton.style.display = "none";
-  //   prevButton.style.display = "none";
-  // } else {
-  //   nextButton.style.display = "block";
-  //   prevButton.style.display = "block";
-  // }
   if (listing.media.length === 0) {
     const placeholder = document.createElement("img");
     placeholder.src =
@@ -77,6 +75,12 @@ export async function singleListingPage() {
   description.classList.add(".description");
   description.textContent = listing.description;
 
+  /**
+   * Formats a custom date string.
+   * @function
+   * @param {string} dateString - The date string to be formatted.
+   * @returns {string} - The formatted date string.
+   */
   function formatCustomDate(dateString) {
     const date = new Date(dateString);
 

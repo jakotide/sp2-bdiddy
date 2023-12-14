@@ -1,6 +1,9 @@
 import { getListings } from "../api/listings";
 import { listingsTemplate } from "../templates/listings";
 
+/**
+ * Function to filter listings based on the selected category.
+ */
 export async function filterListings() {
   const listings = await getListings();
   const electroBtn = document.querySelectorAll(".electronics");
@@ -38,6 +41,11 @@ export async function filterListings() {
   });
 }
 
+/**
+ * Function to handle filter button clicks.
+ * @param {string} category - The category associated with the clicked filter button.
+ * @param {Array} listings - The array of all listings.
+ */
 async function handleFilterClick(category, listings) {
   const filteredResults = await filterListingsByCategory(category, listings);
 
@@ -45,6 +53,12 @@ async function handleFilterClick(category, listings) {
   renderFiltered(filteredResults, filterContainer);
 }
 
+/**
+ * Function to handle the filtering of listings based on category.
+ * @param {string} category - The category to filter listings by.
+ * @param {Array} listings - The array of listings to filter.
+ * @returns {Promise<Array>} - A promise that resolves to an array of filtered listings.
+ */
 async function filterListingsByCategory(category, listings) {
   const lowerCategory = category.toLowerCase();
 
@@ -90,6 +104,11 @@ async function filterListingsByCategory(category, listings) {
   return filteredResults;
 }
 
+/**
+ * Function to render filtered results.
+ * @param {Array} filteredResults - The array of filtered listings to render.
+ * @param {HTMLElement} parent - The parent element to append the rendered listings to.
+ */
 export function renderFiltered(filteredResults, parent) {
   const filterContainer = document.querySelector("#searchContainer");
   const allBtn = document.querySelectorAll(".all");

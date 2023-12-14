@@ -1,5 +1,8 @@
 import { register } from '../api/auth/register.js';
 
+/**
+ * Function to listen for register form submissions.
+ */
 export function registerFormListener() {
   const regForm = document.querySelector(".register-form");
 

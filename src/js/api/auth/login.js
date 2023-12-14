@@ -4,7 +4,6 @@ import { save } from "../../storage/save";
 
 const errorMessage = document.querySelector(".error-message");
 
-
 export async function login(profile) {
   const loginUrl = API_AUCTION_URL + AUTH_LOGIN;
 
@@ -21,7 +20,6 @@ export async function login(profile) {
       const errorData = await response.json();
       console.error("Login failed:", errorData);
       errorMessage.style.display = "Block";
-
     } else {
       const { accessToken, ...user } = await response.json();
 

@@ -10,12 +10,22 @@ const mobileListingBtn = document.querySelector(".mobile-listing");
 const logOutBtn = document.querySelector(".logOutBtn");
 const profileBtn = document.querySelector(".profileBtn");
 
+/**
+ * Toggles active class and rotates the hamburger btn lines.
+ *
+ * 
+ */
 hamburgerBtn.addEventListener("click", () => {
   navContent.classList.toggle("active");
   lineOne.classList.toggle("active");
   lineTwo.classList.toggle("active");
 });
 
+/**
+ * Changes create navigation to login if user don't have token.
+ *
+ * 
+ */
 authorizeToken(
   () => {
     listingLink.textContent = "Create Listing";

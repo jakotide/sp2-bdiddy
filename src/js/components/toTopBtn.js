@@ -1,5 +1,8 @@
 const toTopBtn = document.querySelector(".to-top-btn");
 
+/**
+ * Scrolls to top of the page when clicked.
+ */
 export function toTopButton() {
     window.addEventListener("scroll", () => {
       if (window.innerWidth > 500) {

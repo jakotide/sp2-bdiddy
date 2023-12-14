@@ -3,6 +3,10 @@ import { load } from "../storage/load";
 import { deleteListing } from "../api/listings/delete";
 import { authorizeToken } from "../storage/authorizeToken";
 
+/**
+ * Renders the user profile, including user details, funds, wins, listings, and profile cards.
+ *
+ */
 export async function renderProfile() {
   const user = load("User");
   if (!user || !user.name) {
@@ -93,7 +97,7 @@ export async function renderProfile() {
   }
 }
 const confirmDeleteBtn = document.getElementById("confirmDelete");
-  const cancelDeleteBtn = document.getElementById("cancelDelete");
+const cancelDeleteBtn = document.getElementById("cancelDelete");
 const overlay = document.getElementById("overlay");
 
 function openDeleteModal(listingId) {
@@ -112,8 +116,6 @@ function openDeleteModal(listingId) {
     opacity: 1,
   });
 
-  
-
   confirmDeleteBtn.onclick = () => handleDelete(listingId);
   cancelDeleteBtn.onclick = closeDeleteModal;
   document.body.classList.add("modal-open");
@@ -129,7 +131,6 @@ function closeDeleteModal() {
   deleteModal.style.display = "none";
   document.body.classList.remove("modal-open");
 }
-
 
 const deleteText = document.querySelector(".delete-text");
 async function handleDelete(listingId) {

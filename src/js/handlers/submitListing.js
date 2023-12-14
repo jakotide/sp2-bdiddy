@@ -1,5 +1,8 @@
 import { createListing } from "../api/listings";
 
+/**
+ * Submits a new listing based on the form input.
+ */
 export async function submitListing() {
   const form = document.querySelector(".create-form");
 
@@ -29,8 +32,6 @@ export async function submitListing() {
         )
         .filter((tag) => tag !== "");
 
-      
-
       if (tags.length > 0) {
         listing.tags = tags;
       }
@@ -50,7 +51,7 @@ export async function submitListing() {
         createBtn.innerHTML = '<span class="loader"></span>';
         await createListing(listing);
         createBtn.textContent = "Success!";
-        header.textContent = "Listing succesfully created!"
+        header.textContent = "Listing succesfully created!";
         setTimeout(() => {
           location.reload();
         }, 2000);

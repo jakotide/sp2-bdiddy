@@ -14,15 +14,19 @@ authorizeToken(
   }
 );
 
-document.getElementById("contactForm")
+document
+  .getElementById("contactForm")
   .addEventListener("submit", function (event) {
     event.preventDefault();
     showSuccessMessage();
   });
 
+/**
+ * Displays a success message after a brief delay.
+ */
 function showSuccessMessage() {
   const successMessage = document.getElementById("successMessage");
-  submitBtn.innerHTML = `<span class="loader"></span>`
+  submitBtn.innerHTML = `<span class="loader"></span>`;
 
   setTimeout(() => {
     successMessage.style.display = "block";

@@ -11,6 +11,11 @@ import { toTopButton } from "./components/toTopBtn";
 
 const searchGrid = document.querySelector("#searchResults");
 
+/**
+ * Displays filtered results on the search grid.
+ * Uses the `filter` module to filter listings and renders the results.
+ * 
+ */
 async function displayFilterResults() {
   const filteredResultCards = await filter.filterListings();
   if (filteredResultCards) {
@@ -20,6 +25,11 @@ async function displayFilterResults() {
 
 displayFilterResults();
 
+/**
+ * Displays search results on the search grid.
+ * Uses the `search` module to perform a search and renders the results.
+ * 
+ */
 async function displaySearchResult() {
   const searchResults = await search.search();
   const searchBtn = document.querySelector("#searchButton");
@@ -30,15 +40,11 @@ async function displaySearchResult() {
 
 displaySearchResult();
 
-// async function listingsHomeTemplate() {
-//   const cardListings = await listings.getListings();
-//   const newContainer = document.querySelector("#newContainer");
-//   const allContainer = document.querySelector("#allContainer");
-//   templates.renderListings(cardListings, newContainer, allContainer);
-// }
-
-// listingsHomeTemplate();
-
+/**
+ * Fetches and renders listings on the home page.
+ * Populates the `newContainer` and `allContainer` with listing cards.
+ * 
+ */
 async function listingsHomeTemplate() {
   const newContainer = document.querySelector("#newContainer");
   const allContainer = document.querySelector("#allContainer");
