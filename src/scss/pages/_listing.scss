@@ -104,7 +104,7 @@
             height: 14rem;
             object-fit: cover;
             width: 14rem;
-            border-radius:100%;
+            border-radius: 100%;
             outline: none;
           }
         }
@@ -130,15 +130,19 @@
       display: flex;
 
       .description {
-        width: 60%;
+        width: 65%;
+        word-break: normal;
+        overflow: hidden;
 
         h1 {
           font-size: var(--f-la);
           margin-bottom: 1rem;
+          text-overflow: ellipsis;
+          overflow: hidden;
         }
       }
       .start-end {
-        width: 40%;
+        width: 35%;
         display: flex;
         flex-direction: column;
         gap: 1rem;
@@ -248,6 +252,13 @@
 @media (max-width: 48em) {
   .main-listing {
     .listing-box {
+      .listing-description {
+        .description {
+          h1 {
+            font-size: 3rem;
+          }
+        }
+      }
       .image-profile-container {
         flex-direction: column;
         .carousel {
@@ -316,7 +327,7 @@
 
         .start-end,
         .description {
-          width: 100%; 
+          width: 100%;
         }
       }
     }
@@ -326,6 +337,13 @@
 @media (max-width: 30rem) {
   .main-listing {
     .listing-box {
+      .listing-description {
+        .description {
+          h1 {
+            font-size: 2rem;
+          }
+        }
+      }
       .image-profile-container {
         .profile-box {
           padding-left: 1rem;
@@ -340,7 +358,7 @@
       }
       .listing-description,
       .bidding-section {
-          padding: 2rem;
+        padding: 2rem;
       }
       .bidding-section {
         .leader {
