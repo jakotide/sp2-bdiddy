@@ -1,7 +1,8 @@
 import { placeBidApi } from "../api/listings";
+import { getListing } from "../api/listings";
 import { load } from "../storage/load";
 
-export function placeBid() {
+export async function placeBid() {
   const placeBidForm = document.querySelector(".bid-form");
   const btn = document.querySelector(".bid-btn");
   const plussBtn = document.querySelector(".pluss");
@@ -41,6 +42,14 @@ export function placeBid() {
 
       try {
         if (userLoggedIn) {
+          const currentListing = await getListing(id);
+          const currentHighestBid = findHighestBid(currentListing.bids);
+
+          if (currentHighestBid && +inputValue <= currentHighestBid.amount) {
+            alert("Your bid must be higher than the current highest bid.");
+            return;
+          }
+
           await placeBidApi(+inputValue, id);
           btn.textContent = "Success!";
           setTimeout(() => {
@@ -54,4 +63,11 @@ export function placeBid() {
       }
     });
   }
+}
+
+function findHighestBid(bids) {
+  return bids.reduce(
+    (highest, current) => (current.amount > highest.amount ? current : highest),
+    bids[0]
+  );
 }

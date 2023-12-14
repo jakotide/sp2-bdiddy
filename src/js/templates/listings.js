@@ -103,7 +103,10 @@ export function renderListings(listingsData, parent1, parent2) {
       !lowerCaseTitle.includes("test") &&
       !lowerCaseTitle.includes("testing") &&
       !lowerCaseTitle.includes("tester") &&
-      !lowerCaseTitle.includes("title")
+      !lowerCaseTitle.includes("title") &&
+      !lowerCaseTitle.includes("tiger") &&
+      !lowerCaseTitle.includes("wool") &&
+      !lowerCaseTitle.includes("tewtdj")
     );
   });
 
