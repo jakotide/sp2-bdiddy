@@ -5,6 +5,7 @@ export function listingsTemplate(listingData) {
 
   const listingImg = document.createElement("img");
   listingImg.classList.add("card__img");
+  listingImg.loading = "lazy";
 
   if (!listingData.media || listingData.media === " ") {
     listingImg.src = "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?w=826&t=st=1702494458~exp=1702495058~hmac=d56fbe2332a59ded31ee5d1c49e38e5093f4405411d347c695155c6913e41d80";
