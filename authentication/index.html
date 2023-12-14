@@ -4,28 +4,38 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Login or register an account here at B-Diddy's auction house!"
+    />
     <script src="/src/js/pages/authentication.js" defer type="module"></script>
     <title>B-Diddy | Login</title>
   </head>
   <body class="body-login">
+    <header></header>
     <main class="main-login">
-      <a href="/sp2-bdiddy/" ><button class="home-btn">Home</button></a>
+      <a href="/sp2-bdiddy/"><button class="home-btn">Home</button></a>
       <div class="box">
         <div class="inner-box">
           <div class="forms-wrap">
             <form class="login-form">
               <div class="login-header">
-                <h2>Welcome Back</h2>  
+                <h2>Welcome Back</h2>
               </div>
 
               <div class="actual-form">
                 <div class="input-wrap">
                   <label for="email">Email</label>
-                  <input type="email" name="email" id="loginEmail" required pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
-                  title="Make sure you have a registered noroff email." />
-                  
+                  <input
+                    type="email"
+                    name="email"
+                    id="loginEmail"
+                    required
+                    pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+                    title="Make sure you have a registered noroff email."
+                  />
                 </div>
-                
+
                 <div class="input-wrap">
                   <label for="password">Password</label>
                   <input
@@ -33,13 +43,16 @@
                     name="password"
                     id="password"
                     required
-                    minLength="8"
+                    minlength="8"
                     title="Make sure you have the correct password. 8 characters."
                   />
                 </div>
-                
+
                 <button type="submit" class="login-btn">Login</button>
-                <div class="login-error-msg error-message">The email or password you entered is incorrect. Please try again.</div>
+                <div class="login-error-msg error-message">
+                  The email or password you entered is incorrect. Please try
+                  again.
+                </div>
                 <p>Forgot password? Click here.</p>
                 <h6>Not registered yet?</h6>
                 <div class="login-toggle">Register here!</div>
@@ -66,12 +79,23 @@
                 </div>
                 <div class="input-wrap">
                   <label for="email">Email</label>
-                  <input type="email" name="email" id="email" required pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
-                  title="Only stud.noroff.no or noroff.no domains can register"/>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    required
+                    pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+                    title="Only stud.noroff.no or noroff.no domains can register"
+                  />
                 </div>
                 <div class="input-wrap">
                   <label for="avatar">Avatar</label>
-                  <input type="url" name="avatar" id="avatar" placeholder="Enter Your URL"/>
+                  <input
+                    type="url"
+                    name="avatar"
+                    id="avatar"
+                    placeholder="Enter Your URL"
+                  />
                 </div>
                 <div class="input-wrap">
                   <label for="password">Password</label>
@@ -79,18 +103,21 @@
                     type="password"
                     name="password"
                     id="reg-password"
-                    minLength="8"
+                    minlength="8"
                     required
                     title="Password must contain 8 characters"
                   />
                 </div>
-                <button type="submit" class="login-btn" id="signUpBtn">Sign Up</button>
-                <div class="register-error-msg reg-error-message">Profile already exists. Try another one.</div>
+                <button type="submit" class="login-btn" id="signUpBtn">
+                  Sign Up
+                </button>
+                <div class="register-error-msg reg-error-message">
+                  Profile already exists. Try another one.
+                </div>
                 <p>By signing up I agree to the terms of services</p>
                 <h6>Already registered?</h6>
                 <div class="login-toggle">Login here!</div>
               </div>
-           
             </form>
           </div>
           <div class="welcome-box">
@@ -113,6 +140,7 @@
         </div>
       </div>
     </main>
+    <footer></footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   </body>
 </html>

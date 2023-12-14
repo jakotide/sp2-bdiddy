@@ -54,7 +54,7 @@
             <div class="line line-two"></div>
           </div>
         </button>
-        <ul class="nav__content">
+        <ul class="nav__content" role="list">
           <a href="/sp2-bdiddy/profile/" class="profileBtn">
             <li class="header__links">Profile</li>
           </a>
@@ -73,7 +73,7 @@
 
     <main>
       <div class="container">
-        <div class="hero__grid">
+        <section class="hero__grid">
           <h1 class="h1-main">B-Diddy</h1>
           <div class="header-text">The Nr.1 Auction House</div>
           <div class="mobile-filter-row">
@@ -115,13 +115,12 @@
             <div class="filter__btn art" id="art">Art</div>
             <div class="filter__btn housing" id="housing">Housing</div>
           </div>
-        </div>
+        </section>
       </div>
 
       <div class="card__container" id="searchContainer">
         <h2>Results:</h2>
-        <div class="card-grid" id="searchResults">
-          
+        <div class="card-grid" id="searchResults">         
         </div>
       </div>
 
@@ -175,7 +174,7 @@
       <button class="showMoreBtn" title="Show more listings">Show More</button>
       <button class="showThemesBtn" title="Show themes">Show</button>
 
-      <div class="theme__container">
+      <div class="theme__container" aria-label="Theme's button container">
         <button class="hideThemesBtn" title="Hide themes">Hide</button>
         <div>Themes</div>
         <button
@@ -219,9 +218,11 @@
           />
         </button>
       </div>
-      <div id="overlay">
+
+      <div id="overlay" aria-label="Filter overlay">
         <i class="fa-solid fa-xmark overlay-x"></i>
       </div>
+      
       <a href="#" class="to-top-btn" aria-label="to-top-button">
         <i class="fa-solid fa-arrow-up"></i>
       </a>

@@ -54,7 +54,7 @@
             <div class="line line-two"></div>
           </div>
         </button>
-        <ul class="nav__content">
+        <ul class="nav__content" role="list">
           <a href="/sp2-bdiddy/profile/" class="profileBtn">
             <li class="header__links">Profile</li>
           </a>
@@ -70,6 +70,7 @@
         </ul>
       </nav>
     </header>
+
     <main class="profile-main">
       <section class="profile-section border shadow">
         <article class="profile-info">
@@ -97,11 +98,12 @@
           <div class="profile-card-container"></div>
         </article>
         <article class="card-article current">
-         
           <div class="profile-card-container"></div>
         </article>
       </section>
+
       <dialog
+        aria-label="Edit avatar modal"
         data-modal
         class="profile-img-modal"
         onclick="event.target==this && this.close()"
@@ -119,7 +121,12 @@
           <button data-close-modal>🗙</button>
         </form>
       </dialog>
-      <div id="deleteModal" class="delete-modal">
+
+      <div
+        id="deleteModal"
+        class="delete-modal"
+        aria-label="Delete listing modal"
+      >
         <div class="modal-content">
           <p class="delete-text">
             Are you sure you want to delete this listing?
@@ -128,10 +135,12 @@
           <button id="cancelDelete">Cancel</button>
         </div>
       </div>
-      <div id="overlay">
+
+      <div id="overlay" aria-label="Modal overlay">
         <i class="fa-solid fa-xmark overlay-x"></i>
       </div>
     </main>
+
     <footer>
       <div class="footer__content">
         <div class="slogan">

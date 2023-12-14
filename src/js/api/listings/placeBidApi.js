@@ -7,7 +7,6 @@ export async function placeBidApi(bid, id) {
     throw new Error("Bid requires ID.")
   }
   const placeBidUrl = `${API_AUCTION_URL}${LISTING}${id}/bids`;
-  console.log(placeBidUrl)
   try {
     const response = await fetch(placeBidUrl, {
       method: "POST",
