@@ -56,7 +56,8 @@ export async function renderProfile() {
       const profileCardImage = document.createElement("img");
 
       if (!listing.media || listing.media === " ") {
-        cardImage.src = "/assets/img/noimage.jpg";
+        cardImage.src = "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?w=826&t=st=1702494458~exp=1702495058~hmac=d56fbe2332a59ded31ee5d1c49e38e5093f4405411d347c695155c6913e41d80";
+        cardImage.style.objectFit = "cover";
       } else {
         const image = new Image();
         image.src = listing.media;
@@ -66,8 +67,9 @@ export async function renderProfile() {
           profileCardImage.alt = "Image of " + listing.title;
         };
         image.onerror = function () {
-          profileCardImage.src = "/assets/img/noimage.jpg";
+          profileCardImage.src = "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?w=826&t=st=1702494458~exp=1702495058~hmac=d56fbe2332a59ded31ee5d1c49e38e5093f4405411d347c695155c6913e41d80";
           profileCardImage.alt = "No image available";
+          profileCardImage.style.objectFit = "cover";
         };
       }
 
