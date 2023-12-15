@@ -30,4 +30,3 @@ export async function deleteListing(listingId) {
     console.error("Error:", error);
   }
 }
-
