@@ -7,7 +7,7 @@
 @use "../themes/main-theme" as mainTheme;
 
 .to-top-btn {
-  background-color: mainTheme.$header;
+  background-color: mainTheme.$primary-color;
   position: fixed;
   bottom: 100px;
   right: 28px;
