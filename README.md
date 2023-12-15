@@ -9,7 +9,7 @@ To use the functionalities of the site, the user have to register an account, th
 
 ```bash
 git clone https://github.com/jakotide/sp2-bdiddy.git
-cd B-Diddy
+cd sp2-bdiddy
 ```
 ### Install Dependencies
 ```bash
