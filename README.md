@@ -3,18 +3,6 @@
 Welcome to B-Diddy Auction House! This project is an online auction platform that utilizes an API to enable users to create listings, bid on each other's listings, win and earn credits when a listing is sold.
 To use the functionalities of the site, the user have to register an account, then login. An unregistered user can only view the listings. 
 
-## Installation
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/jakotide/sp2-bdiddy.git
-cd sp2-bdiddy
-```
-### Install Dependencies
-```bash
-npm install
-```
 ## Usage
 ### Creating Listings
 - Navigate to the "Create Listing" section.
@@ -33,7 +21,7 @@ npm install
 - Once logged in, you can access the full range of functionalities, including creating listings, view profile and bidding.
 
 ### Live site:
-http://jakob-tidemand.no/sp2-bdiddy/
+https://jakotide.github.io/sp2-bdiddy/
 
 
 
