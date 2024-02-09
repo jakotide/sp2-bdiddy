@@ -14,18 +14,18 @@
     />
     
     <title>B-Diddy | Home</title>
-    <script type="module" crossorigin src="/sp2-bdiddy/assets/main-3b2f810b.js"></script>
-    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/main-5962511a.js">
+    <script type="module" crossorigin src="/sp2-bdiddy/assets/main-91bdedc2.js"></script>
+    <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/main-a8e93a93.js">
     <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/hamburger-5bbfc2df.js">
     <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/constants-88326297.js">
     <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/headers-246ce9a4.js">
     <link rel="modulepreload" crossorigin href="/sp2-bdiddy/assets/read-eeac6ab1.js">
-    <link rel="stylesheet" href="/sp2-bdiddy/assets/main-1d136606.css">
+    <link rel="stylesheet" href="/sp2-bdiddy/assets/main-8ab2e5cc.css">
   </head>
   <body class="body">
     <header>
       <nav aria-label="Navigation" class="nav">
-        <a href="/sp2-bdiddy/" class="logo"
+        <a href="/sp2-bdiddy/" class="logo" aria-label="Logo home link"
           ><span class="hide">Home</span>
           <svg
             class="logo-header-svg"
@@ -61,7 +61,7 @@
             <div class="line line-two"></div>
           </div>
         </button>
-        <ul class="nav__content">
+        <ul class="nav__content" role="list">
           <a href="/sp2-bdiddy/profile/" class="profileBtn">
             <li class="header__links">Profile</li>
           </a>
@@ -80,7 +80,7 @@
 
     <main>
       <div class="container">
-        <div class="hero__grid">
+        <section class="hero__grid">
           <h1 class="h1-main">B-Diddy</h1>
           <div class="header-text">The Nr.1 Auction House</div>
           <div class="mobile-filter-row">
@@ -122,13 +122,12 @@
             <div class="filter__btn art" id="art">Art</div>
             <div class="filter__btn housing" id="housing">Housing</div>
           </div>
-        </div>
+        </section>
       </div>
 
       <div class="card__container" id="searchContainer">
         <h2>Results:</h2>
-        <div class="card-grid" id="searchResults">
-          
+        <div class="card-grid" id="searchResults">         
         </div>
       </div>
 
@@ -182,7 +181,7 @@
       <button class="showMoreBtn" title="Show more listings">Show More</button>
       <button class="showThemesBtn" title="Show themes">Show</button>
 
-      <div class="theme__container">
+      <div class="theme__container" aria-label="Theme's button container">
         <button class="hideThemesBtn" title="Hide themes">Hide</button>
         <div>Themes</div>
         <button
@@ -226,9 +225,11 @@
           />
         </button>
       </div>
-      <div id="overlay">
+
+      <div id="overlay" aria-label="Filter overlay">
         <i class="fa-solid fa-xmark overlay-x"></i>
       </div>
+      
       <a href="#" class="to-top-btn" aria-label="to-top-button">
         <i class="fa-solid fa-arrow-up"></i>
       </a>
