@@ -9,14 +9,17 @@ import { authorizeToken } from "../storage/authorizeToken";
  */
 export async function renderProfile() {
   const user = load("User");
-  if (!user || !user.name) {
+  const profileUser = user?.data;
+
+  if (!profileUser || !profileUser.name) {
     throw new Error("Cannot find User");
   }
 
   try {
-    const { name } = load("User");
-    const user = await getProfile(name);
+    const userProfile = await getProfile(profileUser.name);
+
     const profileName = document.querySelector(".name");
+
     const profileImage = document.querySelector("#profileImage");
     const email = document.querySelector(".email");
     const winsContainer = document.querySelector(".wins");
@@ -26,55 +29,63 @@ export async function renderProfile() {
       ".profile-card-container"
     );
 
-    profileImage.src = user.avatar;
-    profileImage.alt = `${user.name}'s Profile Image`;
-
-    profileName.textContent = user.name;
-
-    email.textContent = user.email;
-
-    funds.textContent = "Funds: " + user.credits + "$";
-
-    if (Array.isArray(user.wins) && user.wins.length === 0) {
-      winsContainer.textContent += `Number of Wins: ${user.wins.length}`;
+    if (userProfile.data.avatar) {
+      profileImage.src = userProfile.data.avatar.url || "default-avatar.png";
+      profileImage.alt = userProfile.data.avatar.alt || "Profile Image";
     } else {
-      winsContainer.textContent += "No wins yet.";
+      profileImage.src = "/assets/img/noimage.jpg";
+      profileImage.alt = "No profile image available";
     }
 
-    if (Array.isArray(user.listings) && user.listings.length === 0) {
-      numberOfListings.textContent = `No listings yet.`;
-    } else if (Array.isArray(user.listings)) {
-      numberOfListings.textContent = `Listings: ${user.listings.length}`;
-    } else {
-      console.log(error);
-    }
+    profileName.textContent = userProfile.data.name || "No name available";
+    email.textContent = userProfile.data.email || "No email available";
+    funds.textContent = `Funds: ${userProfile.data.credits || 0}$`;
 
-    user.listings.forEach((listing) => {
+    winsContainer.textContent = `Number of Wins: ${
+      Array.isArray(userProfile.data.wins) ? userProfile.data.wins.length : 0
+    }`;
+
+    numberOfListings.textContent = Array.isArray(userProfile.data.listings)
+      ? `Listings: ${userProfile.data.listings.length}`
+      : "No listings available";
+
+    userProfile.data.listings.forEach((listing) => {
       const profileCard = document.createElement("div");
       profileCard.classList.add("profile-card", "border");
 
       const profileCardImage = document.createElement("img");
+      const defaultImage =
+        "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?w=826&t=st=1702494458~exp=1702495058~hmac=d56fbe2332a59ded31ee5d1c49e38e5093f4405411d347c695155c6913e41d80";
 
-      if (!listing.media || listing.media === " ") {
-        cardImage.src = "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?w=826&t=st=1702494458~exp=1702495058~hmac=d56fbe2332a59ded31ee5d1c49e38e5093f4405411d347c695155c6913e41d80";
-        cardImage.style.objectFit = "cover";
+      // Check if there are any media items
+      if (
+        !listing.media ||
+        listing.media.length === 0 ||
+        !listing.media[0].url ||
+        listing.media[0].url.trim() === ""
+      ) {
+        profileCardImage.src = defaultImage;
+        profileCardImage.alt = "No image available";
       } else {
         const image = new Image();
-        image.src = listing.media;
+        image.src = listing.media[0].url;
 
         image.onload = function () {
-          profileCardImage.src = listing.media;
-          profileCardImage.alt = "Image of " + listing.title;
+          profileCardImage.src = listing.media[0].url;
+          profileCardImage.alt =
+            listing.media[0].alt || "Image of " + listing.title;
         };
         image.onerror = function () {
-          profileCardImage.src = "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?w=826&t=st=1702494458~exp=1702495058~hmac=d56fbe2332a59ded31ee5d1c49e38e5093f4405411d347c695155c6913e41d80";
+          profileCardImage.src = defaultImage;
           profileCardImage.alt = "No image available";
-          profileCardImage.style.objectFit = "cover";
         };
       }
 
+      profileCardImage.style.objectFit = "cover";
+      profileCard.appendChild(profileCardImage);
+
       const profileCardTitle = document.createElement("div");
-      profileCardTitle.textContent = listing.title;
+      profileCardTitle.textContent = listing.title || "No title available";
 
       const buttonContainer = document.createElement("div");
       buttonContainer.classList.add("btn-container");
@@ -82,25 +93,72 @@ export async function renderProfile() {
       const deleteBtn = document.createElement("a");
       deleteBtn.textContent = "Delete";
       deleteBtn.classList.add("deleteBtn");
-
       deleteBtn.addEventListener("click", () => openDeleteModal(listing.id));
 
       const viewBtn = document.createElement("a");
       viewBtn.textContent = "View";
-      viewBtn.href = "/sp2-bdiddy/listing/?id=" + listing.id;
+      viewBtn.href = `/sp2-bdiddy/listing/?id=${listing.id}`;
       viewBtn.classList.add("viewBtn");
 
       buttonContainer.append(deleteBtn, viewBtn);
       profileCard.append(profileCardImage, profileCardTitle, buttonContainer);
-      profileCardContainer.append(profileCard);
+      profileCardContainer.appendChild(profileCard);
     });
   } catch (error) {
     console.error("Error fetching user profile:", error.message);
   }
 }
+
 const confirmDeleteBtn = document.getElementById("confirmDelete");
 const cancelDeleteBtn = document.getElementById("cancelDelete");
 const overlay = document.getElementById("overlay");
+
+function closeDeleteModal() {
+  const deleteModal = document.getElementById("deleteModal");
+  overlay.style.display = "none";
+  deleteModal.style.display = "none";
+  document.body.classList.remove("modal-open");
+}
+
+export async function handleDelete(listingId) {
+  if (!listingId) {
+    console.error("Listing ID is required to delete.");
+    return;
+  }
+
+  try {
+    console.log("Attempting to delete listing with ID:", listingId);
+
+    // Assuming authorizeToken is a function that handles token validation
+    await authorizeToken();
+
+    const response = await deleteListing(listingId);
+
+    if (response.ok) {
+      console.log("Listing successfully deleted:", listingId);
+
+      // Hide delete button and show success message
+      confirmDeleteBtn.style.display = "none";
+      cancelDeleteBtn.style.display = "none";
+
+      const deleteText = document.querySelector(".delete-text");
+      deleteText.textContent = "Listing successfully deleted.";
+
+      setTimeout(() => {
+        closeDeleteModal();
+        location.reload(); // Reload the page after deletion
+      }, 1500);
+    } else {
+      console.error(`Failed to delete listing. Status: ${response.status}`);
+      alert("Failed to delete the listing. Please try again.");
+    }
+  } catch (error) {
+    console.error("Error handling delete:", error);
+    alert(
+      "An error occurred while trying to delete the listing. Please try again later."
+    );
+  }
+}
 
 function openDeleteModal(listingId) {
   const deleteModal = document.getElementById("deleteModal");
@@ -122,37 +180,5 @@ function openDeleteModal(listingId) {
   cancelDeleteBtn.onclick = closeDeleteModal;
   document.body.classList.add("modal-open");
 
-  overlay.onclick = () => {
-    closeDeleteModal();
-  };
-}
-
-function closeDeleteModal() {
-  const deleteModal = document.getElementById("deleteModal");
-  overlay.style.display = "none";
-  deleteModal.style.display = "none";
-  document.body.classList.remove("modal-open");
-}
-
-const deleteText = document.querySelector(".delete-text");
-async function handleDelete(listingId) {
-  try {
-    authorizeToken(
-      async () => {
-        await deleteListing(listingId);
-        confirmDeleteBtn.style.display = "none";
-        cancelDeleteBtn.style.display = "none";
-        deleteText.textContent = "Listing successfully deleted.";
-        setTimeout(() => {
-          closeDeleteModal();
-          location.reload();
-        }, 1500);
-      },
-      () => {
-        console.error("Invalid token");
-      }
-    );
-  } catch (error) {
-    console.error("Error handling delete:", error);
-  }
+  overlay.onclick = closeDeleteModal;
 }

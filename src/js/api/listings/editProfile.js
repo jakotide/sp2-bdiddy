@@ -5,14 +5,16 @@ import { load } from "../../storage/load";
 
 export async function editProfileImage(user) {
   const username = load("User");
+  const editUser = username.data;
+  console.log(editUser);
 
   try {
-    if (!username) {
+    if (!editUser) {
       console.log("Need username");
     }
 
     const response = await fetch(
-      `${API_AUCTION_URL}${PROFILE}${username.name}/media`,
+      `${API_AUCTION_URL}${PROFILE}${editUser.name}/media`,
       {
         method: "PUT",
         headers: getApiHeaders(),

@@ -7,28 +7,35 @@ import { load } from "../storage/load";
 export function editImage() {
   const editForm = document.querySelector(".profile-img-form");
   const button = document.querySelector("#successBtn");
+
   if (editForm) {
-    let name = load("User");
+    const user = load("User");
+    const editName = user?.data?.name; // Adjust according to actual data structure
+
     editForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const editForm = event.target;
+      event.preventDefault(); // Prevent default form submission
+
       const editFormData = new FormData(editForm);
-      const user = Object.fromEntries(editFormData.entries());
-      user.name = name;
-      if (!user.avatar) {
+      const userFormData = Object.fromEntries(editFormData.entries());
+
+      if (!userFormData.avatar) {
+        console.log("No avatar provided.");
         return;
       }
 
       try {
-        button.innerHTML = '<span class="loader"></span>';
-        await editProfileImage(user);
+        button.innerHTML = '<span class="loader"></span>'; // Show loading indicator
+        await editProfileImage(userFormData);
         button.innerText = "Success";
         setTimeout(() => {
-          location.reload();
+          location.reload(); // Refresh the page after a short delay
         }, 600);
       } catch (error) {
-        console.log("error");
+        console.error("Error updating profile image:", error);
+        button.innerText = "Error";
       }
     });
+  } else {
+    console.warn("Edit form not found.");
   }
 }

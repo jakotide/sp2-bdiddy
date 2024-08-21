@@ -1,5 +1,4 @@
-import { API_AUCTION_URL } from "../constants";
-import { PROFILE } from "../constants";
+import { API_AUCTION_URL, PROFILE } from "../constants";
 import { getApiHeaders } from "../../handlers/headers";
 
 export async function getProfile(name) {
@@ -12,16 +11,19 @@ export async function getProfile(name) {
       `${API_AUCTION_URL}${PROFILE}${name}?_listings=true&_bids=true&_wins=true`,
       {
         method: "GET",
-        headers: getApiHeaders(),
+        headers: await getApiHeaders(), // Ensure headers are resolved
       }
     );
 
     if (response.ok) {
       return await response.json();
     } else {
-      throw new Error(response.statusText);
+      throw new Error(
+        `API request failed with status: ${response.status} ${response.statusText}`
+      );
     }
   } catch (error) {
-    throw new Error(error);
+    console.error("Error fetching profile:", error.message);
+    throw error; // Re-throw error for further handling
   }
 }

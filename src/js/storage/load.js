@@ -1,8 +1,8 @@
 export function load(key) {
+  const value = localStorage.getItem(key);
   try {
-    const value = localStorage.getItem(key);
     return JSON.parse(value);
-  } catch {
-    return null;
+  } catch (e) {
+    return value; // If it's a string (like accessToken), return it directly
   }
-};
+}

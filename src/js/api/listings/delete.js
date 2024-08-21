@@ -10,23 +10,20 @@ export async function deleteListing(listingId) {
   const deleteListingURL = `${API_AUCTION_URL}${LISTING}${listingId}`;
 
   try {
+    const headers = getApiHeaders(); // Get the headers including Authorization and API Key
+
     const response = await fetch(deleteListingURL, {
       method: "DELETE",
-      headers: getApiHeaders(),
+      headers: await headers, // Pass the headers here
     });
 
     if (!response.ok) {
       throw new Error(`Failed to delete listing. Status: ${response.status}`);
     }
 
-    const contentType = response.headers.get("content-type");
-    if (contentType && contentType.includes("application/json")) {
-      const results = await response.json();
-      console.log(results);
-    } else {
-      console.log("Listing deleted successfully.");
-    }
+    return response;
   } catch (error) {
     console.error("Error:", error);
+    throw error;
   }
 }

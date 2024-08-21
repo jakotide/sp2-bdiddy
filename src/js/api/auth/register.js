@@ -5,7 +5,7 @@ const main = document.querySelector(".main-login");
 const errorMsg = document.querySelector(".reg-error-message");
 
 export async function register(profile) {
-  const regUrl = API_AUCTION_URL + AUTH_REGISTER;
+  const regUrl = "https://v2.api.noroff.dev/auth/register";
 
   try {
     const response = await fetch(regUrl, {

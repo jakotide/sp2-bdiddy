@@ -28,13 +28,8 @@ export async function singleListingPage() {
   const nextButton = document.querySelector(".next");
   const prevButton = document.querySelector(".prev");
 
-  for (let i = 0; i < listing.media.length; i++) {
-    const slide = document.createElement("img");
-    slide.src = listing.media[i];
-    slides.push(slide);
-  }
-
-  if (listing.media.length === 0) {
+  // Handling media elements for the carousel
+  if (listing.data.media.length === 0) {
     const placeholder = document.createElement("img");
     placeholder.src =
       "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?w=826&t=st=1702494458~exp=1702495058~hmac=d56fbe2332a59ded31ee5d1c49e38e5093f4405411d347c695155c6913e41d80";
@@ -43,17 +38,21 @@ export async function singleListingPage() {
 
     nextButton.style.display = "none";
     prevButton.style.display = "none";
-  } else if (listing.media.length === 1) {
+  } else if (listing.data.media.length === 1) {
+    // Only one image, no need for carousel buttons
     const slide = document.createElement("img");
-    slide.src = listing.media[0];
+    slide.src = listing.data.media[0].url; // Use the URL from the media object
+    slide.alt = listing.data.media[0].alt || "Image of listing"; // Use the alt text if available
     slides.push(slide);
 
     nextButton.style.display = "none";
     prevButton.style.display = "none";
   } else {
-    for (let i = 0; i < listing.media.length; i++) {
+    // Multiple images, enable carousel buttons
+    for (let i = 0; i < listing.data.media.length; i++) {
       const slide = document.createElement("img");
-      slide.src = listing.media[i];
+      slide.src = listing.data.media[i].url; // Use the URL from the media object
+      slide.alt = listing.data.media[i].alt || `Image ${i + 1} of listing`; // Use the alt text if available
       slides.push(slide);
     }
 
@@ -61,19 +60,78 @@ export async function singleListingPage() {
     prevButton.style.display = "block";
   }
 
+  // Now, append the slides to the carousel
+  for (let i = 0; i < carouselSlides.length; i++) {
+    if (slides[i]) {
+      carouselSlides[i].appendChild(slides[i]);
+    }
+  }
+
+  // Creating and appending profile information
   const avatar = document.createElement("img");
   avatar.classList.add("border", "img-avatar");
-  avatar.src = listing.seller.avatar;
+  avatar.src = listing.data.seller.avatar.url;
+  avatar.alt = listing.data.seller.name || "Seller avatar";
+  profileAvatar.append(avatar);
 
   const name = document.createElement("div");
   name.classList.add("profile-name");
-  name.textContent = listing.seller.name;
+  name.textContent = listing.data.seller.name;
+  profileName.append(name);
 
+  // Creating and appending listing title and description
   const title = document.createElement("h1");
-  title.textContent = listing.title;
+  title.textContent = listing.data.title;
+
   const description = document.createElement("p");
-  description.classList.add(".description");
-  description.textContent = listing.description;
+  description.classList.add("description");
+  description.textContent = listing.data.description;
+
+  listingDescription.append(title, description);
+
+  // Formatting and displaying start and end dates
+  const startDesktop = document.createElement("div");
+  startDesktop.classList.add("desktop-start-date");
+  startDesktop.textContent =
+    "Started: " + formatCustomDate(listing.data.created);
+
+  const endDate = document.createElement("div");
+  endDate.classList.add("end");
+  endDate.textContent = "Ends at: " + formatCustomDate(listing.data.endsAt);
+
+  dateSection.append(startDesktop, endDate);
+
+  // Handling bids and displaying the highest bid
+  function findHighestBid(bids) {
+    return bids.reduce(
+      (highest, current) =>
+        current.amount > highest.amount ? current : highest,
+      bids[0]
+    );
+  }
+
+  const highestBid = findHighestBid(listing.data.bids);
+
+  let leadAmount, leader, noBidDisplay;
+
+  if (highestBid) {
+    leadAmount = document.createElement("div");
+    leadAmount.textContent = highestBid.amount + "$";
+
+    leader = document.createElement("div");
+    leader.textContent = highestBid.bidderName;
+    leader.classList.add("leader");
+  } else {
+    noBidDisplay = document.createElement("div");
+    noBidDisplay.textContent = "No bids yet!";
+  }
+
+  // Append bidding information to the leader box
+  if (highestBid) {
+    leaderBox.append(leader, leadAmount);
+  } else {
+    leaderBox.append(noBidDisplay);
+  }
 
   /**
    * Formats a custom date string.
@@ -94,50 +152,5 @@ export async function singleListingPage() {
     };
 
     return new Intl.DateTimeFormat("en-US", options).format(date);
-  }
-
-  const startDesktop = document.createElement("div");
-  startDesktop.classList.add("desktop-start-date");
-  startDesktop.textContent = "Started: " + formatCustomDate(listing.created);
-
-  const endDate = document.createElement("div");
-  endDate.classList.add("end");
-  endDate.textContent = "Ends at: " + formatCustomDate(listing.endsAt);
-
-  function findHighestBid(bids) {
-    return bids.reduce(
-      (highest, current) =>
-        current.amount > highest.amount ? current : highest,
-      bids[0]
-    );
-  }
-
-  const highestBid = findHighestBid(listing.bids);
-
-  let leadAmount, leader, noBidDisplay;
-
-  if (highestBid) {
-    leadAmount = document.createElement("div");
-    leadAmount.textContent = highestBid.amount + "$";
-
-    leader = document.createElement("div");
-    leader.textContent = highestBid.bidderName;
-    leader.classList.add("leader");
-  } else {
-    noBidDisplay = document.createElement("div");
-    noBidDisplay.textContent = "No bids yet!";
-  }
-
-  carouselSlides.forEach((carouselSlide, index) => {
-    carouselSlide.append(slides[index]);
-  });
-  profileAvatar.append(avatar);
-  profileName.append(name);
-  listingDescription.append(title, description);
-  dateSection.append(startDesktop, endDate);
-  if (highestBid) {
-    leaderBox.append(leader, leadAmount);
-  } else {
-    leaderBox.append(noBidDisplay);
   }
 }

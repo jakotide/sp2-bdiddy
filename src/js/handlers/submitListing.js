@@ -9,7 +9,7 @@ export async function submitListing() {
   if (form) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const form = e.target;
+
       const formData = new FormData(form);
       const date = formData.get("date");
       const time = formData.get("time");
@@ -43,20 +43,26 @@ export async function submitListing() {
         const nonEmptyMediaUrls = mediaUrls.filter((url) => url.trim() !== "");
 
         if (nonEmptyMediaUrls.length > 0) {
-          listing.media = nonEmptyMediaUrls;
+          listing.media = nonEmptyMediaUrls.map((url) => ({
+            url: url,
+            alt: "Image related to the listing",
+          }));
         }
       }
 
       try {
         createBtn.innerHTML = '<span class="loader"></span>';
-        await createListing(listing);
+        const response = await createListing(listing);
         createBtn.textContent = "Success!";
-        header.textContent = "Listing succesfully created!";
+        header.textContent = "Listing successfully created!";
+
         setTimeout(() => {
           location.reload();
         }, 2000);
       } catch (error) {
-        console.error("Error creating listing:", error);
+        console.error("Error creating listing:", error.message);
+        createBtn.textContent = "Error";
+        header.textContent = `Error: ${error.message}`;
       }
     });
   }

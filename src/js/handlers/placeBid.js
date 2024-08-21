@@ -4,7 +4,7 @@ import { load } from "../storage/load";
 
 /**
  * Function to handle placing bids.
- * 
+ *
  */
 export async function placeBid() {
   const placeBidForm = document.querySelector(".bid-form");
@@ -15,18 +15,14 @@ export async function placeBid() {
 
   plussBtn.addEventListener("click", () => {
     let currentValue = parseInt(inputValue.value, 10) || 0;
-
     currentValue += 10;
-
     inputValue.value = Math.max(currentValue, 0);
   });
 
   minusBtn.addEventListener("click", () => {
     let currentValue = parseInt(inputValue.value, 10) || 0;
-
     currentValue -= 10;
     currentValue = Math.max(currentValue, 0);
-
     inputValue.value = currentValue;
   });
 
@@ -55,15 +51,19 @@ export async function placeBid() {
           }
 
           await placeBidApi(+inputValue, id);
+          console.log(id);
           btn.textContent = "Success!";
-          setTimeout(() => {
-            location.reload();
-          }, 2000);
+          // setTimeout(() => {
+          //   location.reload();
+          // }, 2000);
         } else {
-          alert("FAIL");
+          alert("Please log in to place a bid.");
         }
       } catch (error) {
-        console.log(error);
+        console.error("Error placing bid:", error);
+        alert(
+          "An error occurred while placing your bid. Please try again later."
+        );
       }
     });
   }
@@ -72,9 +72,12 @@ export async function placeBid() {
 /**
  * Function to find the highest bid from a list of bids.
  * @param {Array} bids - Array of bids.
- * @returns {Object} - The highest bid object.
+ * @returns {Object|null} - The highest bid object or null if no bids are found.
  */
 function findHighestBid(bids) {
+  if (!bids || bids.length === 0) {
+    return null; // Return null if there are no bids
+  }
   return bids.reduce(
     (highest, current) => (current.amount > highest.amount ? current : highest),
     bids[0]

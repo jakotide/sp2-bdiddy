@@ -116,7 +116,7 @@ export function listingsTemplate(listingData) {
  * @param {HTMLElement} parent2 - The second parent element to append additional listings.
  */
 export function renderListings(listingsData, parent1, parent2) {
-  const filteredListings = listingsData.filter((listing) => {
+  const filteredListings = listingsData.data.filter((listing) => {
     const lowerCaseTitle = listing.title.toLowerCase();
     return (
       !lowerCaseTitle.includes("test") &&

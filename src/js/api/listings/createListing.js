@@ -5,16 +5,21 @@ export async function createListing(listing) {
   try {
     const response = await fetch(`${API_AUCTION_URL}/listings`, {
       method: "POST",
-      headers: getApiHeaders(),
+      headers: await getApiHeaders(),
       body: JSON.stringify(listing),
     });
 
     if (response.ok) {
-      return await response.json();
+      const responseBody = await response.json(); // Read and parse the JSON once
+
+      return responseBody; // Return the parsed JSON response
     } else {
-      throw new Error();
+      const errorText = await response.text(); // Read the error response
+      console.error("Response Body:", errorText);
+      throw new Error(`HTTP ${response.status}: ${errorText}`);
     }
   } catch (error) {
-    console.error("Error:", error);
+    console.error("Error creating listing:", error.message);
+    throw error;
   }
 }
