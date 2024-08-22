@@ -16,28 +16,38 @@ export async function filterListings() {
 
   electroBtn.forEach((btn) => {
     btn.addEventListener("click", () =>
-      handleFilterClick("Electronics", listings)
+      handleFilterClick("Electronics", listings.data)
     );
   });
   fashionBtn.forEach((btn) => {
-    btn.addEventListener("click", () => handleFilterClick("Fashion", listings));
+    btn.addEventListener("click", () =>
+      handleFilterClick("Fashion", listings.data)
+    );
   });
   vehiclesBtn.forEach((btn) => {
     btn.addEventListener("click", () =>
-      handleFilterClick("Vehicles", listings)
+      handleFilterClick("Vehicles", listings.data)
     );
   });
   foodBtn.forEach((btn) => {
-    btn.addEventListener("click", () => handleFilterClick("Food", listings));
+    btn.addEventListener("click", () =>
+      handleFilterClick("Food", listings.data)
+    );
   });
   retroBtn.forEach((btn) => {
-    btn.addEventListener("click", () => handleFilterClick("Retro", listings));
+    btn.addEventListener("click", () =>
+      handleFilterClick("Retro", listings.data)
+    );
   });
   artBtn.forEach((btn) => {
-    btn.addEventListener("click", () => handleFilterClick("Art", listings));
+    btn.addEventListener("click", () =>
+      handleFilterClick("Art", listings.data)
+    );
   });
   housingBtn.forEach((btn) => {
-    btn.addEventListener("click", () => handleFilterClick("Housing", listings));
+    btn.addEventListener("click", () =>
+      handleFilterClick("Housing", listings.data)
+    );
   });
 }
 
@@ -63,7 +73,15 @@ async function filterListingsByCategory(category, listings) {
   const lowerCategory = category.toLowerCase();
 
   const keywordsMap = {
-    electronics: ["electronics", "iphone", "computer", "data", "lamp"],
+    electronics: [
+      "electronics",
+      "iphone",
+      "computer",
+      "data",
+      "airpods",
+      "speaker",
+      "mac",
+    ],
     fashion: ["clothing", "jacket", "hat", "gloves", "tux", "dress"],
     vehicles: [
       "car",
@@ -75,6 +93,7 @@ async function filterListingsByCategory(category, listings) {
       "plane",
       "motor",
       "offroad",
+      "harley",
     ],
     retro: ["vintage", "retro", "vinyl", "old"],
     food: [
@@ -86,10 +105,18 @@ async function filterListingsByCategory(category, listings) {
       "pizza",
       "burger",
       "candy",
-      "pear"
+      "pear",
     ],
     art: ["painting", "sculpture", "art"],
-    housing: ["house", "apartment", "castle", "tower"],
+    housing: [
+      "house",
+      "apartment",
+      "castle",
+      "tower",
+      "vase",
+      "chair",
+      "shelf",
+    ],
   };
 
   const keywords = keywordsMap[lowerCategory] || [];

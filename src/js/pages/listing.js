@@ -20,13 +20,14 @@ bidForm.addEventListener("submit", (event) => {
 async function renderCurrentFunds() {
   const availableFunds = document.querySelector(".availableFunds");
   const user = load("User");
+  const userdata = user.data;
 
-  if (user && user.name) {
-    const userProfile = await getProfile(user.name);
+  if (userdata && userdata.name) {
+    const userProfile = await getProfile(userdata.name);
 
     if (userProfile) {
       availableFunds.innerText +=
-        "Funds available: " + userProfile.credits + "$";
+        "Funds available: " + userProfile.data.credits + "$";
     } else {
       console.error("Failed to fetch user profile");
     }
@@ -36,9 +37,7 @@ async function renderCurrentFunds() {
 }
 
 authorizeToken(
-  () => {
-
-  },
+  () => {},
   () => {
     bidForm.style.display = "none";
     loginMsg.style.display = "block";

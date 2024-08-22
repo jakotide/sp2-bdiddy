@@ -51,11 +51,11 @@ export async function placeBid() {
           }
 
           await placeBidApi(+inputValue, id);
-          console.log(id);
+
           btn.textContent = "Success!";
-          // setTimeout(() => {
-          //   location.reload();
-          // }, 2000);
+          setTimeout(() => {
+            location.reload();
+          }, 2000);
         } else {
           alert("Please log in to place a bid.");
         }

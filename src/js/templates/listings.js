@@ -12,24 +12,42 @@ export function listingsTemplate(listingData) {
   listingImg.classList.add("card__img");
   listingImg.loading = "lazy";
 
-  if (!listingData.media || listingData.media === " ") {
+  // Log the media data for debugging
+
+  // Check if media is an array and contains at least one item
+  if (!listingData.media || listingData.media.length === 0) {
+    // No images available
     listingImg.src =
       "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?w=826&t=st=1702494458~exp=1702495058~hmac=d56fbe2332a59ded31ee5d1c49e38e5093f4405411d347c695155c6913e41d80";
+    listingImg.alt = "No image available";
     listingImg.style.objectFit = "cover";
   } else {
-    const image = new Image();
-    image.src = listingData.media;
+    // Use the first image in the media array
+    const firstMedia = listingData.media[0];
 
-    image.onload = function () {
-      listingImg.src = listingData.media;
-      listingImg.alt = "Image of " + listingData.title;
-    };
-    image.onerror = function () {
+    // Check if the URL exists in the media object
+    if (firstMedia && firstMedia.url) {
+      const image = new Image();
+      image.src = firstMedia.url;
+
+      // Set image onload and onerror handlers
+      image.onload = function () {
+        listingImg.src = firstMedia.url;
+        listingImg.alt = firstMedia.alt || "Image of " + listingData.title;
+      };
+      image.onerror = function () {
+        listingImg.src =
+          "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?w=826&t=st=1702494458~exp=1702495058~hmac=d56fbe2332a59ded31ee5d1c49e38e5093f4405411d347c695155c6913e41d80";
+        listingImg.alt = "No image available";
+        listingImg.style.objectFit = "cover";
+      };
+    } else {
+      // If media object does not have a valid URL
       listingImg.src =
         "https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg?w=826&t=st=1702494458~exp=1702495058~hmac=d56fbe2332a59ded31ee5d1c49e38e5093f4405411d347c695155c6913e41d80";
       listingImg.alt = "No image available";
       listingImg.style.objectFit = "cover";
-    };
+    }
   }
 
   const listingDetails = document.createElement("div");
