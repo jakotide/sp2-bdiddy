@@ -97,7 +97,7 @@ export async function renderProfile() {
 
       const viewBtn = document.createElement("a");
       viewBtn.textContent = "View";
-      viewBtn.href = `/sp2-bdiddy/listing/?id=${listing.id}`;
+      viewBtn.href = `/listing/?id=${listing.id}`;
       viewBtn.classList.add("viewBtn");
 
       buttonContainer.append(deleteBtn, viewBtn);

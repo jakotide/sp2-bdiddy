@@ -6,7 +6,7 @@
 export function listingsTemplate(listingData) {
   const card = document.createElement("a");
   card.classList.add("card", "shadow");
-  card.href = "/sp2-bdiddy/listing/?id=" + listingData.id;
+  card.href = "/listing/?id=" + listingData.id;
 
   const listingImg = document.createElement("img");
   listingImg.classList.add("card__img");
