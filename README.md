@@ -1,4 +1,4 @@
-![Skjermbilde 2024-06-08 110107](https://github.com/jakotide/sp2-bdiddy/assets/111381232/0b6566db-52e6-4d9b-8eab-49a4ca545bd5)
+![bdiddygithub](https://github.com/user-attachments/assets/6861129b-156e-4a3b-8ef3-dbe07bf7bd25)
 
 # B-Diddy Auction House
 
@@ -61,7 +61,7 @@ Feel free to contact me at tidemand.dev@gmail.com if you got any questions!
 
 ### Live site:
 
-https://jakotide.github.io/sp2-bdiddy/
+https://b-diddy.netlify.app/
 
 
 
