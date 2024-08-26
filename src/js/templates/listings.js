@@ -143,7 +143,9 @@ export function renderListings(listingsData, parent1, parent2) {
       !lowerCaseTitle.includes("title") &&
       !lowerCaseTitle.includes("tiger") &&
       !lowerCaseTitle.includes("wool") &&
-      !lowerCaseTitle.includes("tewtdj")
+      !lowerCaseTitle.includes("tewtdj") &&
+      !lowerCaseTitle.includes("thingy") &&
+      !lowerCaseTitle.includes("diverse")
     );
   });
 
