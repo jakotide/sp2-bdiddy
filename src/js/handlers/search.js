@@ -8,7 +8,6 @@ import { listingsTemplate } from "../templates/listings";
  */
 export async function search() {
   const listings = await getListings();
-  console.log(listings.data);
   const form = document.querySelector(".search");
   const searchInput = document.querySelector("#search-input");
   const searchResultsContainer = document.querySelector("#searchResults");
