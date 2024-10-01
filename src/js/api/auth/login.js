@@ -1,6 +1,6 @@
-import { API_AUCTION_URL } from "../constants";
-import { AUTH_LOGIN } from "../constants";
 import { save } from "../../storage/save";
+import { load } from "../../storage/load";
+import { createApiKey } from "./apikey";
 const errorMessage = document.querySelector(".error-message");
 
 export async function login(profile) {
@@ -19,13 +19,31 @@ export async function login(profile) {
       const errorData = await response.json();
       console.error("Login failed:", errorData);
       errorMessage.style.display = "block";
+      errorMessage.textContent =
+        errorData.message || "Login failed. Please try again.";
     } else {
-      const { accessToken, ...user } = await response.json();
+      const { data } = await response.json();
+      const { accessToken, ...user } = data;
 
-      // Save token and user separately
+      // Save token and user details locally
       save("token", accessToken);
       save("User", user);
+      console.log(accessToken);
 
+      let apiKey = load("apiKey");
+
+      if (!apiKey) {
+        console.log("No API key found, creating a new one...");
+        apiKey = await createApiKey();
+        if (apiKey) {
+          save("apiKey", apiKey);
+          console.log("API Key created and saved:", apiKey);
+        } else {
+          console.error("Failed to create API key.");
+        }
+      }
+
+      // Redirect user after successful login and API key creation
       window.location.href = "/sp2-bdiddy/index";
     }
   } catch (error) {

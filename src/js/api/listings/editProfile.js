@@ -5,8 +5,7 @@ import { load } from "../../storage/load";
 
 export async function editProfileImage(user) {
   const username = load("User");
-  const editUser = username.data;
-  console.log(editUser);
+  const editUser = username;
 
   try {
     if (!editUser) {
@@ -14,7 +13,7 @@ export async function editProfileImage(user) {
     }
 
     const response = await fetch(
-      `${API_AUCTION_URL}${PROFILE}${editUser.name}/media`,
+      `${API_AUCTION_URL}${PROFILE}${editUser.name}`,
       {
         method: "PUT",
         headers: getApiHeaders(),

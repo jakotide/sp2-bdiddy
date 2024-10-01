@@ -9,10 +9,9 @@ export async function getListings() {
     const response = await fetch(listingsURL, {
       headers: getApiHeaders(),
     });
-    console.log(response);
+
     const json = await response.json();
 
-    console.log(json);
     return json;
   } catch (error) {
     console.error("Error:", error);

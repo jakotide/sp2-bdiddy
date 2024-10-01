@@ -1,11 +1,7 @@
 import { load } from "./load";
 
 export function authorizeToken() {
-  // Load the 'User' object from local storage
-  const user = load("User");
+  const token = load("token");
 
-  // Check if the user object exists and has an accessToken property
-  const token = user?.data.accessToken;
-
-  return token;
+  return token || false;
 }

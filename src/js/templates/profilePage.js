@@ -9,14 +9,14 @@ import { authorizeToken } from "../storage/authorizeToken";
  */
 export async function renderProfile() {
   const user = load("User");
-  const profileUser = user?.data;
+  console.log(user);
 
-  if (!profileUser || !profileUser.name) {
+  if (!user || !user.name) {
     throw new Error("Cannot find User");
   }
 
   try {
-    const userProfile = await getProfile(profileUser.name);
+    const userProfile = await getProfile(user.name);
 
     const profileName = document.querySelector(".name");
 

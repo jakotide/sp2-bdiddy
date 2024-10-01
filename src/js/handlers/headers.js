@@ -3,8 +3,7 @@ import { createApiKey } from "../api/auth/apikey";
 
 export async function getApiHeaders() {
   try {
-    const user = load("User");
-    const accessToken = user?.data?.accessToken;
+    const accessToken = load("token");
 
     if (!accessToken) {
       throw new Error("Access token is missing");

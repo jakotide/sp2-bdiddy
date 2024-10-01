@@ -10,10 +10,9 @@ export function editImage() {
 
   if (editForm) {
     const user = load("User");
-    const editName = user?.data?.name; // Adjust according to actual data structure
 
     editForm.addEventListener("submit", async (event) => {
-      event.preventDefault(); // Prevent default form submission
+      event.preventDefault();
 
       const editFormData = new FormData(editForm);
       const userFormData = Object.fromEntries(editFormData.entries());

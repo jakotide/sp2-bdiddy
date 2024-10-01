@@ -2,11 +2,11 @@ import { authorizeToken } from "../../storage/authorizeToken";
 
 export async function createApiKey(name = "API Key") {
   const keyUrl = "https://v2.api.noroff.dev/auth/create-api-key";
-  const accessToken = authorizeToken(); // Get the access token directly
+  const accessToken = authorizeToken();
 
   if (!accessToken) {
     console.error("No valid access token found. Please log in.");
-    return; // Exit early if no valid token was found
+    return null;
   }
 
   const options = {
@@ -26,9 +26,11 @@ export async function createApiKey(name = "API Key") {
     }
 
     const json = await response.json();
+    console.log("API key response:", json);
 
-    return json.data.key; // Return the API key
+    return json.data?.key || null;
   } catch (error) {
     console.error("Error:", error);
+    return null;
   }
 }

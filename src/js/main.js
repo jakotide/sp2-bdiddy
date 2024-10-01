@@ -14,7 +14,7 @@ const searchGrid = document.querySelector("#searchResults");
 /**
  * Displays filtered results on the search grid.
  * Uses the `filter` module to filter listings and renders the results.
- * 
+ *
  */
 async function displayFilterResults() {
   const filteredResultCards = await filter.filterListings();
@@ -28,7 +28,7 @@ displayFilterResults();
 /**
  * Displays search results on the search grid.
  * Uses the `search` module to perform a search and renders the results.
- * 
+ *
  */
 async function displaySearchResult() {
   const searchResults = await search.search();
@@ -43,7 +43,7 @@ displaySearchResult();
 /**
  * Fetches and renders listings on the home page.
  * Populates the `newContainer` and `allContainer` with listing cards.
- * 
+ *
  */
 async function listingsHomeTemplate() {
   const newContainer = document.querySelector("#newContainer");

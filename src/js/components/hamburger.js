@@ -13,7 +13,7 @@ const profileBtn = document.querySelector(".profileBtn");
 /**
  * Toggles active class and rotates the hamburger btn lines.
  *
- * 
+ *
  */
 hamburgerBtn.addEventListener("click", () => {
   navContent.classList.toggle("active");
@@ -24,21 +24,19 @@ hamburgerBtn.addEventListener("click", () => {
 /**
  * Changes create navigation to login if user don't have token.
  *
- * 
+ *
  */
-authorizeToken(
-  () => {
-    listingLink.textContent = "Create Listing";
-    mobileListingBtn.textContent = "Create Listing";
-  },
-  () => {
-    listingLink.textContent = "Login";
-    listingLink.href = "/sp2-bdiddy/authentication/";
-    logOutBtn.textContent = "Login";
-    logOutBtn.href = "/sp2-bdiddy/authentication/";
-    profileBtn.style.display = "None";
-  }
-);
+const token = authorizeToken();
+if (token) {
+  listingLink.textContent = "Create Listing";
+  mobileListingBtn.textContent = "Create Listing";
+} else {
+  listingLink.textContent = "Login";
+  listingLink.href = "/authentication/";
+  logOutBtn.textContent = "Login";
+  logOutBtn.href = "/authentication/";
+  profileBtn.style.display = "None";
+}
 
 logOutBtn.addEventListener("click", () => {
   remove("token");
